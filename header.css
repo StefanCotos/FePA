@@ -47,7 +47,7 @@ header:focus {
 .menu__log_in--button {
   width: auto;
   min-height: 4vh;
-  min-width: 6vw;
+  min-width: 7vw;
   border-radius: 20px;
   border-style: solid;
   border-color: #fde8cd;
@@ -70,4 +70,32 @@ header:focus {
 }
 
 .menu__contact {
+}
+
+.half-button {
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.left-half,
+.right-half {
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.left-half {
+  left: 0;
+}
+
+.right-half {
+  right: 0;
+}
+
+.left-half:hover {
+  color: #9f917e;
+}
+
+.right-half:hover {
+  color: #9f917e;
 }
