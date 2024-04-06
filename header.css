@@ -48,6 +48,8 @@ header:focus {
   min-height: 4vh;
   min-width: 6vw;
   border-radius: 20px;
+  border-style: solid;
+  border-color: #fde8cd;
   position: relative;
   background-color: #fde8cd;
   display: flex;
@@ -56,8 +58,6 @@ header:focus {
 }
 
 .menu__log_in--button:hover {
-  border-style: solid;
-  border-color: #fde8cd;
   background-color: lightslategray;
   color: #fde8cd;
 }

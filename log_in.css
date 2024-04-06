@@ -5,7 +5,7 @@
   position: absolute;
   top: 25vh;
   left: 35vw;
-  background-color: #fde8cd;
+  background-color: rgba(253, 232, 205, 0.7);
 }
 
 .log_in_form {
