@@ -1,0 +1,35 @@
+body {
+  font-family: Trebuchet MS, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: lightslategray;
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  text-align: center;
+  color: #1b1b1b;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+main {
+  align-items: center;
+}
+
+.wallpaper {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.no-link-style {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.no-link-style:hover {
+  color: #9f917e;
+}

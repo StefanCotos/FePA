@@ -1,62 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
-    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="generic.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="log_in.css">
+    <link rel="stylesheet" href="footer.css">
 </head>
+
 <body>
-<div class="wrapper">
-    <header>
+    <div class="wrapper">
+        <header>
+            <a href="index.html">
+                <img class="logo" src="Logo.png" alt="Logo">
+            </a>
+            <div class="menu">
+                <a class="no-link-style">
+                    <div class="menu__about">About</div>
+                </a>
+                <a class="no-link-style">
+                    <div class="menu__report">Report</div>
+                </a>
+                <a class="no-link-style" href="#myFooter">
+                    <p class="menu__contact">Contact</p>
+                </a>
+                <a class="no-link-style">
+                    <div class="menu__log_in menu__log_in--button">Log In</div>
+                </a>
+            </div>
+        </header>
+    </div>
+    <main>
+        <img class="wallpaper" src="Wallpaper.jpg" alt="Wallpaper">
+        <div class="block">
+            <form class="log_in_form" action="" method="POST">
+                <label class="email_color" for="E-Mail"><b>E-Mail</b></label>
+                <input type="text" id="E-Mail" name="E-Mail" placeholder="E-Mail">
+                <label for="Password"><b>Password</b></label>
+                <input type="text" id="Password" name="Password" placeholder="Password">
+                <input class="no-link-style" type="submit" id="Log_In" value="Login">
+            </form>
+        </div>
+    </main>
+    <footer id="myFooter">
         <a href="index.html">
-            <img class="logo" src="Logo.png" alt="Logo">
+            <img class="footer__logo" src="Logo.png" alt="Logo">
         </a>
-        <div class="menu">
-            <a class="no-link-style">
-                <div class="menu__about">About</div>
+        <div class="footer__content">
+            <div>Contact Us</div>
+            <a class="no-link-style" href="mailto:stefancotos8@gmail.com">
+                stefancotos8@gmail.com
             </a>
-            <a class="no-link-style">
-                <div class="menu__report">Report</div>
-            </a>
-            <a class="no-link-style" href="#myFooter">
-                <p class="menu__contact">Contact</p>
-            </a>
-            <a class="no-link-style">
-                <div class="menu__log_in menu__log_in--button">Log In</div>
+            <a class="no-link-style" href="tel:+40747816344">
+                Tel: +40 747 816 344
             </a>
         </div>
-    </header>
-</div>
-<main>
-    <img class="wallpaper" src="Wallpaper.jpg" alt="Wallpaper">
-    <div class="block">
-        <form class="log_in_form" action="" method="POST">
-            <label class="email_color" for="E-Mail"><b>E-Mail</b></label>
-            <input type="text" id="E-Mail" name="E-Mail" placeholder="E-Mail">
-            <label for="Password"><b>Password</b></label>
-            <input type="text" id="Password" name="Password" placeholder="Password">
-            <input class="no-link-style" type="submit" id="Log_In" value="Login">
-        </form>
-    </div>
-</main>
-<footer id="myFooter">
-    <a href="index.html">
-        <img class="logo" src="Logo.png" alt="Logo">
-    </a>
-    <div class="footer__content">
-        <div>Contact Us</div>
-        <a class="no-link-style" href="mailto:stefancotos8@gmail.com">
-            stefancotos8@gmail.com
-        </a>
-        <a class="no-link-style" href="tel:+40747816344">
-            Tel: +40 747 816 344
-        </a>
-    </div>
-    <div class="footer__content">
-        <a class="no-link-style">About</a>
-        <a class="no-link-style">Report</a>
-        <a class="no-link-style">Contact</a>
-    </div>
-</footer>
+        <div class="footer__content">
+            <a class="no-link-style">About</a>
+            <a class="no-link-style">Report</a>
+            <a class="no-link-style">Contact</a>
+        </div>
+    </footer>
 </body>
+
 </html>
