@@ -15,6 +15,7 @@ body {
 
 main {
   align-items: center;
+  z-index: 0;
 }
 
 .wallpaper {

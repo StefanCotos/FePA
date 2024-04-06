@@ -6,38 +6,43 @@
   top: 25vh;
   left: 35vw;
   background-color: rgba(253, 232, 205, 0.7);
+  color: lightslategray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.log_in_form {
+.block__log_in_form {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 13vh;
+  top: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1vh;
   color: lightslategray;
+  font-size: 20px;
 }
 
 #E-Mail {
-  width: 30vh;
-  height: 1.5vw;
+  width: 17vw;
+  height: 3vh;
   border-radius: 10px;
   border-style: none;
 }
 
 #Password {
-  width: 30vh;
-  height: 1.5vw;
+  width: 17vw;
+  height: 3vh;
   border-radius: 10px;
   border-style: none;
 }
 
 #Log_In {
   margin-top: 20px;
-  width: 15vh;
-  height: 2vw;
+  width: 7vw;
+  height: 4vh;
   border-radius: 10px;
   border-style: solid;
   border-color: lightslategray;
@@ -49,4 +54,10 @@
 #Log_In:hover {
   background-color: #fde8cd;
   color: lightslategray;
+}
+
+.sign_in{
+  font-size: 17px;
+  position: absolute;
+  bottom: 13vh;
 }
