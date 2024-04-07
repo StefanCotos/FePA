@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>FePA</title>
     <link rel="stylesheet" href="generic.css">
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="log_in.css">
+    <link rel="stylesheet" href="report.css">
     <link rel="stylesheet" href="footer.css">
 </head>
 
@@ -35,17 +35,13 @@
     </div>
     <main>
         <div class="block">
-            <form class="block__log_in_form" id="login_form">
-                <h1 class="block__log_in_form_title">Log in</h1>
+            <form class="block__report_form" id="submit_form">
+                <h1 class="block__report_form_title">Report</h1>
                 <label for="E-Mail"><b>E-Mail/Username*</b></label>
                 <input type="text" id="E-Mail" name="E-Mail" placeholder="Enter your email/username" required>
                 <label for="Password"><b>Password*</b></label>
                 <input type="password" id="Password" name="Password" placeholder="Enter your password" required>
-                <input class="no-link-style" type="submit" id="Log_In" value="Login">
-                <div class="sign_in">
-                    You don't have an account?
-                    <a class="no-link-style" href="sign_in.html">Sign in</a>.
-                </div>
+                <input class="no-link-style" type="submit" id="submit_button" value="Submit">
             </form>
         </div>
         <footer id="myFooter">
@@ -71,21 +67,6 @@
             </div>
         </footer>
     </main>
-    <script>
-        const loginForm = document.getElementById('login_form');
-
-        loginForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const emailValue = document.getElementById('E-Mail').value;
-            const username = emailValue.substring(0, emailValue.indexOf('@'));
-
-            setTimeout(function () {
-                localStorage.setItem('profileButton', username);
-                window.location.href = 'homepage.html';
-            }, 2000);
-
-        });
-    </script>
 </body>
 
 </html>
