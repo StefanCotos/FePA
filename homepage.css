@@ -1,0 +1,8 @@
+.block {
+  height: 100vh;
+  margin: 20vh 30vw;
+}
+
+.block p {
+  background-color: white;
+}

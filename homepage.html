@@ -6,13 +6,14 @@
     <title>FePA</title>
     <link rel="stylesheet" href="generic.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="footer.css">
 </head>
 
 <body>
     <div class="wrapper">
         <header>
-            <a href="index.html">
+            <a href="homepage.html">
                 <img class="logo" src="assets/Logo.png" alt="Logo">
             </a>
             <div class="menu">
@@ -33,34 +34,37 @@
         </header>
     </div>
     <main>
+        <div class="block">
+            <p>to be added</p>
+        </div>
         <div class="profile_menu" id="closable">
             <div class="profile_menu--options no-link-style">Settings</div>
             <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
             <span class="close no-link-style">&times;</span>
         </div>
+        <footer id="myFooter">
+            <a href="homepage.html">
+                <img class="footer__logo" src="assets/Logo.png" alt="Logo">
+            </a>
+            <div class="footer__content">
+                <div>Contact Us</div>
+                <a class="no-link-style" href="mailto:stefancotos8@gmail.com">
+                    stefancotos8@gmail.com
+                </a>
+                <a class="no-link-style" href="mailto:burcaiulianstefan@gmail.com">
+                    burcaiulianstefan@gmail.com
+                </a>
+                <a class="no-link-style" href="tel:+40747816344">
+                    Tel: +40 747 816 344
+                </a>
+            </div>
+            <div class="footer__content">
+                <a class="no-link-style">About</a>
+                <a class="no-link-style">Report</a>
+                <a class="no-link-style">Contact</a>
+            </div>
+        </footer>
     </main>
-    <footer id="myFooter">
-        <a href="index.html">
-            <img class="footer__logo" src="assets/Logo.png" alt="Logo">
-        </a>
-        <div class="footer__content">
-            <div>Contact Us</div>
-            <a class="no-link-style" href="mailto:stefancotos8@gmail.com">
-                stefancotos8@gmail.com
-            </a>
-            <a class="no-link-style" href="mailto:burcaiulianstefan@gmail.com">
-                burcaiulianstefan@gmail.com
-            </a>
-            <a class="no-link-style" href="tel:+40747816344">
-                Tel: +40 747 816 344
-            </a>
-        </div>
-        <div class="footer__content">
-            <a class="no-link-style">About</a>
-            <a class="no-link-style">Report</a>
-            <a class="no-link-style">Contact</a>
-        </div>
-    </footer>
     <script>
         const profile = document.getElementById('profile');
         let ok = false;
@@ -93,7 +97,7 @@
             logout.addEventListener('click', function () {
                 setTimeout(function () {
                     localStorage.removeItem('profileButton');
-                    window.location.href = 'index.html';
+                    window.location.href = 'homepage.html';
                 }, 2000);
             });
         }

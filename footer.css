@@ -10,8 +10,9 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 15vw;
-  position: absolute;
+  position: relative;
   bottom: 0;
+  left: 0;
 }
 
 .footer__content {
