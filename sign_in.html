@@ -14,7 +14,7 @@
     <div class="wrapper">
         <header>
             <a href="index.html">
-                <img class="logo" src="Logo.png" alt="Logo">
+                <img class="logo" src="assets/Logo.png" alt="Logo">
             </a>
             <div class="menu">
                 <a class="no-link-style">
@@ -34,13 +34,14 @@
         </header>
     </div>
     <main>
-        <img class="wallpaper" src="Wallpaper.jpg" alt="Wallpaper">
+        <img class="wallpaper" src="assets/Wallpaper.jpg" alt="Wallpaper">
         <div class="block">
             <form class="block__sign_in_form" id="sign_in_form">
                 <div class="name">
                     <div class="name_position">
                         <label for="First_Name"><b>First Name*</b></label>
-                        <input type="text" id="First_Name" name="First_name" placeholder="Enter your first name" required>
+                        <input type="text" id="First_Name" name="First_name" placeholder="Enter your first name"
+                            required>
                     </div>
                     <div class="name_position">
                         <label for="Last_Name"><b>Last Name*</b></label>
@@ -52,7 +53,8 @@
                 <label for="Password"><b>Password*</b></label>
                 <input type="password" id="Password" name="Password" placeholder="Enter a password" required>
                 <label for="Confirm_Password"><b>Confirm Password*</b></label>
-                <input type="password" id="Confirm_Password" name="Confirm_Password" placeholder="Confirm password" required>
+                <input type="password" id="Confirm_Password" name="Confirm_Password" placeholder="Confirm password"
+                    required>
                 <label for="Username"><b>Username</b></label>
                 <input type="text" id="Username" name="Username" placeholder="How do you want to be called?">
                 <input class="no-link-style" type="submit" id="Sign_in" value="Sign In">
@@ -66,7 +68,7 @@
     </main>
     <footer id="myFooter">
         <a href="index.html">
-            <img class="footer__logo" src="Logo.png" alt="Logo">
+            <img class="footer__logo" src="assets/Logo.png" alt="Logo">
         </a>
         <div class="footer__content">
             <div>Contact Us</div>
@@ -92,7 +94,7 @@
         const conf_password = document.getElementById('Confirm_Password');
         const errorMessage = document.getElementById('errorMessage');
 
-        loginForm.addEventListener('submit', function(event) {
+        loginForm.addEventListener('submit', function (event) {
             event.preventDefault();
 
             const password1 = password.value;
@@ -100,12 +102,12 @@
 
             if (password1 !== password2) {
                 errorMessage.style.display = 'block';
-                setTimeout(function() {
+                setTimeout(function () {
                     errorMessage.style.display = 'none';
                 }, 3000);
             } else {
                 const username = document.getElementById('Username').value;
-                if(username.length === 0) {
+                if (username.length === 0) {
                     const emailValue = document.getElementById('E-Mail').value;
                     const username = emailValue.substring(0, emailValue.indexOf('@'));
                     localStorage.setItem('profileButton', username);

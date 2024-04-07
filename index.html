@@ -13,7 +13,7 @@
     <div class="wrapper">
         <header>
             <a href="index.html">
-                <img class="logo" src="Logo.png" alt="Logo">
+                <img class="logo" src="assets/Logo.png" alt="Logo">
             </a>
             <div class="menu">
                 <a class="no-link-style">
@@ -26,14 +26,14 @@
                     <p class="menu__contact">Contact</p>
                 </a>
                 <div class="menu__log_in menu__log_in--button half_button" id="profile">
-                        <a class="left_half no-link-style" href="log_in.html">Log In</a>/
-                        <a class="right_half no-link-style" href="sign_in.html">Sign In</a>
+                    <a class="left_half no-link-style" href="log_in.html">Log In</a>/
+                    <a class="right_half no-link-style" href="sign_in.html">Sign In</a>
                 </div>
             </div>
         </header>
     </div>
     <main>
-        <img class="wallpaper" src="Wallpaper.jpg" alt="Wallpaper">
+        <img class="wallpaper" src="assets/Wallpaper.jpg" alt="Wallpaper">
         <div class="profile_menu" id="closable">
             <div class="profile_menu--options no-link-style">Settings</div>
             <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
@@ -42,7 +42,7 @@
     </main>
     <footer id="myFooter">
         <a href="index.html">
-            <img class="footer__logo" src="Logo.png" alt="Logo">
+            <img class="footer__logo" src="assets/Logo.png" alt="Logo">
         </a>
         <div class="footer__content">
             <div>Contact Us</div>
@@ -73,26 +73,26 @@
             profile.classList.add('no-link-style');
         }
 
-        if(ok){
+        if (ok) {
             const openMenu = document.getElementById("closable");
 
-            profile.addEventListener('click', function() {
+            profile.addEventListener('click', function () {
                 openMenu.style.display = "flex";
             });
 
             const closeSpan = document.getElementsByClassName("close")[0];
-            closeSpan.addEventListener("click", function() {
+            closeSpan.addEventListener("click", function () {
                 openMenu.style.display = "none";
             });
-            window.addEventListener("click", function(event) {
+            window.addEventListener("click", function (event) {
                 if (event.target === openMenu) {
                     openMenu.style.display = "none";
                 }
             });
 
             const logout = document.getElementById("logout");
-            logout.addEventListener('click', function() {
-                setTimeout(function() {
+            logout.addEventListener('click', function () {
+                setTimeout(function () {
                     localStorage.removeItem('profileButton');
                     window.location.href = 'index.html';
                 }, 2000);
