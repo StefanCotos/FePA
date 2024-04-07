@@ -6,7 +6,7 @@
     <title>FePA</title>
     <link rel="stylesheet" href="generic.css">
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="footer.css">
 </head>
 
@@ -35,12 +35,19 @@
     </div>
     <main>
         <div class="block">
-            <p>to be added</p>
-        </div>
-        <div class="profile_menu" id="closable">
-            <div class="profile_menu--options no-link-style">Settings</div>
-            <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
-            <span class="close no-link-style">&times;</span>
+            <div class="block__contact_form">
+                <form id="submit_form">
+                    <h1 class="block__contact_form_title">Contact</h1>
+                    <label for="E-Mail"><b>E-Mail/Username*</b></label>
+                    <input type="text" id="E-Mail" name="E-Mail" placeholder="Enter your email/username" required>
+                    <label for="Password"><b>Password*</b></label>
+                    <input type="password" id="Password" name="Password" placeholder="Enter your password" required>
+                    <input class="no-link-style" type="submit" id="submit_button" value="Submit">
+                </form>
+            </div>
+            <div class="block__contact_map">
+                <p>add map</p>
+            </div>
         </div>
         <footer id="myFooter">
             <a href="homepage.html">
@@ -65,44 +72,6 @@
             </div>
         </footer>
     </main>
-    <script>
-        const profile = document.getElementById('profile');
-        let ok = false;
-
-        const storedButtonText = localStorage.getItem('profileButton');
-        if (storedButtonText) {
-            ok = true;
-            profile.textContent = storedButtonText;
-            profile.classList.add('no-link-style');
-        }
-
-        if (ok) {
-            const openMenu = document.getElementById("closable");
-
-            profile.addEventListener('click', function () {
-                openMenu.style.display = "flex";
-            });
-
-            const closeSpan = document.getElementsByClassName("close")[0];
-            closeSpan.addEventListener("click", function () {
-                openMenu.style.display = "none";
-            });
-            window.addEventListener("click", function (event) {
-                if (event.target === openMenu) {
-                    openMenu.style.display = "none";
-                }
-            });
-
-            const logout = document.getElementById("logout");
-            logout.addEventListener('click', function () {
-                setTimeout(function () {
-                    localStorage.removeItem('profileButton');
-                    window.location.href = 'homepage.html';
-                }, 2000);
-            });
-        }
-
-    </script>
 </body>
 
 </html>
