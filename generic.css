@@ -11,17 +11,15 @@ body {
   align-items: center;
   position: relative;
   min-height: 100vh;
+  background-image: url("assets/Wallpaper.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 main {
   align-items: center;
   z-index: 0;
-}
-
-.wallpaper {
-  width: 100%;
-  height: auto;
-  margin: 0;
 }
 
 .no-link-style {
