@@ -19,11 +19,6 @@ header {
   z-index: 9999;
 }
 
-header:hover,
-header:focus {
-  background-color: rgba(119, 136, 153, 1);
-}
-
 .logo {
   width: 60px;
   height: 40px;
@@ -98,7 +93,7 @@ header:focus {
   color: #9f917e;
 }
 
-.profile_menu{
+.profile_menu {
   width: 6vw;
   height: 11vh;
   border-radius: 20px;
@@ -115,7 +110,7 @@ header:focus {
   font-size: 22px;
 }
 
-.profile_menu--options{
+.profile_menu--options {
   height: 3vh;
   width: 5vw;
   border-radius: 20px;
@@ -126,10 +121,9 @@ header:focus {
   color: #fde8cd;
 }
 
-.profile_menu--options:hover{
+.profile_menu--options:hover {
   background-color: #fde8cd;
   border-color: lightslategray;
-
 }
 
 .close {
