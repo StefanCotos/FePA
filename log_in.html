@@ -26,9 +26,9 @@
                 <a class="no-link-style" href="#myFooter">
                     <p class="menu__contact">Contact</p>
                 </a>
-                <div class="menu__log_in menu__log_in--button half_button">
-                    <a class="left-half no-link-style" href="log_in.html">Log In</a>/
-                    <a class="right-half no-link-style" href="sign_in.html">Sign In</a>
+                <div class="menu__log_in menu__log_in--button half_button" id="profile">
+                    <a class="left_half no-link-style" href="log_in.html">Log In</a>/
+                    <a class="right_half no-link-style" href="sign_in.html">Sign In</a>
                 </div>
             </div>
         </header>
@@ -36,11 +36,11 @@
     <main>
         <img class="wallpaper" src="Wallpaper.jpg" alt="Wallpaper">
         <div class="block">
-            <form class="block__log_in_form" action="" method="POST">
-                <label for="E-Mail"><b>E-Mail/Username</b></label>
-                <input type="text" id="E-Mail" name="E-Mail" placeholder="Enter your email/username">
-                <label for="Password"><b>Password</b></label>
-                <input type="text" id="Password" name="Password" placeholder="Enter your password">
+            <form class="block__log_in_form" id="login_form">
+                <label for="E-Mail"><b>E-Mail/Username*</b></label>
+                <input type="text" id="E-Mail" name="E-Mail" placeholder="Enter your email/username" required>
+                <label for="Password"><b>Password*</b></label>
+                <input type="password" id="Password" name="Password" placeholder="Enter your password" required>
                 <input class="no-link-style" type="submit" id="Log_In" value="Login">
             </form>
             <div class="sign_in">
@@ -58,6 +58,9 @@
             <a class="no-link-style" href="mailto:stefancotos8@gmail.com">
                 stefancotos8@gmail.com
             </a>
+            <a class="no-link-style" href="mailto:burcaiulianstefan@gmail.com">
+                burcaiulianstefan@gmail.com
+            </a>
             <a class="no-link-style" href="tel:+40747816344">
                 Tel: +40 747 816 344
             </a>
@@ -68,6 +71,21 @@
             <a class="no-link-style">Contact</a>
         </div>
     </footer>
+    <script>
+        const loginForm = document.getElementById('login_form');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const emailValue = document.getElementById('E-Mail').value;
+            const username = emailValue.substring(0, emailValue.indexOf('@'));
+
+            setTimeout(function() {
+                localStorage.setItem('profileButton', username);
+                window.location.href = 'index.html';
+            }, 2000);
+
+        });
+    </script>
 </body>
 
 </html>

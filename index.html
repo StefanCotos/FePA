@@ -25,15 +25,20 @@
                 <a class="no-link-style" href="#myFooter">
                     <p class="menu__contact">Contact</p>
                 </a>
-                <div class="menu__log_in menu__log_in--button half_button">
-                        <a class="left-half no-link-style" href="log_in.html">Log In</a>/
-                        <a class="right-half no-link-style" href="sign_in.html">Sign In</a>
+                <div class="menu__log_in menu__log_in--button half_button" id="profile">
+                        <a class="left_half no-link-style" href="log_in.html">Log In</a>/
+                        <a class="right_half no-link-style" href="sign_in.html">Sign In</a>
                 </div>
             </div>
         </header>
     </div>
     <main>
         <img class="wallpaper" src="Wallpaper.jpg" alt="Wallpaper">
+        <div class="profile_menu" id="closable">
+            <div class="profile_menu--options no-link-style">Settings</div>
+            <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
+            <span class="close no-link-style">&times;</span>
+        </div>
     </main>
     <footer id="myFooter">
         <a href="index.html">
@@ -43,6 +48,9 @@
             <div>Contact Us</div>
             <a class="no-link-style" href="mailto:stefancotos8@gmail.com">
                 stefancotos8@gmail.com
+            </a>
+            <a class="no-link-style" href="mailto:burcaiulianstefan@gmail.com">
+                burcaiulianstefan@gmail.com
             </a>
             <a class="no-link-style" href="tel:+40747816344">
                 Tel: +40 747 816 344
@@ -54,6 +62,44 @@
             <a class="no-link-style">Contact</a>
         </div>
     </footer>
+    <script>
+        const profile = document.getElementById('profile');
+        let ok = false;
+
+        const storedButtonText = localStorage.getItem('profileButton');
+        if (storedButtonText) {
+            ok = true;
+            profile.textContent = storedButtonText;
+            profile.classList.add('no-link-style');
+        }
+
+        if(ok){
+            const openMenu = document.getElementById("closable");
+
+            profile.addEventListener('click', function() {
+                openMenu.style.display = "flex";
+            });
+
+            const closeSpan = document.getElementsByClassName("close")[0];
+            closeSpan.addEventListener("click", function() {
+                openMenu.style.display = "none";
+            });
+            window.addEventListener("click", function(event) {
+                if (event.target === openMenu) {
+                    openMenu.style.display = "none";
+                }
+            });
+
+            const logout = document.getElementById("logout");
+            logout.addEventListener('click', function() {
+                setTimeout(function() {
+                    localStorage.removeItem('profileButton');
+                    window.location.href = 'index.html';
+                }, 2000);
+            });
+        }
+
+    </script>
 </body>
 
 </html>

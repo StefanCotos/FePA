@@ -101,3 +101,8 @@
     position: absolute;
     bottom: 13vh;
 }
+
+#errorMessage{
+    color: red;
+    display: none;
+}
