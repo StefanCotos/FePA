@@ -23,7 +23,8 @@
 }
 
 .block__sign_in_form_title {
-    margin-bottom: 50px;
+  margin-bottom: 25px;
+  font-size: 50px;
   }
 
 .name {
@@ -39,42 +40,42 @@
 }
 
 #First_Name {
-  width: 8vw;
+  width: 9.5vw;
   height: 3vh;
   border-radius: 10px;
   border-style: none;
 }
 
 #Last_Name {
-  width: 8vw;
+  width: 9.5vw;
   height: 3vh;
   border-radius: 10px;
   border-style: none;
 }
 
 #E-Mail {
-  width: 17vw;
+  width: 20vw;
   height: 3vh;
   border-radius: 10px;
   border-style: none;
 }
 
 #Password {
-  width: 17vw;
+  width: 20vw;
   height: 3vh;
   border-radius: 10px;
   border-style: none;
 }
 
 #Confirm_Password {
-  width: 17vw;
+  width: 20vw;
   height: 3vh;
   border-radius: 10px;
   border-style: none;
 }
 
 #Username {
-  width: 17vw;
+  width: 20vw;
   height: 3vh;
   border-radius: 10px;
   border-style: none;

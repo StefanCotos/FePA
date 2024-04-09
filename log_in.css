@@ -22,18 +22,19 @@
 }
 
 .block__log_in_form_title {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+  font-size: 50px;
 }
 
 #E-Mail {
-  width: 17vw;
+  width: 20vw;
   height: 3vh;
   border-radius: 10px;
   border-style: none;
 }
 
 #Password {
-  width: 17vw;
+  width: 20vw;
   height: 3vh;
   border-radius: 10px;
   border-style: none;
