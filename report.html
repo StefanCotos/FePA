@@ -35,14 +35,33 @@
     </div>
     <main>
         <div class="block">
-            <form class="block__report_form" id="submit_form">
-                <h1 class="block__report_form_title">Report</h1>
-                <label for="E-Mail"><b>E-Mail/Username*</b></label>
-                <input type="text" id="E-Mail" name="E-Mail" placeholder="Enter your email/username" required>
-                <label for="Password"><b>Password*</b></label>
-                <input type="password" id="Password" name="Password" placeholder="Enter your password" required>
-                <input class="no-link-style" type="submit" id="submit_button" value="Submit">
-            </form>
+            <div class="block__report_form">
+                <form id="submit_form">
+                    <h1 class="block__report_form_title">Report</h1>
+                    <label for="Animal-name"><b>Animal type</b></label>
+                    <input type="text" id="Animal-type" name="Animal-type" placeholder="Enter the animal type" required>
+                    <label for="City"><b>City</b></label>
+                    <input type="text" id="City" name="City" placeholder="Enter the city" required>
+                    <label for="Street"><b>Street</b></label>
+                    <input type="text" id="Street" name="Street" placeholder="Enter the street name" required>
+                    <label for="Description"><b>Description</b></label>
+                    <input type="text" id="Description" name="Description" placeholder="Enter the description" required>
+                    <label for="Additional-aspects"><b>Additional aspects</b></label>
+                    <input type="text" id="Additional-aspects" name="Additional-aspects"
+                        placeholder="Enter the additional aspects">
+                    <label for="Photos" class="photos-input">
+                        <p>Photos</p>
+                    </label>
+                    <input id="Photos" type="file" multiple required />
+                    <input class="no-link-style" type="submit" id="submit_button" value="Submit">
+                </form>
+            </div>
+            <div class="block__report_map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.8540019321!2d27.504398892512704!3d47.15610763483555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1712834887839!5m2!1sro!2sro"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
         <footer id="myFooter">
             <a href="index.html">
