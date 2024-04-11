@@ -23,17 +23,31 @@
                 <a class="no-link-style" href="report.html">
                     <div class="menu__report">Report</div>
                 </a>
+                <a class="no-link-style">
+                    <div class="menu__see_reports">See Reports</div>
+                </a>
+                <a class="no-link-style">
+                    <div class="menu__statistics">Statistics</div>
+                </a>
                 <a class="no-link-style" href="contact.html">
                     <div class="menu__contact">Contact</div>
                 </a>
+                <a class="no-link-style">
+                    <div class="menu__help">Help</div>
+                </a>
                 <div class="menu__log_in menu__log_in--button half_button" id="profile">
                     <a class="left_half no-link-style" href="log_in.html">Log In</a>/
-                    <a class="right_half no-link-style" href="sign_in.html">Sign In</a>
+                    <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
                 </div>
             </div>
         </header>
     </div>
     <main>
+        <div class="profile_menu" id="closable">
+            <div class="profile_menu--options no-link-style">Account</div>
+            <div class="profile_menu--options no-link-style">Settings</div>
+            <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
+        </div>
         <div class="block">
             <div class="block__contact_form">
                 <form id="submit_form">
@@ -42,7 +56,7 @@
                     <input type="text" id="Name" name="Name" placeholder="Enter your name" required>
                     <label for="E-Mail"><b>E-Mail Address</b></label>
                     <input type="text" id="E-Mail" name="E-Mail" placeholder="Enter your email" required>
-                    <label for="Phone number"><b>Phone number</b></label>
+                    <label for="Phone-number"><b>Phone number</b></label>
                     <input type="tel" id="Phone-number" name="Phone-number" placeholder="Enter your phone number"
                         required>
                     <label for="Message"><b>Message</b></label>
@@ -57,29 +71,34 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
-        <footer id="myFooter">
-            <a href="index.html">
-                <img class="footer__logo" src="assets/Logo.png" alt="Logo">
-            </a>
-            <div class="footer__content">
-                <div>Contact Us</div>
-                <a class="no-link-style" href="mailto:stefancotos8@gmail.com">
-                    stefancotos8@gmail.com
-                </a>
-                <a class="no-link-style" href="mailto:burcaiulianstefan@gmail.com">
-                    burcaiulianstefan@gmail.com
-                </a>
-                <a class="no-link-style" href="tel:+40747816344">
-                    Tel: +40 747 816 344
-                </a>
-            </div>
-            <div class="footer__content">
-                <a class="no-link-style">About</a>
-                <a class="no-link-style">Report</a>
-                <a class="no-link-style">Contact</a>
-            </div>
-        </footer>
+
     </main>
+    <footer id="myFooter">
+        <a href="index.html">
+            <img class="footer__logo" src="assets/Logo.png" alt="Logo">
+        </a>
+        <div class="footer__content">
+            <div>Contact Us</div>
+            <a class="no-link-style" href="mailto:stefancotos8@gmail.com">
+                stefancotos8@gmail.com
+            </a>
+            <a class="no-link-style" href="mailto:burcaiulianstefan@gmail.com">
+                burcaiulianstefan@gmail.com
+            </a>
+            <a class="no-link-style" href="tel:+40747816344">
+                Tel: +40 747 816 344
+            </a>
+        </div>
+        <div class="footer__content">
+            <a class="no-link-style">About</a>
+            <a class="no-link-style" href="report.html">Report</a>
+            <a class="no-link-style">See reports</a>
+            <a class="no-link-style">Statistics</a>
+            <a class="no-link-style" href="contact.html">Contact</a>
+            <a class="no-link-style">Help</a>
+        </div>
+    </footer>
+    <script src="javascript/connected_user.js"></script>
 </body>
 
 </html>
