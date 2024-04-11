@@ -28,6 +28,10 @@
   margin-bottom: 50px;
 }
 
+.block__contact_map {
+  padding-right: 10vh;
+}
+
 #E-Mail {
   width: 17vw;
   height: 3vh;
@@ -36,6 +40,27 @@
 }
 
 #Password {
+  width: 17vw;
+  height: 3vh;
+  border-radius: 10px;
+  border-style: none;
+}
+
+#Name {
+  width: 17vw;
+  height: 3vh;
+  border-radius: 10px;
+  border-style: none;
+}
+
+#Phone-number {
+  width: 17vw;
+  height: 3vh;
+  border-radius: 10px;
+  border-style: none;
+}
+
+#Message {
   width: 17vw;
   height: 3vh;
   border-radius: 10px;
