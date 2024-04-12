@@ -54,6 +54,10 @@
   justify-content: space-between;
 }
 
+.foundername {
+  font-size: 1.7vw;
+}
+
 .about_who_imagine_imagine {
   width: 14vw;
   height: 14vw;
