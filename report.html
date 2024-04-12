@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>FePA</title>
+    <title>Report</title>
     <link rel="stylesheet" href="generic.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="report.css">
@@ -32,7 +32,7 @@
                 <a class="no-link-style" href="contact.html">
                     <div class="menu__contact">Contact</div>
                 </a>
-                <a class="no-link-style">
+                <a class="no-link-style" href="help.html">
                     <div class="menu__help">Help</div>
                 </a>
                 <div class="menu__log_in menu__log_in--button half_button" id="profile">
@@ -63,10 +63,13 @@
                     <label for="Additional-aspects"><b>Additional aspects</b></label>
                     <input type="text" id="Additional-aspects" name="Additional-aspects"
                         placeholder="Enter the additional aspects">
-                    <label for="Photos" class="photos-input">
-                        Photos
-                    </label>
-                    <input id="Photos" type="file" multiple required />
+                    <div class="form">
+                        <label for="Photos"><b>Upload photos</b></label>
+                        <label for="Photos" class="photos-input">
+                            Here
+                        </label>
+                    </div>
+                    <input id="Photos" type="file" required />
                     <input class="no-link-style" type="submit" id="submit_button" value="Submit">
                 </form>
             </div>
@@ -101,7 +104,7 @@
             <a class="no-link-style">See reports</a>
             <a class="no-link-style">Statistics</a>
             <a class="no-link-style" href="contact.html">Contact</a>
-            <a class="no-link-style">Help</a>
+            <a class="no-link-style" href="help.html">Help</a>
         </div>
     </footer>
     <script src="javascript/connected_user.js"></script>
