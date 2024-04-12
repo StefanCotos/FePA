@@ -1,11 +1,9 @@
 .title {
   height: auto;
-  margin: 20vh 24vw;
-  margin-bottom: 0vh;
+  margin: 20vh 24vw 0;
   padding-top: 4vh;
   color: lightslategray;
   font-size: 2vw;
-  font-size: 40px;
   padding-bottom: 2vw;
 }
 
@@ -13,27 +11,26 @@
   height: 100%;
   display: block;
   align-items: center;
-  margin: 20vh 10vw;
-  margin-top: 10vh;
+  margin: 10vh 10vw 20vh;
   border-radius: 20px;
   background-color: rgba(253, 232, 205, 0.8);
   color: lightslategray;
 }
 
-.about_boxs {
+.about_box {
   display: flex;
   justify-content: space-between;
   padding-left: 2vw;
   padding-bottom: 2vw;
 }
 
-.about_boxs_title {
+.about_box_title {
   padding: 2vw;
   font-size: 2vw;
   text-align: center;
 }
 
-.about_boxs_text {
+.about_box_text {
   font-size: 1vw;
   text-align: left;
 }
@@ -49,12 +46,16 @@
   border-radius: 10vw;
 }
 
-.profileimage {
+.profile_image {
   display: flex;
   justify-content: space-between;
 }
 
 .foundername {
+  font-size: 1.7vw;
+}
+
+.founder_name {
   font-size: 1.7vw;
 }
 

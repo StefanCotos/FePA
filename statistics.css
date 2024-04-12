@@ -1,0 +1,154 @@
+.block {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    margin: 20vh 10vw;
+    border-radius: 20px;
+    background-color: rgba(253, 232, 205, 0.7);
+    color: lightslategray;
+}
+
+.block__title{
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.statistics{
+    color: lightslategray;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.box{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    background-color: lightslategray;
+    color: #1b1b1b;
+    border-radius: 20px;
+    box-shadow: 0 20px 23px 5px rgba(27, 27, 27, 0.4);
+}
+
+.content1 .loader{
+    color: #1b1b1b;
+    font-size: 15px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    animation: play 2s;
+}
+
+
+.content1 .first{
+    height: 50px;
+    width: 28%;
+    background-color:darkcyan;
+}
+
+.content1 .second{
+    height: 50px;
+    width: 40%;
+    background-color: orange;
+}
+
+.content1 .third{
+    height: 50px;
+    width: 6%;
+    background-color: saddlebrown;
+}
+
+.content1 .fourth{
+    height: 50px;
+    width: 21%;
+    background-color: darkolivegreen;
+}
+
+.content2 .loader{
+    color: #1b1b1b;
+    font-size: 15px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    animation: play 2s;
+}
+
+
+.content2 .first{
+    height: 50px;
+    width: 13%;
+    background-color:darkcyan;
+}
+
+.content2 .second{
+    height: 50px;
+    width: 23%;
+    background-color: orange;
+}
+
+.content2 .third{
+    height: 50px;
+    width: 58%;
+    background-color: saddlebrown;
+}
+
+.content3 .loader{
+    color: #1b1b1b;
+    font-size: 15px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    animation: play 2s;
+}
+
+
+.content3 .first{
+    height: 50px;
+    width: 4%;
+    background-color:darkcyan;
+}
+
+.content3 .second{
+    height: 50px;
+    width: 28%;
+    background-color: orange;
+}
+
+.content3 .third{
+    height: 50px;
+    width: 45%;
+    background-color: saddlebrown;
+}
+
+.content3 .fourth{
+    height: 50px;
+    width: 15%;
+    background-color: darkolivegreen;
+}
+
+@keyframes play{
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+    30%{
+        opacity: 0;
+    }
+    100%{
+        transition: 2s ease-in;
+        opacity: 1;
+    }
+}
+
+.loader span{
+    color: #1b1b1b;
+    display: block;
+    float: right;
+    font-weight: bold;
+}
