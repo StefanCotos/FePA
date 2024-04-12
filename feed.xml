@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Animal Reports</title>
+        <link>see_reports.html</link>
+        <description>Reporting stray animals</description>
+        <item>
+            <title>Pterodactyl</title>
+            <image>assets/pterodactyl.jpg</image>
+            <description>Out of the shelter. Iasi. Bulevardul Chimiei. Dangerous.</description>
+        </item>
+        <item>
+            <title>Cow</title>
+            <image>assets/cow.jpg</image>
+            <description>Lost. Valea Lupului.</description>
+        </item>
+        <item>
+            <title>Dog</title>
+            <image>assets/dog.jpg</image>
+            <description>Out of the yard. Iasi. Copou. Danger of rabidity.</description>
+        </item>
+        <item>
+            <title>Cat</title>
+            <image>assets/cat.jpg</image>
+            <description>Out of the shelter. Miroslava. Angry.</description>
+        </item>
+    </channel>
+</rss>

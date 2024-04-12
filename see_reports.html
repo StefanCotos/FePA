@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Log In</title>
+    <title>See Reports</title>
     <link rel="stylesheet" href="generic.css">
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="log_in.css">
+    <link rel="stylesheet" href="see_reports.css">
     <link rel="stylesheet" href="footer.css">
 </head>
 
@@ -44,41 +44,13 @@
 </div>
 <main>
     <div class="block">
-        <form class="block__log_in_form" id="log_in_form">
-            <div class="block__form_title"><b>Log in</b></div>
-            <label for="E-Mail"><b>E-Mail/Username*</b></label>
-            <input type="text" id="E-Mail" name="E-Mail" placeholder="Enter your email/username" required>
-            <label for="Password"><b>Password*</b></label>
-            <input type="password" id="Password" name="Password" placeholder="Enter your password" required>
-            <a class="no-link-style " id="forgot_password" >Forgot password?</a>
-            <input class="no-link-style" type="submit" id="Log_In" value="Login">
-            <div id="sign_up">
-                You don't have an account?
-                <a class="no-link-style" href="sign_up.html">Sign up</a>.
-            </div>
-        </form>
-        <form class="block__forgot_password" id="forgot_form">
-            <div class="block__form_title"><b>Forgot password</b></div>
-            <label for="E-Mail_Send"><b>E-Mail*</b></label>
-            <input type="text" id="E-Mail_Send" name="E-Mail" placeholder="Enter your email" required>
-            <input class="no-link-style" type="submit" id="Send" value="Send">
-        </form>
-        <form class="block__code_email" id="code_form">
-            <div id="email_send">Code send to your email</div>
-            <label for="Code"><b>Code*</b></label>
-            <input type="text" id="Code" name="Code" placeholder="Enter the received code" required>
-            <input class="no-link-style" type="submit" id="Confirm" value="Confirm">
-        </form>
-        <form class="block__reset_password" id="reset_form">
-            <div class="block__form_title"><b>Reset password</b></div>
-            <label for="Password_Reset"><b>Password*</b></label>
-            <input type="password" id="Password_Reset" name="Password" placeholder="Enter a password" required>
-            <label for="Confirm_Password"><b>Confirm Password*</b></label>
-            <input type="password" id="Confirm_Password" name="Confirm_Password" placeholder="Confirm password" required>
-            <input class="no-link-style" type="submit" id="Reset" value="Reset">
-            <div id="mask">&nbsp;</div>
-            <div id="errorMessage">Different passwords!</div>
-        </form>
+        <a class="block__title"><b>Reports</b></a>
+        <div id="news"></div>
+    </div>
+    <div class="profile_menu" id="closable">
+        <div class="profile_menu--options no-link-style">Account</div>
+        <div class="profile_menu--options no-link-style">Settings</div>
+        <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
     </div>
 
 </main>
@@ -107,7 +79,8 @@
         <a class="no-link-style" href="help.html">Help</a>
     </div>
 </footer>
-<script src="javascript/log_in.js"></script>
+<script src="javascript/connected_user.js"></script>
+<script src="javascript/reports.js"></script>
 </body>
 
 </html>

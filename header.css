@@ -118,6 +118,7 @@ header {
   justify-content: center;
   gap: 0.25vh;
   font-size: 22px;
+  z-index: 999;
 }
 
 .profile_menu--options {
@@ -127,7 +128,6 @@ header {
   border-style: solid;
   border-color: lightslategray;
   position: relative;
-  /*top: 5px;*/
   background-color: lightslategray;
   color: #fde8cd;
 }
