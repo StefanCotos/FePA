@@ -1,5 +1,5 @@
 .block {
-  height: 100vh;
+  min-height: 60vh;
   margin: 20vh 30vw;
 }
 

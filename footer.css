@@ -6,14 +6,18 @@ footer {
   background-color: #fde8cd;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 10px;
+  justify-items: center;
   align-items: center;
-  justify-content: center;
-  gap: 15vw;
   position: relative;
-  bottom: 0;
-  left: 0;
   color: #1b1b1b;
+}
+
+#item {
+  grid-column: 2;
 }
 
 .footer__content {

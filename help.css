@@ -1,19 +1,16 @@
 .title {
   height: auto;
-  margin: 20vh 24vw;
-  margin-bottom: 0vh;
+  margin: 20vh 24vw 0;
   padding-top: 4vh;
   color: lightslategray;
   font-size: 2vw;
-  font-size: 40px;
 }
 
 .block {
   height: 100%;
   display: block;
   align-items: center;
-  margin: 20vh 10vw;
-  margin-top: 10vh;
+  margin: 10vh 10vw 20vh;
   border-radius: 20px;
   background-color: rgba(253, 232, 205, 0.8);
 }
@@ -31,8 +28,7 @@
 
 .help-text {
   color: lightslategray;
-  padding: 6vw;
-  padding-right: 2vw;
+  padding: 6vw 2vw 6vw 6vw;
 }
 
 .help-text-title {

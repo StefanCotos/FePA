@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>See Reports</title>
+    <title>Statistics</title>
     <link rel="stylesheet" href="generic.css">
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="see_reports.css">
+    <link rel="stylesheet" href="statistics.css">
     <link rel="stylesheet" href="footer.css">
 </head>
 
@@ -44,8 +44,35 @@
 </div>
 <main>
     <div class="block">
-        <a class="block__title"><b>Reports</b></a>
-        <div id="news"></div>
+        <a class="block__title"><b>Statistics</b></a>
+        <div class="statistics">
+            <div class="box">
+                <p><b>Areas</b></p>
+                <div class="content1">
+                    <div class="loader first">Bulevardul Chimiei<span>30%</span></div>
+                    <div class="loader second">Copou<span>41%</span></div>
+                    <div class="loader third">Miroslava<span>6%</span></div>
+                    <div class="loader fourth">Valea Lupului<span>23%</span></div>
+                </div>
+            </div>
+            <div class="box">
+                <p><b>Dangerous</b></p>
+                <div class="content2">
+                    <div class="loader first">Very dangerous<span>15%</span></div>
+                    <div class="loader second">Rabid<span>25%</span></div>
+                    <div class="loader third">Harmless<span>60%</span></div>
+                </div>
+            </div>
+            <div class="box">
+                <p><b>Types</b></p>
+                <div class="content3">
+                    <div class="loader first">Dinosaurs<span>4%</span></div>
+                    <div class="loader second">Dogs<span>30%</span></div>
+                    <div class="loader third">Cats<span>50%</span></div>
+                    <div class="loader fourth">Snakes<span>16%</span></div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="profile_menu" id="closable">
         <div class="profile_menu--options no-link-style">Account</div>
@@ -81,7 +108,6 @@
     <div id="item">© Copyright 2024, FePA</div>
 </footer>
 <script src="javascript/connected_user.js"></script>
-<script src="javascript/reports.js"></script>
 </body>
 
 </html>
