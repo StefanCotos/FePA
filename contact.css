@@ -76,3 +76,9 @@
   background-color: #fde8cd;
   color: lightslategray;
 }
+
+.map {
+  border: 0;
+  width: 28vw;
+  height: 32vh;
+}

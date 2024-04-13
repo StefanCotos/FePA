@@ -1,0 +1,72 @@
+.title {
+  height: auto;
+  margin: 20vh 24vw;
+  margin-bottom: 0vh;
+  padding-top: 4vh;
+  color: lightslategray;
+  font-size: 2vw;
+  font-size: 40px;
+  padding-bottom: 2vw;
+}
+
+.block {
+  height: 100%;
+  display: block;
+  align-items: center;
+  margin: 20vh 10vw;
+  margin-top: 10vh;
+  border-radius: 20px;
+  background-color: rgba(253, 232, 205, 0.8);
+  color: lightslategray;
+}
+
+table {
+  width: 80vw;
+  padding: 4vw;
+  font-size: 2vw;
+}
+
+th {
+  padding: 1vw;
+}
+
+td {
+  text-align: center;
+}
+
+.delete_button {
+  background-color: rgb(250, 90, 90);
+  color: black;
+  border-radius: 10px;
+  font-size: 1vw;
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.delete_button:hover {
+  background-color: rgb(147, 37, 37);
+}
+
+.title_post_request {
+  height: auto;
+  margin-bottom: 0vh;
+  padding-top: 4vh;
+  color: lightslategray;
+  font-size: 2vw;
+  font-size: 40px;
+  padding-bottom: 1vw;
+  padding-top: 4vw;
+}
+
+.view_post {
+  background-color: rgb(4, 195, 4);
+  color: black;
+  border-radius: 10px;
+  font-size: 1vw;
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.view_post:hover {
+  background-color: green;
+}
