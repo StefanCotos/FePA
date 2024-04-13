@@ -10,7 +10,7 @@ function showNews(xml) {
 
         newsHTML += "<a class='no-link-style' id='news-item'><strong>" + "Type: " + title +
                     "</strong><br>" + "<img src='assets/Logo.png' id='news-logo' alt='logo'>" + "<img src='"+ image + "' id='news-image' alt='animals'><strong>" +
-                    "Details: " + "</strong><br>" +description + "<br>..." + "</a>";
+                    "<div id='news-description'>" + "Details: " + "</strong><br>" +description + "<br>..." + "</div></a>";
     }
     document.getElementById("news").innerHTML = newsHTML;
 }

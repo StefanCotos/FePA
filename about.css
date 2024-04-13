@@ -1,67 +1,180 @@
 .title {
-  height: auto;
-  margin: 20vh 24vw 0;
-  padding-top: 4vh;
-  color: lightslategray;
-  font-size: 2vw;
-  padding-bottom: 2vw;
+    height: auto;
+    margin: 20vh 24vw 0;
+    padding-top: 4vh;
+    color: lightslategray;
+    font-size: 2vw;
+    padding-bottom: 2vw;
 }
 
 .block {
-  height: 100%;
-  display: block;
-  align-items: center;
-  margin: 10vh 10vw 20vh;
-  border-radius: 20px;
-  background-color: rgba(253, 232, 205, 0.8);
-  color: lightslategray;
+    height: 100%;
+    display: block;
+    align-items: center;
+    margin: 10vh 10vw 20vh;
+    border-radius: 20px;
+    background-color: rgba(253, 232, 205, 0.8);
+    color: lightslategray;
 }
 
-.about_box {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 2vw;
-  padding-bottom: 2vw;
-}
+/*.about_box {*/
+/*    display: none;*/
+/*    justify-content: space-between;*/
+/*    padding-left: 2vw;*/
+/*    padding-bottom: 2vw;*/
+/*}*/
 
 .about_box_title {
-  padding: 2vw;
-  font-size: 2vw;
-  text-align: center;
+    padding: 2vw;
+    font-size: 2vw;
+    text-align: center;
 }
 
 .about_box_text {
-  font-size: 1vw;
-  text-align: left;
+    font-size: 1vw;
+    text-align: left;
 }
 
-.about_why_imagine_imagine {
-  width: 22vw;
-  height: 28vh;
-  padding: 4vw;
-  border-radius: 10vw;
+@media (min-width: 1281px) {
+
+    .about_why_imagine {
+        width: 22vw;
+        height: 28vh;
+        padding: 4vw;
+        border-radius: 10vw;
+    }
+
+    .about_box {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 2vw;
+        padding-bottom: 2vw;
+    }
+
 }
 
-.about_who_imagine {
-  border-radius: 10vw;
+@media (min-width: 768px) and  (max-width: 1280px) {
+
+    .about_why_imagine {
+        width: 22vw;
+        height: 18vh;
+        padding: 4vw;
+        border-radius: 10vw;
+    }
+
+    .about_box {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 2vw;
+        padding-bottom: 2vw;
+    }
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .about_why_imagine {
+        width: 22vw;
+        height: 10vh;
+        padding: 4vw;
+        border-radius: 10vw;
+    }
+
+    .about_box {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-left: 2vw;
+        padding-bottom: 2vw;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 480px) {
+
+    .about_why_imagine {
+        width: 15vw;
+        height: 7.5vh;
+        padding: 4vw;
+        border-radius: 10vw;
+    }
+
+    .about_box {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-left: 2vw;
+        padding-bottom: 2vw;
+    }
+
 }
 
 .profile_image {
-  display: flex;
-  justify-content: space-between;
-}
-
-.foundername {
-  font-size: 1.7vw;
+    display: flex;
+    justify-content: space-between;
 }
 
 .founder_name {
-  font-size: 1.7vw;
+    font-size: 1.7vw;
 }
 
-.about_who_imagine_imagine {
-  width: 14vw;
-  height: 14vw;
-  padding: 2vw;
-  border-radius: 10vw;
+.about_who_imagine {
+    width: 14vw;
+    height: 14vw;
+    padding: 2vw;
+    border-radius: 10vw;
 }
+
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+/*@media (min-width: 1281px) {*/
+
+/* CSS */
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+/*@media (min-width: 1025px) and (max-width: 1280px) {*/
+
+/* CSS */
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+/*@media (min-width: 768px) and (max-width: 1024px) {*/
+
+/* CSS */
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+/*@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {*/
+
+/* CSS */
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+/*@media (min-width: 481px) and (max-width: 767px) {*/
+
+/* CSS */
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+/*@media (min-width: 320px) and (max-width: 480px) {*/
+
+/* CSS */
