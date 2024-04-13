@@ -9,7 +9,7 @@ header {
   height: 50px;
   border-radius: 30px;
   position: fixed;
-  top: 20px;
+  top: 30px;
   background-color: rgba(119, 136, 153, 0.7);
   text-align: start;
   display: flex;
@@ -103,7 +103,7 @@ header {
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   position: fixed;
-  top: 70px;
+  top: 80px;
   font-size: 20px;
   background-color: rgba(119, 136, 153, 0.7);
   display: none;

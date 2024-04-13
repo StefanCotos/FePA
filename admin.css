@@ -4,7 +4,7 @@
   padding-top: 4vh;
   color: lightslategray;
   padding-bottom: 2vw;
-  font-size: 40px;
+  font-size: 25px;
 }
 
 .block {
@@ -49,7 +49,7 @@ td {
   height: auto;
   margin-bottom: 0;
   color: lightslategray;
-  font-size: 40px;
+  font-size: 25px;
   padding-bottom: 1vw;
   padding-top: 4vw;
 }
