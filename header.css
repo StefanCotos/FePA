@@ -25,15 +25,6 @@ header {
   margin: 1vh;
 }
 
-#Search{
-  position: absolute;
-  left: 15vw;
-  width: 25vw;
-  height: 3vh;
-  border-radius: 20px;
-  border-style: none;
-}
-
 .menu {
   position: absolute;
   right: 1vh;
