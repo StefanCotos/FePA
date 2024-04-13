@@ -1,5 +1,5 @@
 .block {
-    min-height: 50vh;
+    min-height: 55vh;
     display: flex;
     flex-direction: column;
     margin: 20vh 10vw;
@@ -16,7 +16,7 @@
 
 .statistics{
     color: lightslategray;
-    height: 50vh;
+    height: 55vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
@@ -24,8 +24,8 @@
 
 .box{
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 20vw;
+    height: 45vh;
     padding: 20px;
     background-color: lightslategray;
     color: #1b1b1b;
@@ -45,25 +45,25 @@
 
 
 .content1 .first{
-    height: 50px;
+    height: 5vh;
     width: 28%;
     background-color:darkcyan;
 }
 
 .content1 .second{
-    height: 50px;
+    height: 5vh;
     width: 40%;
     background-color: orange;
 }
 
 .content1 .third{
-    height: 50px;
+    height: 5vh;
     width: 6%;
     background-color: saddlebrown;
 }
 
 .content1 .fourth{
-    height: 50px;
+    height: 5vh;
     width: 21%;
     background-color: darkolivegreen;
 }
@@ -80,19 +80,19 @@
 
 
 .content2 .first{
-    height: 50px;
+    height: 5vh;
     width: 13%;
     background-color:darkcyan;
 }
 
 .content2 .second{
-    height: 50px;
+    height: 5vh;
     width: 23%;
     background-color: orange;
 }
 
 .content2 .third{
-    height: 50px;
+    height: 5vh;
     width: 58%;
     background-color: saddlebrown;
 }
@@ -109,25 +109,25 @@
 
 
 .content3 .first{
-    height: 50px;
+    height: 5vh;
     width: 4%;
     background-color:darkcyan;
 }
 
 .content3 .second{
-    height: 50px;
+    height: 5vh;
     width: 28%;
     background-color: orange;
 }
 
 .content3 .third{
-    height: 50px;
+    height: 5vh;
     width: 45%;
     background-color: saddlebrown;
 }
 
 .content3 .fourth{
-    height: 50px;
+    height: 5vh;
     width: 15%;
     background-color: darkolivegreen;
 }
