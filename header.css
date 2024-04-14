@@ -97,7 +97,7 @@ header {
   background-color: #1b1b1b;
 }
 
-#menu__to_show{
+.menu__to_show{
   width: 97.5vw;
   min-height: 5vh;
   border-bottom-left-radius: 30px;

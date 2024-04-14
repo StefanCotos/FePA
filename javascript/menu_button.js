@@ -5,8 +5,7 @@ const menu_toggle__line1 = document.getElementById('menu_toggle__line1');
 const menu_toggle__line2 = document.getElementById('menu_toggle__line2');
 const menu_toggle__line3 = document.getElementById('menu_toggle__line3');
 
-function hideFunction(){
-    menu_to_show.style.display = "none";
+function hideFunction() {
     to_show.style.borderBottomLeftRadius = "30px";
     to_show.style.borderBottomRightRadius = "30px";
     menu_toggle__line1.style.left = "0";
@@ -23,8 +22,7 @@ function hideFunction(){
     menu_toggle__line3.style.height = "3px";
 }
 
-function showFunction(){
-    menu_to_show.style.display = "flex";
+function showFunction() {
     to_show.style.borderBottomLeftRadius = "0";
     to_show.style.borderBottomRightRadius = "0";
     menu_toggle__line1.style.left = "1px";
@@ -41,16 +39,30 @@ function showFunction(){
 
 menu.addEventListener('click', function () {
     if (menu_to_show.style.display === "flex") {
+        menu_to_show.style.display = "none";
         hideFunction();
     } else {
-        showFunction();
+        if (profile_menu_to_show.style.display === "flex") {
+            profile_menu_to_show.style.display = "none";
+            hideFunction();
+        } else {
+            menu_to_show.style.display = "flex";
+            showFunction();
+        }
     }
 });
 
 function myFunction() {
     let widthWindow = window.innerWidth;
-    if (menu_to_show.style.display === "flex" && widthWindow > 1024) {
-        hideFunction();
+    if (widthWindow > 1024) {
+        if (menu_to_show.style.display === "flex") {
+            menu_to_show.style.display = "none";
+            hideFunction();
+        }
+        if (profile_menu_to_show.style.display === "flex") {
+            profile_menu_to_show.style.display = "none";
+            hideFunction();
+        }
     }
 }
 

@@ -47,8 +47,8 @@
             <div id="menu_toggle__line3"></div>
         </div>
     </header>
-    <div id="menu__to_show">
-        <div class="menu__log_in--button half_button">
+    <div class="menu__to_show" id="menu__to_show">
+        <div class="menu__log_in--button half_button" id="profile_for_menu">
             <a class="left_half no-link-style" href="log_in.html">Log In</a>/
             <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
         </div>
@@ -69,6 +69,21 @@
         </a>
         <a class="no-link-style" href="help.html">
             <div class="menu__help">Help</div>
+        </a>
+    </div>
+    <div class="menu__to_show" id="profile_menu_to_show">
+        <div class="menu__log_in--button half_button" id="profile_for_menu_to_show">
+            <a class="left_half no-link-style" href="log_in.html">Log In</a>/
+            <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
+        </div>
+        <a class="no-link-style">
+            <div class="menu__admin">Account</div>
+        </a>
+        <a class="no-link-style">
+            <div class="menu__about">Settings</div>
+        </a>
+        <a class="no-link-style" id="logout_menu">
+            <div class="menu__report">Log Out</div>
         </a>
     </div>
 </div>
@@ -93,6 +108,11 @@
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2712.1865973441013!2d27.57214091258295!3d47.1737830710332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb6227e846bd%3A0x193e4b6864504e2c!2sFacultatea%20de%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1712831782365!5m2!1sro!2sro"
                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
+    </div>
+    <div class="profile_menu" id="closable">
+        <div class="profile_menu--options no-link-style">Account</div>
+        <div class="profile_menu--options no-link-style">Settings</div>
+        <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
     </div>
 </main>
 
