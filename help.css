@@ -3,7 +3,7 @@
   margin: 20vh 24vw 0;
   padding-top: 4vh;
   color: lightslategray;
-  font-size: 2vw;
+  font-size: 4vw;
 }
 
 .block {
@@ -32,7 +32,7 @@
 }
 
 .help-text-title {
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 .help-text-text {
