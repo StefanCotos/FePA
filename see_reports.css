@@ -48,7 +48,7 @@
 }
 
 #news-item:hover{
-    color: #9f917e;
+    color: #7c7059;
 }
 
 @media screen and (min-width: 1025px) {
@@ -61,7 +61,7 @@
         margin: 10px 10px 10px 10px;
         vertical-align: top;
         white-space: normal;
-        background-color: lightslategray;
+        background-color: rgba(119, 136, 153, 0.7);
         color: #1b1b1b;
         overflow-y: auto;
         box-shadow: 0 20px 23px 5px rgba(27, 27, 27, 0.4);
@@ -94,7 +94,7 @@
         margin: 10px 10px 10px 10px;
         vertical-align: top;
         white-space: normal;
-        background-color: lightslategray;
+        background-color: rgba(119, 136, 153, 0.7);
         color: #1b1b1b;
         overflow-y: auto;
         box-shadow: 0 20px 23px 5px rgba(27, 27, 27, 0.4);
@@ -128,7 +128,7 @@
         margin: 10px 10px 10px 10px;
         vertical-align: top;
         white-space: normal;
-        background-color: lightslategray;
+        background-color: rgba(119, 136, 153, 0.7);
         color: #1b1b1b;
         overflow-y: auto;
         box-shadow: 0 20px 23px 5px rgba(27, 27, 27, 0.4);
@@ -161,7 +161,7 @@
         margin: 10px 10px 10px 10px;
         vertical-align: top;
         white-space: normal;
-        background-color: lightslategray;
+        background-color: rgba(119, 136, 153, 0.7);
         color: #1b1b1b;
         overflow-y: auto;
         box-shadow: 0 20px 23px 5px rgba(27, 27, 27, 0.4);
