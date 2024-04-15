@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Scholarly HTML</title>
+  <link rel="stylesheet" href="scholarly.min.css">
+</head>
+
+<body prefix="schema: http://schema.org">
+  <header>
+    <h1>Scholarly HTML</h1>
+  </header>
+
+  <div role="contentinfo">
+    <dl>
+      <dt>Authors</dt>
+      <dd>
+        <a href="https://www.facebook.com/CotosStefan">Cotos Stefan</a>
+        &amp;
+        <a href="https://www.facebook.com/stefanburca04">Burca Iulian-Stefan</a>
+      </dd>
+  </div>
+
+  <section id="introduction" role="doc-introduction">
+    <h2>1. Introduction</h2>
+    <section id="Purpose">
+      <h3>1.1 Purpose</h3>
+      <p>
+        We aim to launch a web application to monitor the behavior of stray or homeless animals, animals that pose a
+        danger to humans and beyond.
+      </p>
+    </section>
+    <section id="Conventions">
+      <h3>1.2 Site Conventions</h3>
+      <p>
+        In creating the website, we used:
+      </p>
+      <p>
+        Font: Trebuchet MS, sans-serif
+      </p>
+      <p>
+        Colors: lightslategray, red, green, #9f917e, #fde8cd
+      </p>
+    </section>
+    <section id="Audience">
+      <h3>1.3 Intended Audience</h3>
+      <p>
+        Primarily young adults and adults, followed by a smaller percentage of children and the elderly.
+      </p>
+    </section>
+    <section id="Scope">
+      <h3>1.4 Product Scope</h3>
+      <p>
+        Our aim is to provide assistance to people through this application, as animals can pose a significant danger if
+        they are not properly treated or cared for. Before taking a stroll or heading to a particular area, people can
+        check our application to see if there have been any recent reports in those areas.
+      </p>
+      <p>
+        Our high-level goals are to:
+      </p>
+      <p>
+        Making the website accessible worldwide.
+        Reducing animal attacks on humans.
+        Creating a space where animals and humans can coexist without disturbing each other.
+      </p>
+    </section>
+    <section id="References">
+      <h3>1.5 References</h3>
+      <p>
+        <a href="index.html">Web site.</a>
+      </p>
+      <p>
+        Authors: Stefan Cotos and Iulian-Stefan Burca
+      </p>
+    </section>
+  </section>
+
+  <section id="overall_description" role="doc-overall_description">
+    <h2>2. Overall Description</h2>
+    <section id="Perspective">
+      <h3>2.1 Product Perspective</h3>
+      <p>
+        This website is an original one, and the idea behind it makes it very useful in the everyday lives of those who
+        will use the site for personal or public purposes.
+      </p>
+    </section>
+    <section id="Functions">
+      <h3>2.2 Product Functions</h3>
+      <p>
+        - viewing reports
+      </p>
+      <p>
+        - creating reports
+      </p>
+      <p>
+        - environmental study using
+      </p>
+    </section>
+    <section id="Classes">
+      <h3>2.3 User Classes and Characteristics</h3>
+      <p>
+        Young people: They use their phones daily and will want to use this page because they can easily find
+        information and provide information to others just as easily.
+      </p>
+      <p>
+        Adults: Being responsible, they will want to help others, so they will make reports to assist others.
+      </p>
+    </section>
+    <section id="Environment">
+      <h3>2.4 Operating Environment</h3>
+      <p>
+        Because it is a website, it will run on any device that can access a browser, regardless of the type of browser
+        or its version.
+      </p>
+    </section>
+    <section id="Design">
+      <h3>2.5 Design and Implementation Constraints</h3>
+      <p>
+        One of the issues that may be encountered is that we rely on people worldwide to create reports, but they may
+        create false or inaccurate reports, which can be challenges during development.
+      </p>
+      <p>
+        Another problem would be the
+        need for strong security to ensure that no one can access data about other users.
+      </p>
+    </section>
+    <section id="Documentation">
+      <h3>2.6 User Documentation</h3>
+      <p>
+        The website includes a help page that explains everything you need to know about using this website.
+      </p>
+    </section>
+    <section id="Assumptions">
+    </section>
+  </section>
+
+  <section id="structure">
+    <h2>3. Structure</h2>
+    <section id="Header_footer">
+      <h3>3.1 The header and footer</h3>
+      <p>
+        The two components are present on all pages, with the header containing the menu with all accessible pages and
+        the logo that takes you to the homepage. In the footer, you'll find the logo and some contact details
+        alongside
+        another menu containing all the existing pages on the site.
+      </p>
+    </section>
+    <section id="admin">
+      <h3>3.2 The admin page</h3>
+      <p>
+        The admin page can currently only be accessed from the homepage, but in the future, it will only be accessible
+        after logging in. This way, a person can prove that they are an admin and will have access to the page and
+        options.<br>
+        This page contains a table with all existing users and a table with all the requests for postings, preventing
+        erroneous information from being posted through reports.
+      </p>
+    </section>
+    <section id="about">
+      <h3>3.3 The about us page</h3>
+      <p>
+        The 'About' page contains brief information about the application, its role, as well as some details about the
+        founders of the website.
+      </p>
+    </section>
+    <section id="report">
+      <h3>3.4 The report page</h3>
+      <p>
+        This page contains two components:<br>
+        1.The form that needs to be filled out entirely in order to create the post<br>
+        2.The map that helps you better visualize the places where other animals have been reported<br><br>
+
+        To create a report post, you need to follow these steps:<br>
+        1. You must have an account on this website.<br>
+        2. You need to fill in all fields, as they are all mandatory.<br>
+        After completing these requirements, the post should be successfully submitted.
+      </p>
+    </section>
+    <section id="see_reports">
+      <h3>3.5 The see reports page</h3>
+      <p>
+        On the 'see reports' page, you will find all the animals for which reporting requests have been completed.
+        This
+        list operates with a right scroll, allowing you to navigate through multiple reports.<br>
+        If you click on an animal post, you will be able to see the reporting description to view the exact details
+        about that animal.
+      </p>
+    </section>
+    <section id="statistics">
+      <h3>3.6 The statistics page</h3>
+      <p>
+        On the statistics page, we have 3 important statistics:<br>
+        1. Areas - the areas where the most reports have been made<br>
+        2. Dangerous - the danger posed by the most animals<br>
+        3. Types - the most reported type of animal<br><br>
+
+        All of these help us and you to learn more about the areas with the most reported animals and how
+        dangerous<br>
+        they are.
+      </p>
+    </section>
+    <section id="contact">
+      <h3>3.7 The contact page</h3>
+      <p>
+        On the contact page, there is a form where if you fill it out with the requested information, you will be able
+        to email us regarding an issue you encountered on this website and couldn't resolve.<br>
+        Also on this page, you will find the location of our headquarters, so you can even come to discuss certain
+        serious issues related to this application.
+      </p>
+    </section>
+    <section id="contact">
+      <h3>3.8 The log-in page</h3>
+      <p>
+        On the login page, you can log into your account or go to the sign-up page to create an account by clicking on
+        the text 'Sign up' below the login button.<br>
+        If you have forgotten your password, you will be redirected to a page where you will need to enter the email
+        associated with your account, and you will receive a password reset code via email.
+      </p>
+    </section>
+    <section id="contact">
+      <h3>3.9 The sign-up page</h3>
+      <p>
+        On the sign-up page, you create an account. To do this, you need to fill out the form with your personal
+        details
+        as requested. After completing them, ensure that all information is correct and that you have filled in all
+        required fields.<br>
+        If you remember that you already have an account, you can quickly return from the sign-up page to the login
+        page by clicking on the text 'Click here' below the Sign-up button.
+      </p>
+    </section>
+  </section>
+
+  <section id="system_features">
+    <h2>4. System Features</h2>
+    <section id="feature">
+      <h3>4.1 System Feature 1</h3>
+      <p>
+        Creating reports and working with databases.
+      </p>
+    </section>
+    <section id="description">
+      <h3>4.1.1 Description and Priority</h3>
+      <p>
+        Creating a well-secured and highly structured database to streamline post creation and data processing.
+      </p>
+      <p>
+        Priority 9
+      </p>
+    </section>
+    <section id="stimulus/response">
+      <h3>4.1.2 Stimulus/Response Sequences</h3>
+      <p>
+        The user will fill out the form, and the website will generate that post on the 'See Reports' page.
+      </p>
+    </section>
+    <section id="functional">
+      <h3>4.1.3 Functional Requirements</h3>
+      <p>
+        The user will need to use a browser with the website open and be logged into their account. Then, the user will
+        fill out the form and receive simple error messages if they haven't entered required information in the form.
+      </p>
+    </section>
+  </section>
+
+  <section id="other_requirements">
+    <h2>5. Other Nonfunctional Requirements</h2>
+    <section id="performance">
+      <h3>5.1 Performance Requirements</h3>
+      <p>
+        This website does not require special performance from users, as long as they can run a browser on their
+        devices, they will be able to access the FePA website.
+      </p>
+    </section>
+    <section id="safety">
+      <h3>5.2 Safety Requirements</h3>
+      <p>
+        In the photos published on the website, the faces of individuals who were passing by at that moment may be
+        visible. For the safety of those individuals, their faces will be blurred before the reports are made public to
+        avoid causing any issues.
+      </p>
+    </section>
+    <section id="security">
+      <h3>5.3 Security Requirements</h3>
+      <p>
+        To prevent information leakage from our database, it needs to be carefully encrypted. To prevent the publication
+        of reports with incorrect content, site admins are responsible for verifying the reports.
+      </p>
+    </section>
+    <section id="software">
+      <h3>5.4 Software Quality Attributes</h3>
+      <p>
+        The quality attributes of the software are:
+      </p>
+      <p>
+        Accessibility: The site is accessible from anywhere.
+      </p>
+      <p>
+        Convenience: You can create a post with just a few clicks.
+      </p>
+      <p>
+        Quality: Posts will go through an admin filter to determine if they are accepted or not.
+      </p>
+      <p>
+        Speed of information transmission: You can find the latest animal reports in your area with just a few scrolls.
+      </p>
+    </section>
+    <section id="business">
+      <h3>5.5 Business Rules</h3>
+      <p>
+        Users can only create reports and inspect any information made public on the site.
+        Admins can do everything a regular user can, but they can also inspect data about any user and any future post.
+      </p>
+    </section>
+
+  </section>
+</body>
+
+</html>
