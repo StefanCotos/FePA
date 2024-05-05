@@ -278,3 +278,15 @@
   display: none;
   font-size: 15px;
 }
+
+#existMessage {
+  color: red;
+  display: none;
+  font-size: 15px;
+}
+
+#usernameMessage {
+  color: red;
+  display: none;
+  font-size: 15px;
+}

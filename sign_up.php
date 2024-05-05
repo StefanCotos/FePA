@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="generic.css">
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="log_in.css">
+    <link rel="stylesheet" href="sign_up.css">
     <link rel="stylesheet" href="footer.css">
 </head>
 
@@ -37,8 +37,8 @@
                 <div class="menu__help">Help</div>
             </a>
             <div class="menu__log_in--button half_button" id="profile">
-                <a class="left_half no-link-style" href="log_in.html">Log In</a>/
-                <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
+                <a class="left_half no-link-style" href="log_in.php">Log In</a>/
+                <a class="right_half no-link-style" href="sign_up.php">Sign Up</a>
             </div>
         </div>
         <div class="no-link-style menu_toggle" id="menu_visible">
@@ -49,8 +49,8 @@
     </header>
     <div class="menu__to_show" id="menu__to_show">
         <div class="menu__log_in--button half_button">
-            <a class="left_half no-link-style" href="log_in.html">Log In</a>/
-            <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
+            <a class="left_half no-link-style" href="log_in.php">Log In</a>/
+            <a class="right_half no-link-style" href="sign_up.php">Sign Up</a>
         </div>
         <a class="no-link-style" href="about.html">
             <div class="menu__about">About</div>
@@ -73,8 +73,8 @@
     </div>
     <div class="menu__to_show" id="profile_menu_to_show">
         <div class="menu__log_in--button half_button">
-            <a class="left_half no-link-style" href="log_in.html">Log In</a>/
-            <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
+            <a class="left_half no-link-style" href="log_in.php">Log In</a>/
+            <a class="right_half no-link-style" href="sign_up.php">Sign Up</a>
         </div>
         <a class="no-link-style">
             <div class="menu__admin">Account</div>
@@ -89,41 +89,36 @@
 </div>
 <main>
     <div class="block">
-        <form class="block__log_in_form" id="log_in_form">
-            <div class="block__form_title"><b>Log in</b></div>
-            <label for="E-Mail"><b>E-Mail/Username*</b></label>
-            <input type="text" id="E-Mail" name="E-Mail" placeholder="Enter your email/username" required>
-            <label for="Password"><b>Password*</b></label>
-            <input type="password" id="Password" name="Password" placeholder="Enter your password" required>
-            <a class="no-link-style " id="forgot_password">Forgot password?</a>
-            <input class="no-link-style" type="submit" id="Log_In" value="Login">
-            <div id="sign_up">
-                You don't have an account?
-                <a class="no-link-style" href="sign_up.html">Sign up</a>.
+        <form class="block__sign_up_form" id="sign_up_form" action="php/add_user.php" method="POST">
+            <div class="block__form_title"><b>Sign Up</b></div>
+            <div class="name">
+                <div class="name_position">
+                    <label for="First_Name"><b>First Name*</b></label>
+                    <input type="text" id="First_Name" name="First_Name" placeholder="Enter your first name" required>
+                </div>
+                <div class="name_position">
+                    <label for="Last_Name"><b>Last Name*</b></label>
+                    <input type="text" id="Last_Name" name="Last_Name" placeholder="Enter your last name" required>
+                </div>
             </div>
-        </form>
-        <form class="block__forgot_password" id="forgot_form">
-            <div class="block__form_title"><b>Forgot password</b></div>
-            <label for="E-Mail_Send"><b>E-Mail*</b></label>
-            <input type="text" id="E-Mail_Send" name="E-Mail" placeholder="Enter your email" required>
-            <input class="no-link-style" type="submit" id="Send" value="Send">
-        </form>
-        <form class="block__code_email" id="code_form">
-            <div id="email_send">Code send to your email</div>
-            <label for="Code"><b>Code*</b></label>
-            <input type="text" id="Code" name="Code" placeholder="Enter the received code" required>
-            <input class="no-link-style" type="submit" id="Confirm" value="Confirm">
-        </form>
-        <form class="block__reset_password" id="reset_form">
-            <div class="block__form_title"><b>Reset password</b></div>
-            <label for="Password_Reset"><b>Password*</b></label>
-            <input type="password" id="Password_Reset" name="Password" placeholder="Enter a password" required>
+            <label for="E-Mail"><b>E-Mail*</b></label>
+            <input type="email" id="E-Mail" name="E-Mail" placeholder="Enter your email" required>
+            <label for="Password"><b>Password*</b></label>
+            <input type="password" id="Password" name="Password" placeholder="Enter a password" required>
             <label for="Confirm_Password"><b>Confirm Password*</b></label>
             <input type="password" id="Confirm_Password" name="Confirm_Password" placeholder="Confirm password"
                    required>
-            <input class="no-link-style" type="submit" id="Reset" value="Reset">
+            <label for="Username"><b>Username</b></label>
+            <input type="text" id="Username" name="Username" placeholder="How do you want to be called?">
+            <input class="no-link-style" type="submit" id="Sign_up" value="Sign Up">
             <div id="mask">&nbsp;</div>
             <div id="errorMessage">Different passwords!</div>
+            <div id="existMessage">E-Mail exist!</div>
+            <div id="usernameMessage">Username exist, please choose another one!</div>
+            <div class="log_in">
+                You already have an account?
+                <a class="no-link-style" href="log_in.php">Click here</a>.
+            </div>
         </form>
     </div>
 
@@ -154,9 +149,54 @@
     </div>
     <div id="footer_item">© Copyright 2024, FePA</div>
 </footer>
-<script src="javascript/log_in.js"></script>
-<script src="javascript/menu_button.js"></script>
+<script>
+    const mask = document.getElementById('mask');
+    const errorMessage = document.getElementById('errorMessage');
+    const existMessage = document.getElementById('existMessage');
+    const usernameMessage = document.getElementById('usernameMessage');
+    let val = '<?php echo $_GET['var']; ?>';
+    val = val.split("_");
+    const email_exist = val[0];
+    const different_password = val[1];
+    const username_exist = val[2];
+    const username = val[3];
 
+    if (email_exist === "false") {
+        if (different_password === "true") {
+            errorMessage.style.display = 'block';
+            mask.style.display = 'none';
+            setTimeout(function () {
+                errorMessage.style.display = 'none';
+                mask.style.display = 'block';
+            }, 5000);
+        } else {
+            if(username_exist === "false") {
+                localStorage.setItem('profileButton', username);
+                setTimeout(function () {
+                    window.location.href = 'index.html';
+                }, 1000);
+            }
+            else
+            {
+                usernameMessage.style.display = 'block';
+                mask.style.display = 'none';
+                setTimeout(function () {
+                    usernameMessage.style.display = 'none';
+                    mask.style.display = 'block';
+                }, 5000);
+            }
+        }
+    } else {
+        existMessage.style.display = 'block';
+        mask.style.display = 'none';
+        setTimeout(function () {
+            existMessage.style.display = 'none';
+            mask.style.display = 'block';
+        }, 5000);
+    }
+
+</script>
+<script src="javascript/menu_button.js"></script>
 </body>
 
 </html>

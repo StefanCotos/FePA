@@ -407,7 +407,46 @@
     font-size: 15px;
 }
 
+#mask1 {
+    display: block;
+    font-size: 15px;
+}
+
+#mask2 {
+    display: block;
+    font-size: 15px;
+}
+
+#mask3 {
+    display: block;
+    font-size: 15px;
+}
+
 #errorMessage {
+    color: red;
+    display: none;
+    font-size: 15px;
+}
+
+#nonexistentMessage {
+    color: red;
+    display: none;
+    font-size: 15px;
+}
+
+#emailMessage {
+    color: red;
+    display: none;
+    font-size: 15px;
+}
+
+#passwordMessage {
+    color: red;
+    display: none;
+    font-size: 15px;
+}
+
+#codeMessage {
     color: red;
     display: none;
     font-size: 15px;
