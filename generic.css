@@ -23,7 +23,7 @@ body {
   align-items: center;
   position: relative;
   min-height: 100vh;
-  background-image: url("assets/Wallpaper.jpg");
+  background-image: url("../assets/wallpaper.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
