@@ -30,7 +30,7 @@
             <a class="no-link-style" href="statistics.html">
                 <div class="menu__statistics">Statistics</div>
             </a>
-            <a class="no-link-style" href="contact.html">
+            <a class="no-link-style" href="contact.php">
                 <div class="menu__contact">Contact</div>
             </a>
             <a class="no-link-style" href="help.html">
@@ -64,7 +64,7 @@
         <a class="no-link-style" href="statistics.html">
             <div class="menu__statistics">Statistics</div>
         </a>
-        <a class="no-link-style" href="contact.html">
+        <a class="no-link-style" href="contact.php">
             <div class="menu__contact">Contact</div>
         </a>
         <a class="no-link-style" href="help.html">
@@ -156,7 +156,7 @@
         <a class="no-link-style" href="report.html">Report</a>
         <a class="no-link-style" href="see_reports.html">See reports</a>
         <a class="no-link-style" href="statistics.html">Statistics</a>
-        <a class="no-link-style" href="contact.html">Contact</a>
+        <a class="no-link-style" href="contact.php">Contact</a>
         <a class="no-link-style" href="help.html">Help</a>
     </div>
     <div id="footer_item">© Copyright 2024, FePA</div>

@@ -29,15 +29,22 @@
 }
 
 @media screen and (min-width: 1301px) {
-
   .block__contact_map {
     width: 100vw;
-    height: 35vh;
-    padding-right: 10vh;
+    height: 40vh;
+    margin-right: 10vh;
     border-style: none;
+    border-radius: 50px;
   }
 
   #E-Mail {
+    width: 30vw;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Subject {
     width: 30vw;
     height: 30px;
     border-radius: 10px;
@@ -51,16 +58,9 @@
     border-style: none;
   }
 
-  #Phone-number {
-    width: 30vw;
-    height: 30px;
-    border-radius: 10px;
-    border-style: none;
-  }
-
   #Message {
     width: 30vw;
-    height: 30px;
+    height: 60px;
     border-radius: 10px;
     border-style: none;
   }
@@ -76,12 +76,9 @@
     font-size: 15px;
     background-color: lightslategray;
   }
-
-
 }
 
 @media screen and (min-width: 768px) and (max-width: 1300px) {
-
   .block {
     flex-direction: column;
   }
@@ -89,8 +86,9 @@
   .block__contact_map {
     width: 60vw;
     height: 60vh;
-    padding-bottom: 10vh;
+    margin-bottom: 10vh;
     border-style: none;
+    border-radius: 50px;
   }
 
   #E-Mail {
@@ -107,14 +105,14 @@
     border-style: none;
   }
 
-  #Phone-number {
+  #Message {
     width: 500px;
-    height: 30px;
+    height: 60px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Message {
+  #Subject {
     width: 500px;
     height: 30px;
     border-radius: 10px;
@@ -132,11 +130,9 @@
     font-size: 15px;
     background-color: lightslategray;
   }
-
 }
 
 @media screen and (min-width: 500px) and (max-width: 767px) {
-
   .block {
     flex-direction: column;
   }
@@ -144,8 +140,9 @@
   .block__contact_map {
     width: 60vw;
     height: 40vh;
-    padding-bottom: 10vh;
+    border-right: 10vh;
     border-style: none;
+    border-radius: 50px;
   }
 
   #E-Mail {
@@ -162,14 +159,14 @@
     border-style: none;
   }
 
-  #Phone-number {
+  #Message {
     width: 350px;
-    height: 30px;
+    height: 60px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Message {
+  #Subject {
     width: 350px;
     height: 30px;
     border-radius: 10px;
@@ -187,11 +184,9 @@
     font-size: 15px;
     background-color: lightslategray;
   }
-
 }
 
 @media screen and (max-width: 500px) {
-
   .block {
     flex-direction: column;
   }
@@ -199,8 +194,9 @@
   .block__contact_map {
     width: 60vw;
     height: 30vh;
-    padding-bottom: 10vh;
+    border-right: 10vh;
     border-style: none;
+    border-radius: 50px;
   }
 
   #E-Mail {
@@ -217,14 +213,14 @@
     border-style: none;
   }
 
-  #Phone-number {
+  #Message {
     width: 200px;
-    height: 30px;
+    height: 60px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Message {
+  #Subject {
     width: 200px;
     height: 30px;
     border-radius: 10px;
@@ -242,7 +238,6 @@
     font-size: 15px;
     background-color: lightslategray;
   }
-
 }
 
 #submit_button:hover {

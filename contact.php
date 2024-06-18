@@ -30,7 +30,7 @@
                 <a class="no-link-style" href="statistics.html">
                     <div class="menu__statistics">Statistics</div>
                 </a>
-                <a class="no-link-style" href="contact.html">
+                <a class="no-link-style" href="contact.php">
                     <div class="menu__contact">Contact</div>
                 </a>
                 <a class="no-link-style" href="help.html">
@@ -64,7 +64,7 @@
             <a class="no-link-style" href="statistics.html">
                 <div class="menu__statistics">Statistics</div>
             </a>
-            <a class="no-link-style" href="contact.html">
+            <a class="no-link-style" href="contact.php">
                 <div class="menu__contact">Contact</div>
             </a>
             <a class="no-link-style" href="help.html">
@@ -90,18 +90,44 @@
     <main>
         <div class="block">
             <div class="block__contact_form">
-                <form id="submit_form">
+                <form id="submit_form" method="POST" action="">
                     <h1 class="block__contact_form_title">Contact</h1>
                     <label for="Name"><b>Name</b></label>
                     <input type="text" id="Name" name="Name" placeholder="Enter your name" required>
+                    <label for="Subject"><b>Subject</b></label>
+                    <input type="text" id="Subject" name="Subject" placeholder="Enter the subject" required>
                     <label for="E-Mail"><b>E-Mail Address</b></label>
-                    <input type="text" id="E-Mail" name="E-Mail" placeholder="Enter your email" required>
-                    <label for="Phone-number"><b>Phone number</b></label>
-                    <input type="tel" id="Phone-number" name="Phone-number" placeholder="Enter your phone number"
-                        required>
+                    <input type="email" id="E-Mail" name="E-Mail" placeholder="Enter your email" required>
                     <label for="Message"><b>Message</b></label>
-                    <input type="text" id="Message" name="Message" placeholder="Enter your message" required>
-                    <input class="no-link-style" type="submit" id="submit_button" value="Submit">
+                    <input type="text" id="Message" name="Message" placeholder="Enter your message" required style="height: 100px; width: 100%;">
+                    
+                    <?php
+                        if (isset($_POST['submit'])) {
+                            $name = $_POST['Name'];
+                            $subject = $_POST['Subject'];
+                            $email = $_POST['E-Mail'];
+                            $message = $_POST['Message'];
+                            $headers = "From: " . $name . " <" . $email . ">\r\n";
+                            $headers .= "Reply-To: " . $email . "\r\n";
+                            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    
+                            // Validare email
+                            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                if (mail('feralpresenceadvise@gmail.com', $subject, $message, $headers)) {
+                                    echo "Email sent!";
+                                } else {
+                                    echo "Email failed!";
+                                    error_log("Mail function failed", 0);
+                                }
+                            } else {
+                                echo "Invalid email address!";
+                            }
+                        } else {
+                            echo "Form not submitted!";
+                        }
+                    ?>
+
+                    <input class="no-link-style" type="submit" name="submit" id="submit_button" value="Submit">
                 </form>
             </div>
             <iframe class="block__contact_map"
@@ -115,7 +141,6 @@
             <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
         </div>
     </main>
-
     <footer id="myFooter">
         <a href="index.html">
             <img class="footer__logo" src="assets/Logo.png" alt="Logo">
@@ -137,7 +162,7 @@
             <a class="no-link-style" href="report.html">Report</a>
             <a class="no-link-style" href="see_reports.html">See reports</a>
             <a class="no-link-style" href="statistics.html">Statistics</a>
-            <a class="no-link-style" href="contact.html">Contact</a>
+            <a class="no-link-style" href="contact.php">Contact</a>
             <a class="no-link-style" href="help.html">Help</a>
         </div>
         <div id="footer_item">© Copyright 2024, FePA</div>
