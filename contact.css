@@ -31,10 +31,9 @@
 @media screen and (min-width: 1301px) {
   .block__contact_map {
     width: 100vw;
-    height: 40vh;
-    margin-right: 10vh;
+    height: 35vh;
+    padding-right: 10vh;
     border-style: none;
-    border-radius: 50px;
   }
 
   #E-Mail {
@@ -86,9 +85,8 @@
   .block__contact_map {
     width: 60vw;
     height: 60vh;
-    margin-bottom: 10vh;
+    padding-bottom: 10vh;
     border-style: none;
-    border-radius: 50px;
   }
 
   #E-Mail {
@@ -140,9 +138,8 @@
   .block__contact_map {
     width: 60vw;
     height: 40vh;
-    border-right: 10vh;
+    padding-bottom: 10vh;
     border-style: none;
-    border-radius: 50px;
   }
 
   #E-Mail {
@@ -194,9 +191,8 @@
   .block__contact_map {
     width: 60vw;
     height: 30vh;
-    border-right: 10vh;
+    padding-bottom: 10vh;
     border-style: none;
-    border-radius: 50px;
   }
 
   #E-Mail {

@@ -99,7 +99,7 @@
                     <label for="E-Mail"><b>E-Mail Address</b></label>
                     <input type="email" id="E-Mail" name="E-Mail" placeholder="Enter your email" required>
                     <label for="Message"><b>Message</b></label>
-                    <input type="text" id="Message" name="Message" placeholder="Enter your message" required style="height: 100px; width: 100%;">
+                    <textarea id="Message" name="Message" placeholder="Enter your message" rows="3" required></textarea>
                     
                     <?php
                         if (isset($_POST['submit'])) {
@@ -111,7 +111,6 @@
                             $headers .= "Reply-To: " . $email . "\r\n";
                             $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
     
-                            // Validare email
                             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                 if (mail('feralpresenceadvise@gmail.com', $subject, $message, $headers)) {
                                     echo "Email sent!";
