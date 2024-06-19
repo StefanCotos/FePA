@@ -21,7 +21,7 @@
                 <a class="no-link-style" href="about.html">
                     <div class="menu__about">About</div>
                 </a>
-                <a class="no-link-style" href="report.html">
+                <a class="no-link-style" href="report.php">
                     <div class="menu__report">Report</div>
                 </a>
                 <a class="no-link-style" href="see_reports.html">
@@ -55,7 +55,7 @@
             <a class="no-link-style" href="about.html">
                 <div class="menu__about">About</div>
             </a>
-            <a class="no-link-style" href="report.html">
+            <a class="no-link-style" href="report.php">
                 <div class="menu__report">Report</div>
             </a>
             <a class="no-link-style" href="see_reports.html">
@@ -90,7 +90,7 @@
     <main>
         <div class="block">
             <div class="block__contact_form">
-                <form id="submit_form" method="POST" action="">
+                <form id="submit_form" method="POST">
                     <h1 class="block__contact_form_title">Contact</h1>
                     <label for="Name"><b>Name</b></label>
                     <input type="text" id="Name" name="Name" placeholder="Enter your name" required>
@@ -158,7 +158,7 @@
         </div>
         <div class="footer__content">
             <a class="no-link-style" href="about.html">About</a>
-            <a class="no-link-style" href="report.html">Report</a>
+            <a class="no-link-style" href="report.php">Report</a>
             <a class="no-link-style" href="see_reports.html">See reports</a>
             <a class="no-link-style" href="statistics.html">Statistics</a>
             <a class="no-link-style" href="contact.php">Contact</a>

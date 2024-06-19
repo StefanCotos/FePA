@@ -25,17 +25,20 @@ class Database
     public function connectDB($CONFIG)
     {
         try {
-            $this->Db = new mysqli($CONFIG["servername"], $CONFIG["username"],
-                $CONFIG["password"], $CONFIG["db"]);
+            $this->Db = new mysqli($CONFIG["servername"], $CONFIG["username"], $CONFIG["password"], $CONFIG["db"]);
 
             if (!$this->Db->connect_error) {
                 echo "Successfully connected to DB";
             } else {
                 echo "Not connected to DB";
             }
-        } catch (PDOException $e) {
+        } catch (mysqli_sql_exception $e) {
             trigger_error("Could not connect to database: " . $e->getMessage(), E_USER_ERROR);
         }
+    }
+
+    public function getConnection() {
+        return $this->Db;
     }
 
     public function insertUser($first_name, $last_name, $email, $password, $username)

@@ -90,7 +90,7 @@
     <main>
         <div class="block">
             <div class="block__report_form">
-                <form id="submit_form">
+                <form id="submit_form" action="php/formhandler.ini.php" method="POST">
                     <h1 class="block__report_form_title">Report</h1>
                     <label for="Animal-type"><b>Animal type</b></label>
                     <input type="text" id="Animal-type" name="Animal-type" placeholder="Enter the animal type" required>
@@ -109,7 +109,7 @@
                             Here
                         </label>
                     </div>
-                    <input id="Photos" type="file" required>
+                    <input id="Photos" type="file" name="Photos" required>
                     <input class="no-link-style" type="submit" id="submit_button" value="Submit">
                 </form>
             </div>
