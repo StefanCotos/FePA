@@ -60,11 +60,11 @@ class UserGateway
         }
     }
 
-    public function setPassword($password, $email)
+    public function setPassword(Array $input)
     {
         try {
             $statement = $this->db->prepare('UPDATE users SET password = ? WHERE email = ?');
-            $statement->bind_param('ss', $password, $email);
+            $statement->bind_param('ss', $input['password'], $input['email']);
             $statement->execute();
 
         } catch (PDOException $e) {

@@ -14,12 +14,18 @@ if ($uri[4] !== 'user') {
     exit();
 }
 
-$userId = null;
+$user = null;
 if (isset($uri[5])) {
-    $userId = (int)$uri[5];
+    if($uri[5] == 'exist') {
+        $user = "exist";
+    }
+    if($uri[5] == 'forgot') {
+        $user = "forgot";
+    }
+//    $user = (int)$uri[5];
 }
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-$controller = new UserController($db->getConnection(), $requestMethod, $userId);
+$controller = new UserController($db->getConnection(), $requestMethod, $user);
 $controller->processRequest();

@@ -37,7 +37,7 @@
                     <div class="menu__help">Help</div>
                 </a>
                 <div class="menu__log_in--button half_button" id="profile">
-                    <a class="left_half no-link-style" href="log_in.php">Log In</a>/
+                    <a class="left_half no-link-style" href="log_in.html">Log In</a>/
                     <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
                 </div>
             </div>
@@ -49,7 +49,7 @@
         </header>
         <div class="menu__to_show" id="menu__to_show">
             <div class="menu__log_in--button half_button" id="profile_for_menu">
-                <a class="left_half no-link-style" href="log_in.php">Log In</a>/
+                <a class="left_half no-link-style" href="log_in.html">Log In</a>/
                 <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
             </div>
             <a class="no-link-style" href="about.html">
@@ -73,7 +73,7 @@
         </div>
         <div class="menu__to_show" id="profile_menu_to_show">
             <div class="menu__log_in--button half_button" id="profile_for_menu_to_show">
-                <a class="left_half no-link-style" href="log_in.php">Log In</a>/
+                <a class="left_half no-link-style" href="log_in.html">Log In</a>/
                 <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
             </div>
             <a class="no-link-style">
