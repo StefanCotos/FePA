@@ -1,9 +1,11 @@
 <?php
 
+
 include_once "..\database\Database.php";
+include_once "..\gateways\UserGateway.php";
 
 $db = new Database();
-$db->connectDB(include('..\database\Config.php'));
+$user_gateway = new UserGateway($db->getConnection());
 
 if (isset($_POST['E-Mail']) && isset($_POST['Password'])) {
     $email_username = $_POST['E-Mail'];
@@ -13,17 +15,17 @@ if (isset($_POST['E-Mail']) && isset($_POST['Password'])) {
     $username = "";
 
     if (strpos($email_username, '@')) {
-        if ($db->emailExists($email_username)) {
-            if ($password != $db->getPasswordByEmail($email_username)) {
+        if ($user_gateway->emailExists($email_username)) {
+            if ($password != $user_gateway->getPasswordByEmail($email_username)) {
                 $password_correct = "false";
             }
-            $username = $db->getUsername($email_username);
+            $username = $user_gateway->getUsername($email_username);
         } else {
             $exist = "false";
         }
     } else {
-        if ($db->usernameExists($email_username)) {
-            if ($password != $db->getPasswordByUsername($email_username)) {
+        if ($user_gateway->usernameExists($email_username)) {
+            if ($password != $user_gateway->getPasswordByUsername($email_username)) {
                 $password_correct = "false";
             }
             $username = $email_username;

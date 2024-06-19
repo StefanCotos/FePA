@@ -1,16 +1,17 @@
 <?php
 
 include_once "..\database\Database.php";
+include_once "..\gateways\UserGateway.php";
 
 $db = new Database();
-$db->connectDB(include('..\database\Config.php'));
+$user_gateway = new UserGateway($db->getConnection());
 
 if (isset($_POST['E-Mail'])) {
     $email = $_POST['E-Mail'];
     $exist = "true";
     $code = null;
 
-    if ($db->emailExists($email)) {
+    if ($user_gateway->emailExists($email)) {
         setcookie("email_value", $email);
         $code = rand(10000, 99999);
 //        $subject = "Forgotten Password";

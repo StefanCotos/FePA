@@ -1,9 +1,10 @@
 <?php
 
 include_once "..\database\Database.php";
+include_once "..\gateways\UserGateway.php";
 
 $db = new Database();
-$db->connectDB(include('..\database\Config.php'));
+$user_gateway = new UserGateway($db->getConnection());
 
 if (isset($_POST['Password']) && isset($_POST['Confirm_Password'])) {
     $password = $_POST['Password'];
@@ -13,7 +14,7 @@ if (isset($_POST['Password']) && isset($_POST['Confirm_Password'])) {
         $different_password = "true";
 
         if($password == $confirm_password){
-            $db->setPassword($password, $email);
+            $user_gateway->setPassword($password, $email);
             $different_password = "false";
         }
 
