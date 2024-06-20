@@ -1,0 +1,265 @@
+.block {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20vh 10vw 20vh;
+  border-radius: 20px;
+  background-color: rgba(253, 232, 205, 0.7);
+  color: lightslategray;
+}
+
+.block__contact_form {
+  width: 100%;
+  height: 100%;
+  color: lightslategray;
+  font-size: 20px;
+}
+
+.block__contact_form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh;
+  gap: 1vh;
+}
+
+.block__contact_form_title {
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 1301px) {
+  .block__contact_map {
+    width: 100vw;
+    height: 35vh;
+    padding-right: 10vh;
+    border-style: none;
+  }
+
+  #E-Mail {
+    width: 30vw;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Subject {
+    width: 30vw;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Name {
+    width: 30vw;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Message {
+    width: 30vw;
+    height: 60px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #submit_button {
+    margin-top: 20px;
+    width: 7vw;
+    height: 30px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: lightslategray;
+    color: #fde8cd;
+    font-size: 15px;
+    background-color: lightslategray;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1300px) {
+  .block {
+    flex-direction: column;
+  }
+
+  .block__contact_map {
+    width: 60vw;
+    height: 60vh;
+    padding-bottom: 10vh;
+    border-style: none;
+  }
+
+  #E-Mail {
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Name {
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Message {
+    width: 500px;
+    height: 60px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Subject {
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #submit_button {
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: lightslategray;
+    color: #fde8cd;
+    font-size: 15px;
+    background-color: lightslategray;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 767px) {
+  .block {
+    flex-direction: column;
+  }
+
+  .block__contact_map {
+    width: 60vw;
+    height: 40vh;
+    padding-bottom: 10vh;
+    border-style: none;
+  }
+
+  #E-Mail {
+    width: 350px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Name {
+    width: 350px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Message {
+    width: 350px;
+    height: 60px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Subject {
+    width: 350px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #submit_button {
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: lightslategray;
+    color: #fde8cd;
+    font-size: 15px;
+    background-color: lightslategray;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .block {
+    flex-direction: column;
+  }
+
+  .block__contact_map {
+    width: 60vw;
+    height: 30vh;
+    padding-bottom: 10vh;
+    border-style: none;
+  }
+
+  #E-Mail {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Name {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Message {
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #Subject {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  #submit_button {
+    margin-top: 20px;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: lightslategray;
+    color: #fde8cd;
+    font-size: 15px;
+    background-color: lightslategray;
+  }
+}
+
+#submit_button:hover {
+  background-color: #fde8cd;
+  color: lightslategray;
+}
+
+#mask {
+  display: block;
+  font-size: 15px;
+}
+
+#notLogged {
+  color: red;
+  display: none;
+  font-size: 15px;
+}
+
+#internalError {
+  color: red;
+  display: none;
+  font-size: 15px;
+}
+
+#incorrectMail {
+  color: red;
+  display: none;
+  font-size: 15px;
+}
