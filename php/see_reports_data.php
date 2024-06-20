@@ -6,7 +6,7 @@ $password = "";
 $database = "web_project";
 
 $connect = mysqli_connect($host, $username, $password, $database);
-$sql = "SELECT * FROM reports";
+$sql = "SELECT * FROM reports where is_approve=1";
 $results = mysqli_query($connect, $sql);
 $json_array = array();
 

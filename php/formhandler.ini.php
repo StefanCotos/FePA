@@ -6,11 +6,11 @@ $db = new Database();
 $db->connectDB(include('../database/Config.php'));
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $type = $_POST["Animal-type"];
-    $city = $_POST["City"];
-    $street = $_POST["Street"];
-    $description = $_POST["Description"];
-    $additionalAspect = $_POST["Additional-aspects"];
+    $type = $_POST["animal_type"];
+    $city = $_POST["city"];
+    $street = $_POST["street"];
+    $description = $_POST["description"];
+    $additionalAspect = $_POST["additional_aspects"];
 
     try {
 

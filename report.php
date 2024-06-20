@@ -90,19 +90,32 @@
     <main>
         <div class="block">
             <div class="block__report_form">
+            <!-- <form id="submit_form">
+                        <h1 class="block__report_form_title">Report</h1>
+                        <label for="animal_type"><b>Animal type</b></label>
+                        <input type="text" id="animal_type" name="animal_type" placeholder="Enter the animal type" required>
+                        <label for="city"><b>City</b></label>
+                        <input type="text" id="city" name="city" placeholder="Enter the city" required>
+                        <label for="street"><b>Street</b></label>
+                        <input type="text" id="street" name="street" placeholder="Enter the street name" required>
+                        <label for="additional_aspects"><b>Additional aspects</b></label>
+                        <input type="text" id="additional_aspects" name="additional_aspects" placeholder="Enter the additional aspects">
+                        <label for="description"><b>Description</b></label>
+                        <input type="text" id="description" name="description" placeholder="Enter the description" required>
+                        <input class="no-link-style" type="submit" id="submit_button" value="Submit">
+                    </form> -->
                 <form id="submit_form" action="php/formhandler.ini.php" method="POST">
                     <h1 class="block__report_form_title">Report</h1>
                     <label for="Animal-type"><b>Animal type</b></label>
-                    <input type="text" id="Animal-type" name="Animal-type" placeholder="Enter the animal type" required>
+                    <input type="text" id="animal_type" name="animal_type" placeholder="Enter the animal type" required>
                     <label for="City"><b>City</b></label>
-                    <input type="text" id="City" name="City" placeholder="Enter the city" required>
+                    <input type="text" id="city" name="city" placeholder="Enter the city" required>
                     <label for="Street"><b>Street</b></label>
-                    <input type="text" id="Street" name="Street" placeholder="Enter the street name" required>
+                    <input type="text" id="street" name="street" placeholder="Enter the street name" required>
                     <label for="Additional-aspects"><b>Additional aspects</b></label>
-                    <input type="text" id="Additional-aspects" name="Additional-aspects"
-                        placeholder="Enter the additional aspects">
+                    <input type="text" id="additional_aspects" name="additional_aspects" placeholder="Enter the additional aspects">
                     <label for="Description"><b>Description</b></label>
-                    <input type="text" id="Description" name="Description" placeholder="Enter the description" required>
+                    <input type="text" id="description" name="description" placeholder="Enter the description" required>
                     <div class="form">
                         <label for="Photos"><b>Upload photos</b></label>
                         <label for="Photos" class="photos-input">

@@ -36,35 +36,35 @@
     border-style: none;
   }
 
-  #Animal-type {
+  #animal_type {
     width: 30vw;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #City {
+  #city {
     width: 30vw;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Street {
+  #street {
     width: 30vw;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Description {
+  #description {
     width: 30vw;
     height: 60px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Additional-aspects {
+  #additional_aspects {
     width: 30vw;
     height: 30px;
     border-radius: 10px;
@@ -96,35 +96,35 @@
     border-style: none;
   }
 
-  #Animal-type {
+  #animal_type {
     width: 500px;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #City {
+  #city {
     width: 500px;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Street {
+  #street {
     width: 500px;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Description {
+  #description {
     width: 500px;
     height: 60px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Additional-aspects {
+  #additional_aspects {
     width: 500px;
     height: 30px;
     border-radius: 10px;
@@ -155,35 +155,35 @@
     padding-bottom: 10vh;
   }
 
-  #Animal-type {
+  #animal_type {
     width: 350px;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #City {
+  #city {
     width: 350px;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Street {
+  #street {
     width: 350px;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Description {
+  #description {
     width: 350px;
     height: 60px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Additional-aspects {
+  #additional_aspects {
     width: 350px;
     height: 30px;
     border-radius: 10px;
@@ -214,35 +214,35 @@
     padding-bottom: 10vh;
   }
 
-  #Animal-type {
+  #animal_type {
     width: 200px;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #City {
+  #city {
     width: 200px;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Street {
+  #street {
     width: 200px;
     height: 30px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Description {
+  #description {
     width: 200px;
     height: 60px;
     border-radius: 10px;
     border-style: none;
   }
 
-  #Additional-aspects {
+  #additional_aspects {
     width: 200px;
     height: 30px;
     border-radius: 10px;
