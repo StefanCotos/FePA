@@ -1,0 +1,274 @@
+<?php
+
+namespace controllers;
+
+use UserGateway;
+
+include_once "..\gateways\UserGateway.php";
+
+class UserController
+{
+    private $requestMethod;
+    private $user;
+    private $userGateway;
+    private $authController;
+
+    public function __construct($db, $requestMethod, $user)
+    {
+        $this->requestMethod = $requestMethod;
+        $this->user = $user;
+
+        $this->userGateway = new UserGateway($db);
+        $this->authController = new AuthController($requestMethod);
+    }
+
+    public function processRequest()
+    {
+        switch ($this->requestMethod) {
+            case 'GET':
+
+                break;
+            case 'POST':
+                if ($this->user == "exist") {
+                    $response = $this->checkUserExist();
+                } else if ($this->user == "forgot") {
+                    $response = $this->checkEmailAndSend();
+                } else if ($this->user == "contact") {
+                    $response = $this->sendEmail();
+                } else {
+                    $response = $this->createUserFromRequest();
+                }
+                break;
+            case 'PUT':
+                $response = $this->updateUserFromRequest();
+                break;
+            case 'DELETE':
+//                $response = $this->deleteUser($this->userId);
+                break;
+            default:
+                $response = $this->notFoundResponse();
+                break;
+        }
+        header($response['status_code_header']);
+        if ($response['body']) {
+            echo $response['body'];
+        }
+    }
+
+    private function createUserFromRequest()
+    {
+        $input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!$this->validatePerson($input)) {
+            return $this->unprocessableEntityResponse();
+        }
+        $input['password'] = password_hash($input['password'], PASSWORD_DEFAULT);
+
+        if ($this->userGateway->emailExists($input['email'])) {
+            return $this->conflictResponse("Email already exists");
+        } else if ($this->userGateway->usernameExists($input['username'])) {
+            return $this->conflictResponse("Username already exists");
+        } else {
+
+            $jwt = $this->authController->processRequest($input['username']);
+            $this->userGateway->insertUser($input);
+            $response['status_code_header'] = 'HTTP/1.1 201 Created';
+            $response['body'] = json_encode([
+                'jwt' => $jwt
+            ]);
+            return $response;
+        }
+    }
+
+
+    private function checkUserExist()
+    {
+        $input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!isset($input['user']) || !isset($input['password'])) {
+            return $this->unprocessableEntityResponse();
+        }
+
+        if (!$this->userGateway->emailExists($input["user"])) {
+            if (!$this->userGateway->usernameExists($input["user"])) {
+                return $this->notFoundResponse();
+            } else {
+                if (!password_verify($input["password"], $this->userGateway->getPasswordByUsername($input["user"]))) {
+                    return $this->unauthorizedResponse();
+                }
+
+                $jwt = $this->authController->processRequest($input['user'], $this->userGateway->getAdmin($input['user']));
+                $decodedJWT= $this->authController->validateJWT($jwt);
+
+                if (isset($decodedJWT['isAdmin'])){
+                    $isAdmin = $decodedJWT['isAdmin'];
+                }
+
+                $response['status_code_header'] = 'HTTP/1.1 200 OK';
+                $response['body'] = json_encode([
+                    'username' => $input["user"],
+                    'jwt' => $jwt,
+                    'isAdmin' => $isAdmin
+                ]);
+                return $response;
+            }
+        } else {
+            if (!password_verify($input["password"], $this->userGateway->getPasswordByEmail($input["user"]))) {
+                return $this->unauthorizedResponse();
+            }
+
+            $username = $this->userGateway->getUsername($input["user"]);
+            $jwt = $this->authController->processRequest($username, $this->userGateway->getAdmin($username));
+            $decodedJWT= $this->authController->validateJWT($jwt);
+
+            if (isset($decodedJWT['isAdmin'])){
+                $isAdmin = $decodedJWT['isAdmin'];
+            }
+
+            $response['status_code_header'] = 'HTTP/1.1 200 OK';
+            $response['body'] = json_encode([
+                'username' => $username,
+                'jwt' => $jwt,
+                'isAdmin' => $isAdmin
+            ]);
+            return $response;
+        }
+    }
+
+    private function checkEmailAndSend()
+    {
+        $input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!isset($input['email'])) {
+            return $this->unprocessableEntityResponse();
+        }
+
+        if (!$this->userGateway->emailExists($input["email"])) {
+            return $this->notFoundResponse();
+        } else {
+            setcookie("email_value", $input['email']);
+            $name = "Feral Presence Adviser";
+            $subject = "Reset Password";
+            $code = rand(10000, 99999);
+            $message = "Your confirmation code is: " . $code;
+            $headers = "From: " . $name . " \r\n";
+            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+            if (filter_var($input['email'], FILTER_VALIDATE_EMAIL)) {
+                if (mail($input['email'], $subject, $message, $headers)) {
+                    $response['status_code_header'] = 'HTTP/1.1 200 OK';
+                    $response['body'] = json_encode([
+                        'code' => $code
+                    ]);
+                } else {
+                    $response['status_code_header'] = 'HTTP/1.1 500 Internal Server Error';
+                    $response['body'] = null;
+                }
+                return $response;
+            } else {
+                return $this->conflictResponse("Invalid email address");
+            }
+        }
+    }
+
+    private function updateUserFromRequest()
+    {
+        $input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!isset($input['password'])) {
+            return $this->unprocessableEntityResponse();
+        }
+        $input['password'] = password_hash($input['password'], PASSWORD_DEFAULT);
+        $email = $_COOKIE['email_value'];
+        $input['email'] = $email;
+
+        $this->userGateway->setPassword($input);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = null;
+        return $response;
+    }
+
+    private function sendEmail()
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $this->authController->validateJWT($jwt);
+
+        $input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!isset($input['name']) || !isset($input['subject']) || !isset($input['email']) || !isset($input['message'])) {
+            return $this->unprocessableEntityResponse();
+        }
+
+        $headers = "From: " . $input['name'] . " <" . $input['email'] . ">\r\n";
+        $headers .= "Reply-To: " . $input['email'] . "\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+        if (filter_var($input['email'], FILTER_VALIDATE_EMAIL)) {
+            if (mail('feralpresenceadvise@gmail.com', $input['subject'], $input['message'], $headers)) {
+                $response['status_code_header'] = 'HTTP/1.1 200 OK';
+                $response['body'] = null;
+            } else {
+                error_log("Mail function failed");
+                $response['status_code_header'] = 'HTTP/1.1 500 Internal Server Error';
+                $response['body'] = json_encode([
+                    'error' => 'Internal Server Error'
+                ]);
+            }
+            return $response;
+        } else {
+            return $this->conflictResponse("Invalid email address");
+        }
+    }
+
+    private function validatePerson($input)
+    {
+        if (!isset($input['first_name'])) {
+            return false;
+        }
+        if (!isset($input['last_name'])) {
+            return false;
+        }
+        if (!isset($input['email'])) {
+            return false;
+        }
+        if (!isset($input['password'])) {
+            return false;
+        }
+        if (!isset($input['username'])) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private function unprocessableEntityResponse()
+    {
+        $response['status_code_header'] = 'HTTP/1.1 422 Unprocessable Entity';
+        $response['body'] = json_encode([
+            'error' => 'Invalid input'
+        ]);
+        return $response;
+    }
+
+    private function conflictResponse($message)
+    {
+        $response['status_code_header'] = 'HTTP/1.1 409 Conflict';
+        $response['body'] = json_encode([
+            'error' => $message
+        ]);
+        return $response;
+    }
+
+    private function unauthorizedResponse()
+    {
+        $response['status_code_header'] = 'HTTP/1.1 401 Unauthorized';
+        $response['body'] = json_encode([
+            'error' => "Incorrect password"
+        ]);
+        return $response;
+    }
+
+    private function notFoundResponse()
+    {
+        $response['status_code_header'] = 'HTTP/1.1 404 Not Found';
+        $response['body'] = json_encode([
+            'error' => "Not Found"
+        ]);
+        return $response;
+    }
+}
