@@ -1,48 +1,39 @@
 <?php
 
-class Database
+class UserGateway
 {
-    private $db = null;
+    private $db;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct($db)
     {
-        $this->connectDB(include('..\database\Config.php'));
+        $this->db = $db;
     }
 
-    /**
-     * Close your connection to DB
-     */
-    public function __destruct()
-    {
-        $this->db->close();
-    }
-
-    /**
-     * Connect to DB
-     */
-    public function connectDB($CONFIG)
+    public function insertUser(Array $input)
     {
         try {
-            $this->db = new mysqli($CONFIG["servername"], $CONFIG["username"],
-                $CONFIG["password"], $CONFIG["db"]);
+            $statement = $this->db->prepare('INSERT INTO users (first_name, last_name, email, password, username) VALUES (?, ?, ?, ?, ?)');
+            $statement->bind_param('sssss', $input['first_name'], $input['last_name'], $input['email'], $input['password'], $input['username']);
+            $statement->execute();
 
-//            if (!$this->db->connect_error) {
-//                echo "Successfully connected to DB";
-//            } else {
-//                echo "Not connected to DB";
-//            }
         } catch (PDOException $e) {
-            trigger_error("Could not connect to database: " . $e->getMessage(), E_USER_ERROR);
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
         }
     }
 
-    public function getConnection()
+    public function emailExists($email)
     {
-        return $this->db;
-    }
+        try {
+            $statement = $this->db->prepare('SELECT COUNT(*) AS exist FROM users WHERE email = ?');
+            $statement->bind_param('s', $email);
+            $statement->execute();
+            $result = $statement->get_result();
+            $row = $result->fetch_assoc();
+
+            if($row['exist'] == 1) {
+                return true;
+            }
+            return false;
 
 
         } catch (PDOException $e) {
@@ -52,7 +43,7 @@ class Database
     public function usernameExists($username)
     {
         try {
-            $statement = $this->Db->prepare('SELECT COUNT(*) AS exist FROM users WHERE username = ?');
+            $statement = $this->db->prepare('SELECT COUNT(*) AS exist FROM users WHERE username = ?');
             $statement->bind_param('s', $username);
             $statement->execute();
             $result = $statement->get_result();
@@ -69,11 +60,11 @@ class Database
         }
     }
 
-    public function setPassword($password, $email)
+    public function setPassword(Array $input)
     {
         try {
-            $statement = $this->Db->prepare('UPDATE users SET password = ? WHERE email = ?');
-            $statement->bind_param('ss', $password, $email);
+            $statement = $this->db->prepare('UPDATE users SET password = ? WHERE email = ?');
+            $statement->bind_param('ss', $input['password'], $input['email']);
             $statement->execute();
 
         } catch (PDOException $e) {
@@ -83,7 +74,7 @@ class Database
 
     public function getPasswordByEmail($email){
         try {
-            $statement = $this->Db->prepare('SELECT password FROM users WHERE email = ?');
+            $statement = $this->db->prepare('SELECT password FROM users WHERE email = ?');
             $statement->bind_param('s', $email);
             $statement->execute();
             $result = $statement->get_result();
@@ -98,7 +89,7 @@ class Database
 
     public function getPasswordByUsername($username){
         try {
-            $statement = $this->Db->prepare('SELECT password FROM users WHERE username = ?');
+            $statement = $this->db->prepare('SELECT password FROM users WHERE username = ?');
             $statement->bind_param('s', $username);
             $statement->execute();
             $result = $statement->get_result();
@@ -114,7 +105,7 @@ class Database
     public function getUsername($email)
     {
         try {
-            $statement = $this->Db->prepare('SELECT username FROM users WHERE email = ?');
+            $statement = $this->db->prepare('SELECT username FROM users WHERE email = ?');
             $statement->bind_param('s', $email);
             $statement->execute();
             $result = $statement->get_result();

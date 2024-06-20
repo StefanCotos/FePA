@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
-    <link rel="stylesheet" href="generic.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="sign_up.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="styles/generic.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/sign_up.css">
+    <link rel="stylesheet" href="styles/footer.css">
 </head>
 
 <body>
@@ -37,8 +37,8 @@
                 <div class="menu__help">Help</div>
             </a>
             <div class="menu__log_in--button half_button" id="profile">
-                <a class="left_half no-link-style" href="log_in.php">Log In</a>/
-                <a class="right_half no-link-style" href="sign_up.php">Sign Up</a>
+                <a class="left_half no-link-style" href="log_in.html">Log In</a>/
+                <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
             </div>
         </div>
         <div class="no-link-style menu_toggle" id="menu_visible">
@@ -49,8 +49,8 @@
     </header>
     <div class="menu__to_show" id="menu__to_show">
         <div class="menu__log_in--button half_button">
-            <a class="left_half no-link-style" href="log_in.php">Log In</a>/
-            <a class="right_half no-link-style" href="sign_up.php">Sign Up</a>
+            <a class="left_half no-link-style" href="log_in.html">Log In</a>/
+            <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
         </div>
         <a class="no-link-style" href="about.html">
             <div class="menu__about">About</div>
@@ -73,8 +73,8 @@
     </div>
     <div class="menu__to_show" id="profile_menu_to_show">
         <div class="menu__log_in--button half_button">
-            <a class="left_half no-link-style" href="log_in.php">Log In</a>/
-            <a class="right_half no-link-style" href="sign_up.php">Sign Up</a>
+            <a class="left_half no-link-style" href="log_in.html">Log In</a>/
+            <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
         </div>
         <a class="no-link-style">
             <div class="menu__admin">Account</div>
@@ -89,7 +89,7 @@
 </div>
 <main>
     <div class="block">
-        <form class="block__sign_up_form" id="sign_up_form" action="php/add_user.php" method="POST">
+        <form class="block__sign_up_form" id="sign_up_form">
             <div class="block__form_title"><b>Sign Up</b></div>
             <div class="name">
                 <div class="name_position">
@@ -117,7 +117,7 @@
             <div id="usernameMessage">Username exist, please choose another one!</div>
             <div class="log_in">
                 You already have an account?
-                <a class="no-link-style" href="log_in.php">Click here</a>.
+                <a class="no-link-style" href="log_in.html">Click here</a>.
             </div>
         </form>
     </div>
@@ -149,54 +149,9 @@
     </div>
     <div id="footer_item">© Copyright 2024, FePA</div>
 </footer>
-<script>
-    const mask = document.getElementById('mask');
-    const errorMessage = document.getElementById('errorMessage');
-    const existMessage = document.getElementById('existMessage');
-    const usernameMessage = document.getElementById('usernameMessage');
-    let val = '<?php echo $_GET['var']; ?>';
-    val = val.split("_");
-    const email_exist = val[0];
-    const different_password = val[1];
-    const username_exist = val[2];
-    const username = val[3];
 
-    if (email_exist === "false") {
-        if (different_password === "true") {
-            errorMessage.style.display = 'block';
-            mask.style.display = 'none';
-            setTimeout(function () {
-                errorMessage.style.display = 'none';
-                mask.style.display = 'block';
-            }, 5000);
-        } else {
-            if(username_exist === "false") {
-                localStorage.setItem('profileButton', username);
-                setTimeout(function () {
-                    window.location.href = 'index.html';
-                }, 1000);
-            }
-            else
-            {
-                usernameMessage.style.display = 'block';
-                mask.style.display = 'none';
-                setTimeout(function () {
-                    usernameMessage.style.display = 'none';
-                    mask.style.display = 'block';
-                }, 5000);
-            }
-        }
-    } else {
-        existMessage.style.display = 'block';
-        mask.style.display = 'none';
-        setTimeout(function () {
-            existMessage.style.display = 'none';
-            mask.style.display = 'block';
-        }, 5000);
-    }
-
-</script>
-<script src="javascript/menu_button.js"></script>
+<script src="scripts/create_user.js"></script>
+<script src="scripts/menu_button.js"></script>
 </body>
 
 </html>
