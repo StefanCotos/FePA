@@ -110,7 +110,7 @@
                 </div>
                 <script>
                     $(document).ready(function () {
-                        var reportData = JSON.parse(localStorage.getItem("reportData"));
+                        let reportData = JSON.parse(localStorage.getItem("reportData"));
                         console.log(reportData);
                         if (reportData) {
                             $("#postId").text(reportData.id);

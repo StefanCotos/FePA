@@ -1,5 +1,7 @@
 <?php
 
+use database\Database;
+
 include_once "../controllers/ReportController.php";
 include_once "../database/Database.php";
 

@@ -5,7 +5,7 @@ use database\Database;
 include_once "../database/Database.php";
 
 $db = new Database();
-$db->connectDB(include('../database/config.php'));
+$db->connectDB(include('../../config/config.php'));
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type = $_POST["animal_type"];
@@ -35,5 +35,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: ../report.html");
     exit;
 }
-
-?>

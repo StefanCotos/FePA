@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Preview post</title>
-    <link rel="stylesheet" href="styles/generic.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/postuntilapprove.css">
-    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="../../public/styles/generic.css">
+    <link rel="stylesheet" href="../../public/styles/header.css">
+    <link rel="stylesheet" href="../../public/styles/postuntilapprove.css">
+    <link rel="stylesheet" href="../../public/styles/footer.css">
 </head>
 
 <body>
     <div class="wrapper">
         <header id="to_show">
             <a href="index.html">
-                <img class="logo" src="assets/Logo.png" alt="Logo">
+                <img class="logo" src="../../public/images/Logo.png" alt="Logo">
             </a>
             <div class="menu">
                 <a class="no-link-style" href="admin.html">
@@ -25,7 +25,7 @@
                 <a class="no-link-style" href="about.html">
                     <div class="menu__about">About</div>
                 </a>
-                <a class="no-link-style" href="report.php">
+                <a class="no-link-style" href="report.html">
                     <div class="menu__report">Report</div>
                 </a>
                 <a class="no-link-style" href="see_reports.html">
@@ -34,7 +34,7 @@
                 <a class="no-link-style" href="statistics.html">
                     <div class="menu__statistics">Statistics</div>
                 </a>
-                <a class="no-link-style" href="contact.php">
+                <a class="no-link-style" href="contact.html">
                     <div class="menu__contact">Contact</div>
                 </a>
                 <a class="no-link-style" href="help.html">
@@ -62,7 +62,7 @@
             <a class="no-link-style" href="about.html">
                 <div class="menu__about">About</div>
             </a>
-            <a class="no-link-style" href="report.php">
+            <a class="no-link-style" href="report.html">
                 <div class="menu__report">Report</div>
             </a>
             <a class="no-link-style" href="see_reports.html">
@@ -71,7 +71,7 @@
             <a class="no-link-style" href="statistics.html">
                 <div class="menu__statistics">Statistics</div>
             </a>
-            <a class="no-link-style" href="contact.php">
+            <a class="no-link-style" href="contact.html">
                 <div class="menu__contact">Contact</div>
             </a>
             <a class="no-link-style" href="help.html">
@@ -109,7 +109,7 @@
 
                 <script>
                     $(document).ready(function () {
-                        var reportData = JSON.parse(localStorage.getItem("reportData"));
+                        let reportData = JSON.parse(localStorage.getItem("reportData"));
                         if (reportData) {
                             $("#reportId").text(reportData.id);
                             $("#reportType").text(reportData.animal_type);
@@ -133,7 +133,7 @@
     </main>
     <footer id="myFooter">
         <a href="index.html">
-            <img class="footer__logo" src="assets/Logo.png" alt="Logo">
+            <img class="footer__logo" src="../../public/images/Logo.png" alt="Logo">
         </a>
         <div class="footer__content">
             <div>Contact Us</div>
@@ -149,16 +149,16 @@
         </div>
         <div class="footer__content">
             <a class="no-link-style" href="about.html">About</a>
-            <a class="no-link-style" href="report.php">Report</a>
+            <a class="no-link-style" href="report.html">Report</a>
             <a class="no-link-style" href="see_reports.html">See reports</a>
             <a class="no-link-style" href="statistics.html">Statistics</a>
-            <a class="no-link-style" href="contact.php">Contact</a>
+            <a class="no-link-style" href="contact.html">Contact</a>
             <a class="no-link-style" href="help.html">Help</a>
         </div>
         <div id="footer_item">© Copyright 2024, FePA</div>
     </footer>
-    <script src="scripts/connected_user.js"></script>
-    <script src="scripts/menu_button.js"></script>
+    <script src="../../public/scripts/connected_user.js"></script>
+    <script src="../../public/scripts/menu_button.js"></script>
 </body>
 
 </html>
