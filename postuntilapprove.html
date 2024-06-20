@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>See Reports</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Preview post</title>
     <link rel="stylesheet" href="styles/generic.css">
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/see_reports.css">
+    <link rel="stylesheet" href="styles/postuntilapprove.css">
     <link rel="stylesheet" href="styles/footer.css">
 </head>
 
@@ -19,6 +19,9 @@
                 <img class="logo" src="assets/Logo.png" alt="Logo">
             </a>
             <div class="menu">
+                <a class="no-link-style" href="admin.html">
+                    <div class="menu__admin">Admin</div>
+                </a>
                 <a class="no-link-style" href="about.html">
                     <div class="menu__about">About</div>
                 </a>
@@ -53,6 +56,9 @@
                 <a class="left_half no-link-style" href="log_in.html">Log In</a>/
                 <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
             </div>
+            <a class="no-link-style" href="admin.html">
+                <div class="menu__admin">Admin</div>
+            </a>
             <a class="no-link-style" href="about.html">
                 <div class="menu__about">About</div>
             </a>
@@ -90,8 +96,33 @@
     </div>
     <main>
         <div class="block">
-            <a class="block__title"><b>Reports</b></a>
-            <div id="news"></div>
+            <div id="text">
+                <div id="reportDetails">
+                    <h2>Report Details</h2>
+                    <p><strong>ID:</strong> <span id="reportId"></span></p>
+                    <p><strong>Type:</strong> <span id="reportType"></span></p>
+                    <p><strong>City:</strong> <span id="reportCity"></span></p>
+                    <p><strong>Street:</strong> <span id="reportStreet"></span></p>
+                    <p><strong>Description:</strong> <span id="reportDescription"></span></p>
+                    <p><strong>Additional Aspects:</strong> <span id="reportAdditionalAspects"></span></p>
+                </div>
+
+                <script>
+                    $(document).ready(function () {
+                        var reportData = JSON.parse(localStorage.getItem("reportData"));
+                        if (reportData) {
+                            $("#reportId").text(reportData.id);
+                            $("#reportType").text(reportData.animal_type);
+                            $("#reportCity").text(reportData.city);
+                            $("#reportStreet").text(reportData.street);
+                            $("#reportDescription").text(reportData.descriptions);
+                            $("#reportAdditionalAspects").text(reportData.additional_aspects);
+                        } else {
+                            alert("No report data found!");
+                        }
+                    });
+                </script>
+            </div>
         </div>
         <div class="profile_menu" id="closable">
             <div class="profile_menu--options no-link-style">Account</div>
@@ -128,8 +159,6 @@
     </footer>
     <script src="scripts/connected_user.js"></script>
     <script src="scripts/menu_button.js"></script>
-    <script type="text/javascript" src="scripts/see_reports_data.js"></script>
-
 </body>
 
 </html>

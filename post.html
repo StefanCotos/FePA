@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FePA</title>
+    <title>Post</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="styles/generic.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/index.css">
@@ -96,8 +97,34 @@
     <main>
         <div class="block">
             <div id="text">
-                <div id="title">Report details</div>
-                De modificat dupa bunul plac interfata pentru a putea afisa informatii pe ea!
+                <div id="postDetails">
+                    <h2>Post details</h2>
+                    <p><strong>ID:</strong> <span id="postId"></span></p>
+                    <p><strong>Type:</strong> <span id="postType"></span></p>
+                    <p><strong>City:</strong> <span id="postCity"></span></p>
+                    <p><strong>Street:</strong> <span id="postStreet"></span></p>
+                    <p><strong>Description:</strong> <span id="postDescription"></span></p>
+                    <p><strong>Additional Aspects:</strong> <span id="postAdditionalAspects"></span></p>
+                    <!-- <p><strong>Image:</strong><br> <img id="postImage" alt="animal image" src=""
+                            style="max-width: 100%; height: auto;"></p> -->
+                </div>
+                <script>
+                    $(document).ready(function () {
+                        var reportData = JSON.parse(localStorage.getItem("reportData"));
+                        console.log(reportData);
+                        if (reportData) {
+                            $("#postId").text(reportData.id);
+                            $("#postType").text(reportData.animal_type);
+                            $("#postCity").text(reportData.city);
+                            $("#postStreet").text(reportData.street);
+                            $("#postDescription").text(reportData.descriptions);
+                            $("#postAdditionalAspects").text(reportData.additional_aspects);
+                            // $("#postImage").attr("src", reportData.image);
+                        } else {
+                            alert("No report data found!");
+                        }
+                    });
+                </script>
             </div>
         </div>
         <div class="profile_menu" id="closable">

@@ -1,5 +1,5 @@
 $.ajax({
-  url: "http://localhost/Web-Project/php/see_reports_data.php",
+  url: "http://localhost/Web-Project/php/see_notapproved_reports.php",
   type: "GET",
   dataType: "json",
   success: function (data) {
@@ -7,7 +7,22 @@ $.ajax({
     var html_append = "";
     $.each(data, function (index, item) {
       html_append +=
-        "<div class='preview' id='news-item' data-id='" +
+        "<tr>" +
+        "<td>" +
+        item.id +
+        "</td>" +
+        "<td>" +
+        item.animal_type +
+        "</td>" +
+        "<td>" +
+        item.city +
+        "</td>" +
+        "<td>" +
+        item.street +
+        "</td>" +
+        "<td><input class='view_post' type='button' id='View_post" +
+        item.id +
+        "' value='View post' data-id='" +
         item.id +
         "' data-animal_type='" +
         item.animal_type +
@@ -19,30 +34,12 @@ $.ajax({
         item.descriptions +
         "' data-additional_aspects='" +
         item.additional_aspects +
-        "'>" +
-        "<strong>Type: " +
-        item.animal_type +
-        "</strong><br>" +
-        "<img src='assets/Logo.png' class='news-logo' alt='logo'>" +
-        "<img src='" +
-        item.image +
-        "' class='news-image' alt='animals'>" +
-        "<div class='news-description'>" +
-        "<strong>Details:</strong><br>" +
-        item.descriptions +
-        "<br>" +
-        item.additional_aspects +
-        "<br>" +
-        item.city +
-        ". " +
-        item.street +
-        ".<br>..." +
-        "</div>" +
-        "</div>";
+        "'></td>" +
+        "</tr>";
     });
-    $("#news").html(html_append);
+    $("#reportsNotApproved").append(html_append);
 
-    $(".preview").click(function () {
+    $(".view_post").click(function () {
       var reportData = {
         id: $(this).data("id"),
         animal_type: $(this).data("animal_type"),
@@ -53,7 +50,7 @@ $.ajax({
       };
 
       localStorage.setItem("reportData", JSON.stringify(reportData));
-      window.location.href = "post.html";
+      window.location.href = "postuntilapprove.html";
     });
   },
   error: function (xhr, status, error) {

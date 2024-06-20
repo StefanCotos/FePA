@@ -99,41 +99,13 @@
                 <b>Users</b>
             </div>
             <div class="users">
-                <table>
+                <table id="usersTable">
                     <tr>
                         <th>ID</th>
                         <th>Last name</th>
                         <th>First name</th>
                         <th>E-mail address</th>
                         <th>Option</th>
-                    </tr>
-                    <tr>
-                        <td>571993</td>
-                        <td>Butnaru</td>
-                        <td>Ion George</td>
-                        <td>butnaruion@gmail.com</td>
-                        <td><input class="delete_button" type="submit" id="Delete_button1" value="Delete account"></td>
-                    </tr>
-                    <tr>
-                        <td>462391</td>
-                        <td>Grigor</td>
-                        <td>Vasile Mihai</td>
-                        <td>grigorvasile@gmail.com</td>
-                        <td><input class="delete_button" type="submit" id="Delete_button2" value="Delete account"></td>
-                    </tr>
-                    <tr>
-                        <td>478142</td>
-                        <td>Rosu</td>
-                        <td>Vlad Andrei</td>
-                        <td>rosuvlad@gmail.com</td>
-                        <td><input class="delete_button" type="submit" id="Delete_button3" value="Delete account"></td>
-                    </tr>
-                    <tr>
-                        <td>571201</td>
-                        <td>Verde</td>
-                        <td>Valeriu</td>
-                        <td>verdevaleriu@gmail.com</td>
-                        <td><input class="delete_button" type="submit" id="Delete_button4" value="Delete account"></td>
                     </tr>
                 </table>
             </div>
@@ -141,41 +113,13 @@
                 <b>Post approval request</b>
             </div>
             <div class="approve_post">
-                <table>
+                <table id="reportsNotApproved">
                     <tr>
                         <th>ID</th>
-                        <th>Last name</th>
-                        <th>First name</th>
-                        <th>E-mail address</th>
+                        <th>Type</th>
+                        <th>City</th>
+                        <th>Street</th>
                         <th>Option</th>
-                    </tr>
-                    <tr>
-                        <td>571993</td>
-                        <td>Butnaru</td>
-                        <td>Ion George</td>
-                        <td>butnaruion@gmail.com</td>
-                        <td><input class="view_post" type="submit" id="View_post1" value="View post"></td>
-                    </tr>
-                    <tr>
-                        <td>462391</td>
-                        <td>Grigor</td>
-                        <td>Vasile Mihai</td>
-                        <td>grigorvasile@gmail.com</td>
-                        <td><input class="view_post" type="submit" id="View_post2" value="View post"></td>
-                    </tr>
-                    <tr>
-                        <td>478142</td>
-                        <td>Rosu</td>
-                        <td>Vlad Andrei</td>
-                        <td>rosuvlad@gmail.com</td>
-                        <td><input class="view_post" type="submit" id="View_post3" value="View post"></td>
-                    </tr>
-                    <tr>
-                        <td>571201</td>
-                        <td>Verde</td>
-                        <td>Valeriu</td>
-                        <td>verdevaleriu@gmail.com</td>
-                        <td><input class="view_post" type="submit" id="View_post4" value="View post"></td>
                     </tr>
                 </table>
             </div>
@@ -210,6 +154,9 @@
     </footer>
     <script src="scripts/connected_user.js"></script>
     <script src="scripts/menu_button.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="scripts/see_users.js"></script>
+    <script type="text/javascript" src="scripts/see_notapproved_reports.js"></script>
 </body>
 
 </html>
