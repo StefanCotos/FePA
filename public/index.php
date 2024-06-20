@@ -18,7 +18,6 @@ $requestMethod = $_SERVER["REQUEST_METHOD"];
 
 switch ($uri[4]) {
     case 'user':
-
         $user = null;
         if (isset($uri[5])) {
             if ($uri[5] == 'exist') {
