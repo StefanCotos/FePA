@@ -19,7 +19,7 @@ document.getElementById('submit_form').addEventListener('submit', function (even
             message: message
         };
 
-        fetch(window.location.origin + '/Web_Project/src/dispatchers/user_dispatcher.php/user/contact', {
+        fetch(window.location.origin + '/Web_Project/public/index.php/user/contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

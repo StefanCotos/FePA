@@ -19,7 +19,7 @@
                 <img class="logo" src="../../public/images/Logo.png" alt="Logo">
             </a>
             <div class="menu">
-                <a class="no-link-style" href="admin.html">
+                <a class="no-link-style" id="admin" href="admin.html">
                     <div class="menu__admin">Admin</div>
                 </a>
                 <a class="no-link-style" href="about.html">
@@ -115,7 +115,7 @@
                             $("#reportType").text(reportData.animal_type);
                             $("#reportCity").text(reportData.city);
                             $("#reportStreet").text(reportData.street);
-                            $("#reportDescription").text(reportData.descriptions);
+                            $("#reportDescription").text(reportData.description);
                             $("#reportAdditionalAspects").text(reportData.additional_aspects);
                         } else {
                             alert("No report data found!");

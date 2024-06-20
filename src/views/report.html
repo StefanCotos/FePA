@@ -93,7 +93,7 @@
     <main>
         <div class="block">
             <div class="block__report_form">
-                <form id="submit_form" action="../php/formhandler.ini.php" method="POST">
+                <form id="submit_form">
                     <h1 class="block__report_form_title">Report</h1>
                     <label for="animal_type"><b>Animal type</b></label>
                     <input type="text" id="animal_type" name="animal_type" placeholder="Enter the animal type" required>
@@ -111,8 +111,10 @@
                             Here
                         </label>
                     </div>
-                    <input id="Photos" type="file" name="Photos" required>
+                    <input id="Photos" type="file" name="Photos">
                     <input class="no-link-style" type="submit" id="submit_button" value="Submit">
+                    <div id="mask">&nbsp;</div>
+                    <div id="notLogged">You are not logged in!</div>
                 </form>
             </div>
             <iframe class="block__report_map"
@@ -152,6 +154,7 @@
         </div>
         <div id="footer_item">© Copyright 2024, FePA</div>
     </footer>
+    <script src="../../public/scripts/create_report.js"></script>
     <script src="../../public/scripts/connected_user.js"></script>
     <script src="../../public/scripts/menu_button.js"></script>
 </body>

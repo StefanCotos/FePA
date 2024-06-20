@@ -1,5 +1,5 @@
 $.ajax({
-    url: "http://localhost/Web_Project/src/php/see_notapproved_reports.php",
+    url: window.location.origin + "/Web_Project/src/php/see_notapproved_reports.php",
     type: "GET",
     dataType: "json",
     success: function (data) {

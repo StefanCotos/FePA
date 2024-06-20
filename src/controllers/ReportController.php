@@ -1,57 +1,79 @@
 <?php
 
-include_once "../gateways/ReportGateway.php";
+namespace controllers;
+
+use ReportGateway;
+
+include_once __DIR__ . "/../gateways/ReportGateway.php";
+include_once __DIR__ . "/../controllers/AuthController.php";
 
 class ReportController
 {
-    private $db;
     private $requestMethod;
 
     private $reportGateway;
+    private $authController;
 
     public function __construct($db, $requestMethod)
     {
-        $this->db = $db;
         $this->requestMethod = $requestMethod;
 
         $this->reportGateway = new ReportGateway($db);
+        $this->authController = new AuthController($requestMethod);
+
     }
 
     public function processRequest()
-{
-    switch ($this->requestMethod) {
-        case 'POST':
-            $response = $this->createReportFromRequest();
-            break;
-        default:
-            $response = $this->notFoundResponse();
-            break;
-    }
-    header($response['status_code_header']);
-    if ($response['body']) {
-        echo $response['body'];
-    }
-}
-
-private function createReportFromRequest()
-{
-    $input = (array)json_decode(file_get_contents('php://input'), TRUE);
-    file_put_contents('php://stderr', print_r($input, TRUE)); // Adăugăm această linie pentru a loga input-ul
-    if (!$this->validateReport($input)) {
-        return $this->unprocessableEntityResponse();
+    {
+        switch ($this->requestMethod) {
+            case 'POST':
+                $response = $this->createReportFromRequest();
+                break;
+            default:
+                $response = $this->notFoundResponse();
+                break;
+        }
+        header($response['status_code_header']);
+        if ($response['body']) {
+            echo $response['body'];
+        }
     }
 
-    $this->reportGateway->insertReport($input);
-    $response['status_code_header'] = 'HTTP/1.1 201 Created';
-    $response['body'] = json_encode(['message' => 'Report created']);
-    return $response;
-}
+    private function createReportFromRequest()
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $this->authController->validateJWT($jwt);
 
+        $input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!$this->validateReport($input)) {
+            return $this->unprocessableEntityResponse();
+        }
+
+        $this->reportGateway->insertReport($input);
+        $response['status_code_header'] = 'HTTP/1.1 201 Created';
+        $response['body'] = null;
+        return $response;
+    }
 
 
     private function validateReport($input)
     {
-        return isset($input['animal_type'], $input['city'], $input['street'], $input['description']);
+        if (!isset($input['animal_type'])) {
+            return false;
+        }
+        if (!isset($input['city'])) {
+            return false;
+        }
+        if (!isset($input['street'])) {
+            return false;
+        }
+        if (!isset($input['description'])) {
+            return false;
+        }
+        if (!isset($input['additional_aspects'])) {
+            return false;
+        }
+        return true;
     }
 
     private function unprocessableEntityResponse()

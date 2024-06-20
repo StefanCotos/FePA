@@ -17,7 +17,7 @@ document.getElementById('forgot_form').addEventListener('submit', function (even
         email: email
     };
 
-    fetch(window.location.origin + '/Web_Project/src/dispatchers/user_dispatcher.php/user/forgot', {
+    fetch(window.location.origin + '/Web_Project/public/index.php/user/forgot', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ document.getElementById('forgot_form').addEventListener('submit', function (even
                                 password: password
                             };
 
-                            fetch(window.location.origin + '/Web_Project/src/dispatchers/user_dispatcher.php/user', {
+                            fetch(window.location.origin + '/Web_Project/public/index.php//user', {
                                 method: 'PUT',
                                 headers: {
                                     'Content-Type': 'application/json'

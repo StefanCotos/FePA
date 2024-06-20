@@ -12,7 +12,7 @@ class ReportGateway
     public function insertReport(array $input)
     {
         try {
-            $statement = $this->db->prepare('INSERT INTO reports (animal_type, city, street, descriptions, additional_aspects) VALUES (?, ?, ?, ?, ?)');
+            $statement = $this->db->prepare('INSERT INTO reports (animal_type, city, street, description, additional_aspects) VALUES (?, ?, ?, ?, ?)');
             $statement->bind_param('sssss', $input['animal_type'], $input['city'], $input['street'], $input['description'], $input['additional_aspects']);
             $statement->execute();
 

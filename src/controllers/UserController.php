@@ -4,7 +4,8 @@ namespace controllers;
 
 use UserGateway;
 
-include_once "..\gateways\UserGateway.php";
+include_once __DIR__."/../gateways/UserGateway.php";
+include_once __DIR__."/../controllers/AuthController.php";
 
 class UserController
 {

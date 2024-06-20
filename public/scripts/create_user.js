@@ -25,7 +25,7 @@ document.getElementById('sign_up_form').addEventListener('submit', function (eve
             username: username
         };
 
-        fetch(window.location.origin + '/Web_Project/src/dispatchers/user_dispatcher.php/user', {
+        fetch(window.location.origin + '/Web_Project/public/index.php//user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

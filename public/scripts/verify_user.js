@@ -12,7 +12,7 @@ document.getElementById('log_in_form').addEventListener('submit', function (even
         password: password
     };
 
-    fetch(window.location.origin + '/Web_Project/src/dispatchers/user_dispatcher.php/user/exist', {
+    fetch(window.location.origin + '/Web_Project/public/index.php/user/exist', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

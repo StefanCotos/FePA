@@ -13,7 +13,8 @@ class Database
      */
     public function __construct()
     {
-        $this->connectDB(include('../../config/config.php'));
+        $config = include __DIR__ . '/../../config/config.php';
+        $this->connectDB($config);
     }
 
     /**
