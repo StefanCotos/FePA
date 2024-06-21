@@ -1,5 +1,5 @@
 $.ajax({
-    url: window.location.origin + "/Web_Project/src/php/see_reports_data.php",
+    url: window.location.origin + "/Web_Project/public/index.php/report",
     type: "GET",
     dataType: "json",
     success: function (data) {

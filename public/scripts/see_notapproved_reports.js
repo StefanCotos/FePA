@@ -1,7 +1,10 @@
 $.ajax({
-    url: window.location.origin + "/Web_Project/src/php/see_notapproved_reports.php",
+    url: window.location.origin + "/Web_Project/public/index.php/report/not_approved",
     type: "GET",
     dataType: "json",
+    headers: {
+        'Authorization': 'Bearer ' + sessionStorage.getItem('jwt')
+    },
     success: function (data) {
         console.log(data);
         let html_append = "";

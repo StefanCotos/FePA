@@ -45,7 +45,7 @@ document.getElementById('sign_up_form').addEventListener('submit', function (eve
                 sessionStorage.setItem('profileButton', username);
                 sessionStorage.setItem('jwt', data.jwt);
                 setTimeout(function () {
-                    window.location.href = 'index.html';
+                    window.location.href = '/';
                 }, 2000);
             })
             .catch(error => {

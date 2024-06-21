@@ -162,4 +162,23 @@ class UserGateway
             trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
         }
     }
+
+    public function findAll()
+    {
+        try {
+            $statement = $this->db->prepare('SELECT * FROM users WHERE admin=0 ORDER BY id');
+            $statement->execute();
+            $result = $statement->get_result();
+
+            $data = [];
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+
+            return $data;
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
 }

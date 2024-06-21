@@ -11,8 +11,8 @@ const storedButtonText = sessionStorage.getItem('profileButton');
 const isAdmin = sessionStorage.getItem('isAdmin');
 
 if (isAdmin === '1') {
-    adminButton.style.display = 'flex';
-    adminButton1.style.display = 'flex';
+    adminButton.style.display = 'block';
+    adminButton1.style.display = 'block';
 }
 
 if (storedButtonText) {
@@ -58,7 +58,7 @@ if (ok) {
             sessionStorage.removeItem('profileButton');
             sessionStorage.removeItem('jwt');
             sessionStorage.removeItem('isAdmin');
-            window.location.href = 'index.html';
+            window.location.href = '/';
         }, 2000);
     });
 
@@ -67,7 +67,7 @@ if (ok) {
             sessionStorage.removeItem('profileButton');
             sessionStorage.removeItem('jwt');
             sessionStorage.removeItem('isAdmin');
-            window.location.href = 'index.html';
+            window.location.href = '/';
         }, 2000);
     });
 }
