@@ -9,8 +9,6 @@
         }
     },
     "require": {
-      "ext-mysqli": "*",
-      "ext-json": "*",
-      "ext-pdo": "*"
+        "php": "^7.4 || ^8.0"
     }
 }
