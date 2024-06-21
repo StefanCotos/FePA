@@ -51,16 +51,9 @@ switch ($uri[4]) {
 
 $request_uri = $_SERVER['REQUEST_URI'];
 
-if (preg_match('/^\/views\/(.*\.html)$/', $request_uri, $matches)) {
-    $page = $matches[1];
-    $file_path = __DIR__ . '/../src/views/' . $page;
-
-    if (file_exists($file_path)) {
-        echo file_get_contents($file_path);
-    } else {
-        http_response_code(404);
-        echo "Page not found!";
-    }
+// Redirecționează la index.html din src/views dacă se accesează rădăcina
+if ($request_uri == '/' || $request_uri == '/index.php') {
+    header('Location: /views/index.html');
     exit;
 }
 

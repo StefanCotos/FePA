@@ -1,9 +1,12 @@
 RewriteEngine On
 
+# Redirecționează cererile către index.html din src/views dacă accesează rădăcina
+RewriteRule ^$ views/index.html [L]
+
 # Redirecționează cererile către pagini HTML din src/views
 RewriteRule ^views/(.*)$ ../src/views/$1 [L]
 
-# Serve fișiere statice direct
+# Servește fișiere statice direct
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
