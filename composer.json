@@ -1,5 +1,19 @@
 {
     "name": "web_project/web_project",
+    "description": "A page for find animals! Report the loss or disappearance immediately and let's find them together. ",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cotos Stefan"
+        },
+        {
+            "name": "Burca Iulian-Stefan"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0"
+    },
     "require-dev": {
         "firebase/php-jwt": "^6.10"
     },
@@ -7,8 +21,5 @@
         "psr-4": {
             "Firebase\\PhpJwt\\": "src/"
         }
-    },
-    "require": {
-        "php": "^7.4 || ^8.0"
     }
 }
