@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="../../public/styles/header.css">
     <link rel="stylesheet" href="../../public/styles/statistics.css">
     <link rel="stylesheet" href="../../public/styles/footer.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="../../public/scripts/piechart_type.js"></script>
+    <script type="text/javascript" src="../../public/scripts/piechart_area.js"></script>
+
 </head>
 
 <body>
@@ -95,29 +102,27 @@
             <a class="block__title"><b>Statistics</b></a>
             <div class="statistics">
                 <div class="box">
-                    <p><b>Areas</b></p>
-                    <div class="content1">
-                        <div class="loader first">Bulevardul Chimiei<span>30%</span></div>
-                        <div class="loader second">Copou<span>41%</span></div>
-                        <div class="loader third">Miroslava<span>6%</span></div>
-                        <div class="loader fourth">Valea Lupului<span>23%</span></div>
-                    </div>
-                </div>
-                <div class="box">
-                    <p><b>Dangerous</b></p>
-                    <div class="content2">
-                        <div class="loader first">Very dangerous<span>15%</span></div>
-                        <div class="loader second">Rabid<span>25%</span></div>
-                        <div class="loader third">Harmless<span>60%</span></div>
-                    </div>
-                </div>
-                <div class="box">
                     <p><b>Types</b></p>
-                    <div class="content3">
-                        <div class="loader first">Dinosaurs<span>4%</span></div>
-                        <div class="loader second">Dogs<span>30%</span></div>
-                        <div class="loader third">Cats<span>50%</span></div>
-                        <div class="loader fourth">Snakes<span>16%</span></div>
+                    <div class="content1">
+                        <div id="piechart_type"></div>
+                    </div>
+                    <div class="export">
+                        <label class="export_text">Export like: </label>
+                        <label id="button" class="pdf_type">Pdf</label>
+                        <label id="button" class="csv_type">Csv</label>
+                        <label id="button" class="html_type">Html</label>
+                    </div>
+                </div>
+                <div class="box">
+                    <p><b>Areas</b></p>
+                    <div class="content2">
+                        <div id="piechart_area"></div>
+                    </div>
+                    <div class="export">
+                        <label class="export_text">Export like: </label>
+                        <label type="button" id="button" class="pdf_area">Pdf</label>
+                        <label type="button" id="button" class="csv_area">Csv</label>
+                        <label type="button" id="button" class="html_area">Html</label>
                     </div>
                 </div>
             </div>
@@ -156,6 +161,13 @@
     </footer>
     <script src="../../public/scripts/connected_user.js"></script>
     <script src="../../public/scripts/menu_button.js"></script>
+    <script src="../../public/scripts/generatePDF_area.js" defer></script>
+    <script src="../../public/scripts/generateCSV_area.js" defer></script>
+    <script src="../../public/scripts/generateHTML_area.js" defer></script>
+    <script src="../../public/scripts/generatePDF_type.js" defer></script>
+    <script src="../../public/scripts/generateCSV_type.js" defer></script>
+    <script src="../../public/scripts/generateHTML_type.js" defer></script>
+
 </body>
 
 </html>
