@@ -3,6 +3,7 @@ const profile_for_menu = document.getElementById('profile_for_menu');
 const profile_for_menu_to_show = document.getElementById('profile_for_menu_to_show');
 const profile_menu_to_show = document.getElementById('profile_menu_to_show');
 const adminButton = document.getElementById('admin');
+const adminButton1 = document.getElementById('admin1');
 let ok = false;
 
 const openMenu = document.getElementById("closable");
@@ -11,6 +12,7 @@ const isAdmin = sessionStorage.getItem('isAdmin');
 
 if (isAdmin === '1') {
     adminButton.style.display = 'flex';
+    adminButton1.style.display = 'flex';
 }
 
 if (storedButtonText) {

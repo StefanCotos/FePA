@@ -56,11 +56,41 @@ switch ($requestUri) {
     case '/':
         require __DIR__ . '/../src/views/index.html';
         break;
+    case '/admin.html':
+        require __DIR__ . '/../src/views/admin.html';
+        break;
     case '/about.html':
         require __DIR__ . '/../src/views/about.html';
         break;
+    case '/contact.html':
+        require __DIR__ . '/../src/views/contact.html';
+        break;
+    case '/help.html':
+        require __DIR__ . '/../src/views/help.html';
+        break;
+    case '/log_in.html':
+        require __DIR__ . '/../src/views/log_in.html';
+        break;
+    case '/post.html':
+        require __DIR__ . '/../src/views/post.html';
+        break;
+    case '/postuntilapprove.html':
+        require __DIR__ . '/../src/views/postuntilapprove.html';
+        break;
+    case '/report.html':
+        require __DIR__ . '/../src/views/report.html';
+        break;
+    case '/see_reports.html':
+        require __DIR__ . '/../src/views/see_reports.html';
+        break;
+    case '/sign_up.html':
+        require __DIR__ . '/../src/views/sign_up.html';
+        break;
+    case '/statistics.html':
+        require __DIR__ . '/../src/views/statistics.html';
+        break;
     default:
         http_response_code(404);
-        echo "Pagina nu a fost găsită.";
+        echo "Page not found.";
         break;
 }
