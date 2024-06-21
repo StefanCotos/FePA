@@ -16,10 +16,5 @@
     },
     "require-dev": {
         "firebase/php-jwt": "^6.10"
-    },
-    "autoload": {
-        "psr-4": {
-            "Firebase\\PhpJwt\\": "src/"
-        }
     }
 }
