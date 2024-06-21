@@ -1,17 +1,22 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 use controllers\UserController;
 use controllers\ReportController;
 use database\Database;
 
-include_once "..\src\database\Database.php";
-include_once "..\src\controllers\UserController.php";
-include_once "..\src\controllers\ReportController.php";
+include_once "../src/database/Database.php";
+include_once "../src/controllers/UserController.php";
+include_once "../src/controllers/ReportController.php";
 
 $db = new Database();
 
+$requestUri = $_SERVER['REQUEST_URI'];
+$requestUri = str_replace('/Web_Project', '', $requestUri);
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$requestUri = str_replace('/Web_Project', '', $uri);
 $uri = explode('/', $uri);
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
@@ -91,8 +96,5 @@ switch ($requestUri) {
                 header("HTTP/1.1 404 Not Found");
                 exit();
         }
-
-//        echo "Page not found.";
-//        break;
 }
 
