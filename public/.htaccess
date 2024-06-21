@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Redirecționează cererile către pagini HTML din src/views
+RewriteRule ^views/(.*)$ ../src/views/$1 [L]
+
+# Serve fișiere statice direct
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Servește index.php pentru toate celelalte cereri
+RewriteRule ^ index.php [L]
