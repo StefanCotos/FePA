@@ -29,15 +29,18 @@ switch ($uri[4]) {
             if ($uri[5] == 'contact') {
                 $user = "contact";
             }
+            if (is_numeric($uri[5])) {
+                $user = (int)$uri[5];
+            }
         }
 
         $controller = new UserController($db->getConnection(), $requestMethod, $user);
         $controller->processRequest();
         break;
     case 'report':
-        $report = null;
+//        $report = null;
 
-        $controller = new ReportController($db->getConnection(), $requestMethod, $report);
+        $controller = new ReportController($db->getConnection(), $requestMethod);
         $controller->processRequest();
         break;
     default:

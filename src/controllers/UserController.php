@@ -44,7 +44,7 @@ class UserController
                 $response = $this->updateUserFromRequest();
                 break;
             case 'DELETE':
-//                $response = $this->deleteUser($this->userId);
+                $response = $this->deleteUser($this->user);
                 break;
             default:
                 $response = $this->notFoundResponse();
@@ -214,6 +214,21 @@ class UserController
         } else {
             return $this->conflictResponse("Invalid email address");
         }
+    }
+
+    private function deleteUser($id)
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $this->authController->validateJWT($jwt);
+
+        $result = $this->userGateway->find($id);
+        if (! $result) {
+            return $this->notFoundResponse();
+        }
+        $this->userGateway->deleteUser($id);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = null;
+        return $response;
     }
 
     private function validatePerson($input)

@@ -8,5 +8,9 @@
             "Firebase\\PhpJwt\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+      "ext-mysqli": "*",
+      "ext-json": "*",
+      "ext-pdo": "*"
+    }
 }

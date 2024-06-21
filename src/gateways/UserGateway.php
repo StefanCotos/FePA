@@ -136,4 +136,30 @@ class UserGateway
             trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
         }
     }
+
+    public function find($id)
+    {
+        try {
+            $statement = $this->db->prepare('SELECT * FROM users WHERE id = ?');
+            $statement->bind_param('s', $id);
+            $statement->execute();
+            $result = $statement->get_result();
+            return $result->fetch_assoc();
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
+    public function deleteUser($id)
+    {
+        try {
+            $statement = $this->db->prepare('DELETE FROM users WHERE id = ?');
+            $statement->bind_param('s', $id);
+            $statement->execute();
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
 }
