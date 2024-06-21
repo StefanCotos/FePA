@@ -1,5 +1,5 @@
 {
-    "name": "my_project/my_project",
+    "name": "web_project/web_project",
     "require-dev": {
         "firebase/php-jwt": "^6.10"
     },

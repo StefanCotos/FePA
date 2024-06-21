@@ -49,13 +49,18 @@ switch ($uri[4]) {
 }*/
 
 
-$request_uri = $_SERVER['REQUEST_URI'];
+$requestUri = $_SERVER['REQUEST_URI'];
+$requestUri = str_replace('/Web_Project', '', $requestUri);
 
-// Redirecționează la index.html din src/views dacă se accesează rădăcina
-if ($request_uri == '/' || $request_uri == '/index.php') {
-    header('Location: /views/index.html');
-    exit;
+switch ($requestUri) {
+    case '/':
+        require __DIR__ . '/../src/views/index.html';
+        break;
+    case '/about.html':
+        require __DIR__ . '/../src/views/about.html';
+        break;
+    default:
+        http_response_code(404);
+        echo "Pagina nu a fost găsită.";
+        break;
 }
-
-// Pagină implicită dacă cererea nu este pentru un fișier HTML
-echo "Hello, Heroku!";

@@ -1,14 +1,7 @@
 RewriteEngine On
 
-# Redirecționează cererile către index.html din src/views dacă accesează rădăcina
-RewriteRule ^$ views/index.html [L]
-
-# Redirecționează cererile către pagini HTML din src/views
-RewriteRule ^views/(.*)$ ../src/views/$1 [L]
-
-# Servește fișiere statice direct
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ - [L]
-
-# Servește index.php pentru toate celelalte cereri
+# Redirecționează cererile către index.php dacă nu sunt fișiere sau directoare existente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ [NC]
 RewriteRule ^ index.php [L]
