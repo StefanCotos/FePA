@@ -96,4 +96,3 @@ switch ($requestUri) {
                 exit();
         }
 }
-
