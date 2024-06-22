@@ -34,7 +34,7 @@ document.getElementById('log_in_form').addEventListener('submit', function (even
             sessionStorage.setItem('jwt', data.jwt);
             sessionStorage.setItem('isAdmin', data.isAdmin);
             setTimeout(function () {
-                window.location.href = 'index.html';
+                window.location.href = '/';
             }, 2000);
         })
         .catch(error => {

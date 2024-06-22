@@ -10,13 +10,14 @@ include_once __DIR__ . "/../controllers/AuthController.php";
 class ReportController
 {
     private $requestMethod;
-
+    private $report;
     private $reportGateway;
     private $authController;
 
-    public function __construct($db, $requestMethod)
+    public function __construct($db, $requestMethod, $report)
     {
         $this->requestMethod = $requestMethod;
+        $this->report = $report;
 
         $this->reportGateway = new ReportGateway($db);
         $this->authController = new AuthController($requestMethod);
@@ -26,6 +27,13 @@ class ReportController
     public function processRequest()
     {
         switch ($this->requestMethod) {
+            case 'GET':
+                if ($this->report == "not_approved") {
+                    $response = $this->getNotApprovedReports();
+                } else {
+                    $response = $this->getApprovedReports();
+                }
+                break;
             case 'POST':
                 $response = $this->createReportFromRequest();
                 break;
@@ -55,6 +63,24 @@ class ReportController
         return $response;
     }
 
+    private function getApprovedReports()
+    {
+        $result = $this->reportGateway->getApprovedReports();
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
+    }
+
+    private function getNotApprovedReports()
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $this->authController->validateJWT($jwt);
+
+        $result = $this->reportGateway->getNotApprovedReports();
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
+    }
 
     private function validateReport($input)
     {

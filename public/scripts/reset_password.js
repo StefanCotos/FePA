@@ -59,7 +59,7 @@ document.getElementById('forgot_form').addEventListener('submit', function (even
                                 password: password
                             };
 
-                            fetch(window.location.origin + '/Web_Project/public/index.php//user', {
+                            fetch(window.location.origin + '/Web_Project/public/index.php/user', {
                                 method: 'PUT',
                                 headers: {
                                     'Content-Type': 'application/json'

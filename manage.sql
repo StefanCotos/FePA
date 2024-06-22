@@ -1,11 +1,12 @@
-CREATE TABLE Users
+CREATE TABLE users
 (
     id         INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name  VARCHAR(255) NOT NULL,
     email      VARCHAR(255) NOT NULL,
     password   VARCHAR(255) NOT NULL,
-    username   VARCHAR(255) NOT NULL
+    username   VARCHAR(255) NOT NULL,
+    admin      BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE reports
@@ -16,9 +17,10 @@ CREATE TABLE reports
     street             VARCHAR(255) NOT NULL,
     description        VARCHAR(255) NOT NULL,
     additional_aspects VARCHAR(255) NOT NULL,
-    is_approve         INT          NOT NULL
+    is_approve         INT          DEFAULT 0
 );
 
 ALTER TABLE users
     ADD COLUMN admin BOOLEAN DEFAULT FALSE;
 ALTER TABLE users DROP COLUMN admin;
+DROP TABLE reports;

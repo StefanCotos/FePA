@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Redirecționează cererile către index.php dacă nu sunt fișiere sau directoare existente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]

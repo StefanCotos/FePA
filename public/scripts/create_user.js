@@ -25,7 +25,7 @@ document.getElementById('sign_up_form').addEventListener('submit', function (eve
             username: username
         };
 
-        fetch(window.location.origin + '/Web_Project/public/index.php//user', {
+        fetch(window.location.origin + '/Web_Project/public/index.php/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ document.getElementById('sign_up_form').addEventListener('submit', function (eve
                 sessionStorage.setItem('profileButton', username);
                 sessionStorage.setItem('jwt', data.jwt);
                 setTimeout(function () {
-                    window.location.href = 'index.html';
+                    window.location.href = '/';
                 }, 2000);
             })
             .catch(error => {

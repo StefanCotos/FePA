@@ -3,6 +3,7 @@ const profile_for_menu = document.getElementById('profile_for_menu');
 const profile_for_menu_to_show = document.getElementById('profile_for_menu_to_show');
 const profile_menu_to_show = document.getElementById('profile_menu_to_show');
 const adminButton = document.getElementById('admin');
+const adminButton1 = document.getElementById('admin1');
 let ok = false;
 
 const openMenu = document.getElementById("closable");
@@ -10,7 +11,8 @@ const storedButtonText = sessionStorage.getItem('profileButton');
 const isAdmin = sessionStorage.getItem('isAdmin');
 
 if (isAdmin === '1') {
-    adminButton.style.display = 'flex';
+    adminButton.style.display = 'block';
+    adminButton1.style.display = 'block';
 }
 
 if (storedButtonText) {
@@ -56,7 +58,7 @@ if (ok) {
             sessionStorage.removeItem('profileButton');
             sessionStorage.removeItem('jwt');
             sessionStorage.removeItem('isAdmin');
-            window.location.href = 'index.html';
+            window.location.href = '/';
         }, 2000);
     });
 
@@ -65,7 +67,7 @@ if (ok) {
             sessionStorage.removeItem('profileButton');
             sessionStorage.removeItem('jwt');
             sessionStorage.removeItem('isAdmin');
-            window.location.href = 'index.html';
+            window.location.href = '/';
         }, 2000);
     });
 }

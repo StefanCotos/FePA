@@ -4,8 +4,8 @@ namespace controllers;
 
 use UserGateway;
 
-include_once __DIR__."/../gateways/UserGateway.php";
-include_once __DIR__."/../controllers/AuthController.php";
+include_once __DIR__ . "/../gateways/UserGateway.php";
+include_once __DIR__ . "/../controllers/AuthController.php";
 
 class UserController
 {
@@ -27,7 +27,7 @@ class UserController
     {
         switch ($this->requestMethod) {
             case 'GET':
-
+                $response = $this->getAllUsers();
                 break;
             case 'POST':
                 if ($this->user == "exist") {
@@ -44,7 +44,7 @@ class UserController
                 $response = $this->updateUserFromRequest();
                 break;
             case 'DELETE':
-//                $response = $this->deleteUser($this->userId);
+                $response = $this->deleteUser($this->user);
                 break;
             default:
                 $response = $this->notFoundResponse();
@@ -54,6 +54,17 @@ class UserController
         if ($response['body']) {
             echo $response['body'];
         }
+    }
+
+    private function getAllUsers()
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $this->authController->validateJWT($jwt);
+
+        $result = $this->userGateway->findAll();
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
     }
 
     private function createUserFromRequest()
@@ -97,9 +108,9 @@ class UserController
                 }
 
                 $jwt = $this->authController->processRequest($input['user'], $this->userGateway->getAdmin($input['user']));
-                $decodedJWT= $this->authController->validateJWT($jwt);
+                $decodedJWT = $this->authController->validateJWT($jwt);
 
-                if (isset($decodedJWT['isAdmin'])){
+                if (isset($decodedJWT['isAdmin'])) {
                     $isAdmin = $decodedJWT['isAdmin'];
                 }
 
@@ -118,9 +129,9 @@ class UserController
 
             $username = $this->userGateway->getUsername($input["user"]);
             $jwt = $this->authController->processRequest($username, $this->userGateway->getAdmin($username));
-            $decodedJWT= $this->authController->validateJWT($jwt);
+            $decodedJWT = $this->authController->validateJWT($jwt);
 
-            if (isset($decodedJWT['isAdmin'])){
+            if (isset($decodedJWT['isAdmin'])) {
                 $isAdmin = $decodedJWT['isAdmin'];
             }
 
@@ -214,6 +225,21 @@ class UserController
         } else {
             return $this->conflictResponse("Invalid email address");
         }
+    }
+
+    private function deleteUser($id)
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $this->authController->validateJWT($jwt);
+
+        $result = $this->userGateway->find($id);
+        if (!$result) {
+            return $this->notFoundResponse();
+        }
+        $this->userGateway->deleteUser($id);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = null;
+        return $response;
     }
 
     private function validatePerson($input)
