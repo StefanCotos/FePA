@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document
       .querySelector(".csv_type")
       .addEventListener("click", async function () {
-        const response = await fetch("../../src/php/piechart_type.php");
+        const response = await fetch(window.location.origin + '/Web_Project/public/index.php/report/piechart_type');
         const data = await response.json();
   
         let csvContent = "data:text/csv;charset=utf-8,";

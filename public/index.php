@@ -85,6 +85,12 @@ switch ($requestUri) {
                     if ($uri[5] == 'not_approved') {
                         $report = "not_approved";
                     }
+                    if ($uri[5] == 'piechart_area') {
+                        $report = "piechart_area";
+                    }
+                    if ($uri[5] == 'piechart_type') {
+                        $report = "piechart_type";
+                    }
                 }
 
                 $controller = new ReportController($db->getConnection(), $requestMethod, $report);

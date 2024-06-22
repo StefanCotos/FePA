@@ -30,6 +30,10 @@ class ReportController
             case 'GET':
                 if ($this->report == "not_approved") {
                     $response = $this->getNotApprovedReports();
+                } else if ($this->report == "piechart_area") {
+                    $response = $this->getAreaStatistics();
+                } else if ($this->report == "piechart_type") {
+                    $response = $this->getTypeStatistics();
                 } else {
                     $response = $this->getApprovedReports();
                 }
@@ -77,6 +81,22 @@ class ReportController
         $this->authController->validateJWT($jwt);
 
         $result = $this->reportGateway->getNotApprovedReports();
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
+    }
+
+    private function getAreaStatistics()
+    {
+        $result = $this->reportGateway->getAreaStatistics();
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
+    }
+
+    private function getTypeStatistics()
+    {
+        $result = $this->reportGateway->getTypeStatistics();
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($result);
         return $response;

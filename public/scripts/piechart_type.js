@@ -2,12 +2,12 @@ google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-  fetch("../php/piechart_type.php")
+  fetch(window.location.origin + '/Web_Project/public/index.php/report/piechart_type')
     .then((response) => response.json())
     .then((data) => {
       data.unshift(["Animal Type", "Count"]);
-      var dataTable = google.visualization.arrayToDataTable(data);
-      var options = {
+      let dataTable = google.visualization.arrayToDataTable(data);
+      let options = {
         backgroundColor: "transparent",
         chartArea: {
           width: "80%",
@@ -23,7 +23,7 @@ function drawChart() {
         pieSliceBorderColor: "transparent",
       };
 
-      var chart = new google.visualization.PieChart(
+      let chart = new google.visualization.PieChart(
         document.getElementById("piechart_type")
       );
       chart.draw(dataTable, options);

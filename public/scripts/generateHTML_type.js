@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document
       .querySelector(".html_type")
       .addEventListener("click", async function () {
-        const response = await fetch("../../src/php/piechart_type.php");
+        const response = await fetch(window.location.origin + '/Web_Project/public/index.php/report/piechart_type');
         const data = await response.json();
   
         let htmlContent =
-          "<!DOCTYPE html><html><head><title>Statistics</title></head><body>";
+          "<!DOCTYPE html><html lang='en'><head><title>Statistics</title></head><body>";
         htmlContent += "<h1>Statistics Report</h1>";
   
         htmlContent += "<table border='1'><tr><th>Type</th><th>Count</th></tr>";
@@ -21,8 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
           type: "text/html;charset=utf-8;",
         });
         const link = document.createElement("a");
-        const url = URL.createObjectURL(blob);
-        link.href = url;
+          link.href = URL.createObjectURL(blob);
         link.download = "statisticsTypes.html";
         link.click();
       });

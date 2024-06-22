@@ -2,12 +2,12 @@ google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-  fetch("../php/piechart_area.php")
+  fetch(window.location.origin + '/Web_Project/public/index.php/report/piechart_area')
     .then((response) => response.json())
     .then((data) => {
       data.unshift(["City", "Count"]);
-      var dataTable = google.visualization.arrayToDataTable(data);
-      var options = {
+      let dataTable = google.visualization.arrayToDataTable(data);
+      let options = {
         backgroundColor: "transparent",
         chartArea: {
           width: "80%",
@@ -23,7 +23,7 @@ function drawChart() {
         pieSliceBorderColor: "transparent",
       };
 
-      var chart = new google.visualization.PieChart(
+      let chart = new google.visualization.PieChart(
         document.getElementById("piechart_area")
       );
       chart.draw(dataTable, options);
