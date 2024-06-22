@@ -9,6 +9,8 @@ document.getElementById("submit_form").addEventListener("submit", function (even
         let street = document.getElementById("street").value;
         let description = document.getElementById("description").value;
         let additional_aspects = document.getElementById("additional_aspects").value;
+        let images = document.getElementById("Photos");
+        const files = images.files;
 
         const data = {
             animal_type: animal_type,
@@ -35,9 +37,52 @@ document.getElementById("submit_form").addEventListener("submit", function (even
                         throw new Error(errorData.error);
                     });
                 }
+                return response.json();
             })
             .then((data) => {
                 console.log("Report created successfully", data);
+
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        const base64String = e.target.result.split(',')[1];
+                        const data1 = {
+                            type: file.type,
+                            base64: base64String,
+                            reportId: data.reportId
+                        };
+
+                        fetch(
+                            window.location.origin + "/Web_Project/public/index.php/image",
+                            {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    'Authorization': 'Bearer ' + jwt
+                                },
+                                body: JSON.stringify(data1),
+                            }
+                        )
+                            .then((response) => {
+                                if (!response.ok) {
+                                    return response.json().then((errorData) => {
+                                        throw new Error(errorData.error);
+                                    });
+                                }
+                            })
+                            .then((data) => {
+                                console.log("Image created successfully", data);
+                            })
+                            .catch((error) => {
+                                console.error("Error:", error);
+                            });
+
+                    };
+                    reader.readAsDataURL(file);
+                }
+
                 setTimeout(function () {
                     window.location.reload();
                 }, 2000);

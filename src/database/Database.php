@@ -42,7 +42,7 @@ class Database
     /**
      * Connect to DB
      */
-    public function connectDB()
+    private function connectDB()
     {
         try {
             $this->db = new mysqli($_ENV['DB_HOST'], $_ENV['DB_USERNAME'],

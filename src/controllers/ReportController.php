@@ -61,9 +61,11 @@ class ReportController
             return $this->unprocessableEntityResponse();
         }
 
-        $this->reportGateway->insertReport($input);
+        $reportId = $this->reportGateway->insertReport($input);
         $response['status_code_header'] = 'HTTP/1.1 201 Created';
-        $response['body'] = null;
+        $response['body'] = json_encode([
+            "reportId" => $reportId
+        ]);
         return $response;
     }
 

@@ -16,6 +16,8 @@ class ReportGateway
             $statement->bind_param('sssss', $input['animal_type'], $input['city'], $input['street'], $input['description'], $input['additional_aspects']);
             $statement->execute();
 
+            return $this->db->insert_id;
+
         } catch (PDOException $e) {
             trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
         }

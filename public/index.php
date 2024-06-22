@@ -3,13 +3,17 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+
 use controllers\UserController;
 use controllers\ReportController;
+use controllers\ImageController;
 use database\Database;
 
 include_once "../src/database/Database.php";
 include_once "../src/controllers/UserController.php";
 include_once "../src/controllers/ReportController.php";
+include_once "../src/controllers/ImageController.php";
+
 
 $db = new Database();
 
@@ -95,6 +99,12 @@ switch ($requestUri) {
                 }
 
                 $controller = new ReportController($db->getConnection(), $requestMethod, $report);
+                $controller->processRequest();
+                break;
+            case 'image':
+                $image = null;
+
+                $controller = new ImageController($db->getConnection(), $requestMethod, $image);
                 $controller->processRequest();
                 break;
             default:

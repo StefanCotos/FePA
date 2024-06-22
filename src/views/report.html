@@ -96,7 +96,7 @@
     <main>
         <div class="block">
             <div class="block__report_form">
-                <form id="submit_form">
+                <form id="submit_form" enctype="multipart/form-data">
                     <h1 class="block__report_form_title">Report</h1>
                     <label for="animal_type"><b>Animal type</b></label>
                     <input type="text" id="animal_type" name="animal_type" placeholder="Enter the animal type" required>
@@ -114,7 +114,7 @@
                             Here
                         </label>
                     </div>
-                    <input id="Photos" type="file" name="Photos">
+                    <input id="Photos" type="file" name="Photos" accept=".jpg,.png,.jpeg" multiple>
                     <input class="no-link-style" type="submit" id="submit_button" value="Submit">
                     <div id="mask">&nbsp;</div>
                     <div id="notLogged">You are not logged in!</div>

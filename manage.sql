@@ -20,7 +20,15 @@ CREATE TABLE reports
     is_approve         INT          DEFAULT 0
 );
 
-ALTER TABLE users
+CREATE TABLE images
+(
+    id                 INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name               VARCHAR(255) NOT NULL,
+    report_id          INT          NOT NULL,
+    FOREIGN KEY (report_id) REFERENCES reports(id)
+);
+
+/*ALTER TABLE users
     ADD COLUMN admin BOOLEAN DEFAULT FALSE;
 ALTER TABLE users DROP COLUMN admin;
-DROP TABLE reports;
+DROP TABLE reports;*/
