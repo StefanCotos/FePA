@@ -2,12 +2,14 @@
 
 namespace controllers;
 
+require_once __DIR__.'/../../vendor/autoload.php';
+
 use DateTimeImmutable;
 use Exception;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-require_once __DIR__.'/../../vendor/autoload.php';
+
 
 class AuthController
 {
