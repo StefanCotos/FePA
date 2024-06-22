@@ -20,7 +20,15 @@ $uri = explode('/', $uri);
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-switch ($requestUri) {
+
+echo 'DB_HOST: ' . $_ENV['DB_HOST'] . '<br>';
+echo 'DB_USERNAME: ' . $_ENV['DB_USERNAME'] . '<br>';
+echo 'DB_PASSWORD: ' . $_ENV['DB_PASSWORD'] . '<br>';
+echo 'DB_DATABASE: ' . $_ENV['DB_DATABASE'] . '<br>';
+echo 'DB_PORT: ' . $_ENV['DB_PORT'] . '<br>';
+
+
+/*switch ($requestUri) {
     case '/':
         require __DIR__ . '/../src/views/index.html';
         break;
@@ -101,4 +109,4 @@ switch ($requestUri) {
                 header("HTTP/1.1 404 Not Found");
                 exit();
         }
-}
+}*/
