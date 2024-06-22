@@ -1,8 +1,12 @@
 <?php
 
 namespace database;
+
+require_once __DIR__.'/../../vendor/autoload.php';
+
 use mysqli;
 use PDOException;
+use Dotenv\Dotenv;
 
 class Database
 {
@@ -13,8 +17,16 @@ class Database
      */
     public function __construct()
     {
-        $config = include __DIR__ . '/../../config/config.php';
-        $this->connectDB($config);
+        $dotenv = Dotenv::createImmutable(__DIR__ .'/../..');
+        $dotenv->load();
+
+        /*echo 'DB_HOST: ' . $_ENV['DB_HOST'] . '<br>';
+        echo 'DB_USERNAME: ' . $_ENV['DB_USERNAME'] . '<br>';
+        echo 'DB_PASSWORD: ' . $_ENV['DB_PASSWORD'] . '<br>';
+        echo 'DB_DATABASE: ' . $_ENV['DB_DATABASE'] . '<br>';
+        echo 'DB_PORT: ' . $_ENV['DB_PORT'] . '<br>';*/
+
+        $this->connectDB();
     }
 
     /**
@@ -28,11 +40,11 @@ class Database
     /**
      * Connect to DB
      */
-    public function connectDB($CONFIG)
+    public function connectDB()
     {
         try {
-            $this->db = new mysqli($CONFIG["servername"], $CONFIG["username"],
-                $CONFIG["password"], $CONFIG["db"]);
+            $this->db = new mysqli($_ENV['DB_HOST'], $_ENV['DB_USERNAME'],
+                $_ENV['DB_PASSWORD'], $_ENV['DB_DATABASE'], $_ENV['DB_PORT']);
 
 //            if (!$this->db->connect_error) {
 //                echo "Successfully connected to DB";
