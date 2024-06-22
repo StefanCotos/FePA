@@ -17,8 +17,23 @@ class Database
      */
     public function __construct()
     {
-        $dotenv = Dotenv::createImmutable(__DIR__ .'/../..');
-        $dotenv->load();
+        if (isset($_ENV['DB_HOST'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_DATABASE'], $_ENV['DB_PORT'])) {
+            // Utilizează variabilele de mediu pentru conexiunea la baza de date
+            $host = $_ENV['DB_HOST'];
+            $username = $_ENV['DB_USERNAME'];
+            $password = $_ENV['DB_PASSWORD'];
+            $database = $_ENV['DB_DATABASE'];
+            $port = $_ENV['DB_PORT'];
+        } else {
+            // Poți trata aici cazul în care variabilele nu sunt setate corect
+            die('Variabilele de mediu nu sunt setate corect pentru conexiunea la baza de date.');
+        }
+
+        // Afișează variabilele pentru debug (opțional)
+        echo "Host: $host, Username: $username, Database: $database, Port: $port<br>";
+
+//        $dotenv = Dotenv::createImmutable(__DIR__ .'/../..');
+//        $dotenv->load();
 
         /*echo 'DB_HOST: ' . $_ENV['DB_HOST'] . '<br>';
         echo 'DB_USERNAME: ' . $_ENV['DB_USERNAME'] . '<br>';
