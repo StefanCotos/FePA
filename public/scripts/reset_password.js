@@ -33,7 +33,7 @@ document.getElementById('forgot_form').addEventListener('submit', function (even
             return response.json();
         })
         .then(data => {
-            console.log('Email send', data);
+            console.log('Email send');
             loginForm.style.display = "none";
             forgotForm.style.display = "none";
             setTimeout(function () {

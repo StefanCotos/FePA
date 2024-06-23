@@ -1,0 +1,21 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<rss version="2.0">
+    <channel>
+        <title>Exemplu Flux RSS</title>
+        <link>http://www.exemplu.com/rss</link>
+        <description>Aceasta este o descriere a fluxului RSS</description>
+        <lastBuildDate>Fri, 22 Jun 2024 12:00:00 GMT</lastBuildDate>
+        <item>
+            <title>Titlu articol 1</title>
+            <link>http://www.exemplu.com/articol1</link>
+            <description>O descriere a articolului 1</description>
+            <pubDate>Fri, 21 Jun 2024 09:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Titlu articol 2</title>
+            <link>http://www.exemplu.com/articol2</link>
+            <description>O descriere a articolului 2</description>
+            <pubDate>Thu, 20 Jun 2024 15:30:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
