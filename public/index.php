@@ -14,7 +14,6 @@ include_once "../src/controllers/UserController.php";
 include_once "../src/controllers/ReportController.php";
 include_once "../src/controllers/ImageController.php";
 
-
 $db = new Database();
 
 $requestUri = $_SERVER['REQUEST_URI'];

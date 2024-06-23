@@ -2,10 +2,13 @@
 
 namespace controllers;
 
+use mail_sender\MailSender;
 use UserGateway;
 
 include_once __DIR__ . "/../gateways/UserGateway.php";
 include_once __DIR__ . "/../controllers/AuthController.php";
+include_once __DIR__ . "/../mail_sender/MailSender.php";
+
 
 class UserController
 {
@@ -13,6 +16,7 @@ class UserController
     private $user;
     private $userGateway;
     private $authController;
+    private $sendEmail;
 
     public function __construct($db, $requestMethod, $user)
     {
@@ -21,6 +25,7 @@ class UserController
 
         $this->userGateway = new UserGateway($db);
         $this->authController = new AuthController($requestMethod);
+        $this->sendEmail = new MailSender();
     }
 
     public function processRequest()
@@ -160,11 +165,9 @@ class UserController
             $subject = "Reset Password";
             $code = rand(10000, 99999);
             $message = "Your confirmation code is: " . $code;
-            $headers = "From: " . $name . " \r\n";
-            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
             if (filter_var($input['email'], FILTER_VALIDATE_EMAIL)) {
-                if (mail($input['email'], $subject, $message, $headers)) {
+                if ($this->sendEmail->sendEmail($name, "fepawebsite@gmail.com", $input['email'], $subject, $message)) {
                     $response['status_code_header'] = 'HTTP/1.1 200 OK';
                     $response['body'] = json_encode([
                         'code' => $code
@@ -206,12 +209,8 @@ class UserController
             return $this->unprocessableEntityResponse();
         }
 
-        $headers = "From: " . $input['name'] . " <" . $input['email'] . ">\r\n";
-        $headers .= "Reply-To: " . $input['email'] . "\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
         if (filter_var($input['email'], FILTER_VALIDATE_EMAIL)) {
-            if (mail('feralpresenceadvise@gmail.com', $input['subject'], $input['message'], $headers)) {
+            if ($this->sendEmail->sendEmail($input['name'], $input['email'], "feralpresenceadvise@gmail.com", $input['subject'], $input['message'])) {
                 $response['status_code_header'] = 'HTTP/1.1 200 OK';
                 $response['body'] = null;
             } else {

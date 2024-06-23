@@ -8,7 +8,6 @@ use Cloudinary\Api\Exception\ApiError;
 use Dotenv\Dotenv;
 use Cloudinary\Api\Upload\UploadApi;
 use Cloudinary\Configuration\Configuration;
-use finfo;
 
 class LoadImages
 {
