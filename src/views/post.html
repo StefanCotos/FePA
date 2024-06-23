@@ -8,55 +8,18 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="styles/generic.css">
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/post.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <header id="to_show">
-            <a href="/">
-                <img class="logo" src="images/Logo.png" alt="Logo">
-            </a>
-            <div class="menu">
-                <a class="no-link-style" id="admin" href="admin.html">
-                    <div class="menu__admin">Admin</div>
-                </a>
-                <a class="no-link-style" href="about.html">
-                    <div class="menu__about">About</div>
-                </a>
-                <a class="no-link-style" href="report.html">
-                    <div class="menu__report">Report</div>
-                </a>
-                <a class="no-link-style" href="see_reports.html">
-                    <div class="menu__see_reports">See Reports</div>
-                </a>
-                <a class="no-link-style" href="statistics.html">
-                    <div class="menu__statistics">Statistics</div>
-                </a>
-                <a class="no-link-style" href="contact.html">
-                    <div class="menu__contact">Contact</div>
-                </a>
-                <a class="no-link-style" href="help.html">
-                    <div class="menu__help">Help</div>
-                </a>
-                <div class="menu__log_in--button half_button" id="profile">
-                    <a class="left_half no-link-style" href="log_in.html">Log In</a>/
-                    <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
-                </div>
-            </div>
-            <div class="no-link-style menu_toggle" id="menu_visible">
-                <div id="menu_toggle__line1"></div>
-                <div id="menu_toggle__line2"></div>
-                <div id="menu_toggle__line3"></div>
-            </div>
-        </header>
-        <div class="menu__to_show" id="menu__to_show">
-            <div class="menu__log_in--button half_button" id="profile_for_menu">
-                <a class="left_half no-link-style" href="log_in.html">Log In</a>/
-                <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
-            </div>
-            <a class="no-link-style" id="admin1" href="admin.html">
+<div class="wrapper">
+    <header id="to_show">
+        <a href="/">
+            <img class="logo" src="images/Logo.png" alt="Logo">
+        </a>
+        <div class="menu">
+            <a class="no-link-style" id="admin" href="admin.html">
                 <div class="menu__admin">Admin</div>
             </a>
             <a class="no-link-style" href="about.html">
@@ -77,88 +40,129 @@
             <a class="no-link-style" href="help.html">
                 <div class="menu__help">Help</div>
             </a>
-        </div>
-        <div class="menu__to_show" id="profile_menu_to_show">
-            <div class="menu__log_in--button half_button" id="profile_for_menu_to_show">
+            <div class="menu__log_in--button half_button" id="profile">
                 <a class="left_half no-link-style" href="log_in.html">Log In</a>/
                 <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
             </div>
-            <a class="no-link-style">
-                <div class="menu__admin">Account</div>
-            </a>
-            <a class="no-link-style">
-                <div class="menu__about">Settings</div>
-            </a>
-            <a class="no-link-style" id="logout_menu">
-                <div class="menu__report">Log Out</div>
-            </a>
+        </div>
+        <div class="no-link-style menu_toggle" id="menu_visible">
+            <div id="menu_toggle__line1"></div>
+            <div id="menu_toggle__line2"></div>
+            <div id="menu_toggle__line3"></div>
+        </div>
+    </header>
+    <div class="menu__to_show" id="menu__to_show">
+        <div class="menu__log_in--button half_button" id="profile_for_menu">
+            <a class="left_half no-link-style" href="log_in.html">Log In</a>/
+            <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
+        </div>
+        <a class="no-link-style" id="admin1" href="admin.html">
+            <div class="menu__admin">Admin</div>
+        </a>
+        <a class="no-link-style" href="about.html">
+            <div class="menu__about">About</div>
+        </a>
+        <a class="no-link-style" href="report.html">
+            <div class="menu__report">Report</div>
+        </a>
+        <a class="no-link-style" href="see_reports.html">
+            <div class="menu__see_reports">See Reports</div>
+        </a>
+        <a class="no-link-style" href="statistics.html">
+            <div class="menu__statistics">Statistics</div>
+        </a>
+        <a class="no-link-style" href="contact.html">
+            <div class="menu__contact">Contact</div>
+        </a>
+        <a class="no-link-style" href="help.html">
+            <div class="menu__help">Help</div>
+        </a>
+    </div>
+    <div class="menu__to_show" id="profile_menu_to_show">
+        <div class="menu__log_in--button half_button" id="profile_for_menu_to_show">
+            <a class="left_half no-link-style" href="log_in.html">Log In</a>/
+            <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
+        </div>
+        <a class="no-link-style">
+            <div class="menu__admin">Account</div>
+        </a>
+        <a class="no-link-style">
+            <div class="menu__about">Settings</div>
+        </a>
+        <a class="no-link-style" id="logout_menu">
+            <div class="menu__report">Log Out</div>
+        </a>
+    </div>
+</div>
+<main>
+    <div class="block">
+        <div id="text">
+            <div id="postDetails">
+                <h2>Post details</h2>
+                <p><strong>ID:</strong> <span id="postId"></span></p>
+                <p><strong>Type:</strong> <span id="postType"></span></p>
+                <p><strong>City:</strong> <span id="postCity"></span></p>
+                <p><strong>Street:</strong> <span id="postStreet"></span></p>
+                <p><strong>Description:</strong> <span id="postDescription"></span></p>
+                <p><strong>Additional Aspects:</strong> <span id="postAdditionalAspects"></span></p>
+                <p><strong>Images:</strong>
+                <div id="images">
+                </div>
+
+            </div>
+            <script type="text/javascript" src="scripts/see_images.js"></script>
+            <script type="text/javascript" src="scripts/slideshow.js"></script>
+            <script>
+                $(document).ready(function () {
+                    let reportData = JSON.parse(localStorage.getItem("reportData"));
+                    console.log(reportData);
+                    if (reportData) {
+                        $("#postId").text(reportData.id);
+                        $("#postType").text(reportData.animal_type);
+                        $("#postCity").text(reportData.city);
+                        $("#postStreet").text(reportData.street);
+                        $("#postDescription").text(reportData.description);
+                        $("#postAdditionalAspects").text(reportData.additional_aspects);
+                        see_images(reportData.id);
+                    } else {
+                        alert("No report data found!");
+                    }
+                });
+            </script>
         </div>
     </div>
-    <main>
-        <div class="block">
-            <div id="text">
-                <div id="postDetails">
-                    <h2>Post details</h2>
-                    <p><strong>ID:</strong> <span id="postId"></span></p>
-                    <p><strong>Type:</strong> <span id="postType"></span></p>
-                    <p><strong>City:</strong> <span id="postCity"></span></p>
-                    <p><strong>Street:</strong> <span id="postStreet"></span></p>
-                    <p><strong>Description:</strong> <span id="postDescription"></span></p>
-                    <p><strong>Additional Aspects:</strong> <span id="postAdditionalAspects"></span></p>
-                    <!-- <p><strong>Image:</strong><br> <img id="postImage" alt="animal image" src=""
-                            style="max-width: 100%; height: auto;"></p> -->
-                </div>
-                <script>
-                    $(document).ready(function () {
-                        let reportData = JSON.parse(localStorage.getItem("reportData"));
-                        console.log(reportData);
-                        if (reportData) {
-                            $("#postId").text(reportData.id);
-                            $("#postType").text(reportData.animal_type);
-                            $("#postCity").text(reportData.city);
-                            $("#postStreet").text(reportData.street);
-                            $("#postDescription").text(reportData.description);
-                            $("#postAdditionalAspects").text(reportData.additional_aspects);
-                            // $("#postImage").attr("src", reportData.image);
-                        } else {
-                            alert("No report data found!");
-                        }
-                    });
-                </script>
-            </div>
-        </div>
-        <div class="profile_menu" id="closable">
-            <div class="profile_menu--options no-link-style">Account</div>
-            <div class="profile_menu--options no-link-style">Settings</div>
-            <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
-        </div>
+    <div class="profile_menu" id="closable">
+        <div class="profile_menu--options no-link-style">Account</div>
+        <div class="profile_menu--options no-link-style">Settings</div>
+        <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
+    </div>
 
-    </main>
-    <footer id="myFooter">
-        <a href="/">
-            <img class="footer__logo" src="images/Logo.png" alt="Logo">
+</main>
+<footer id="myFooter">
+    <a href="/">
+        <img class="footer__logo" src="images/Logo.png" alt="Logo">
+    </a>
+    <div class="footer__content">
+        <div>Contact Us</div>
+        <a class="no-link-style" href="mailto:feralpresenceadvise@gmail.com">
+            feralpresenceadvise@gmail.com
         </a>
-        <div class="footer__content">
-            <div>Contact Us</div>
-            <a class="no-link-style" href="mailto:feralpresenceadvise@gmail.com">
-                feralpresenceadvise@gmail.com
-            </a>
-            <a class="no-link-style" href="tel:+40747816344">
-                Tel: +40 747 816 344
-            </a>
-        </div>
-        <div class="footer__content">
-            <a class="no-link-style" href="about.html">About</a>
-            <a class="no-link-style" href="report.html">Report</a>
-            <a class="no-link-style" href="see_reports.html">See reports</a>
-            <a class="no-link-style" href="statistics.html">Statistics</a>
-            <a class="no-link-style" href="contact.html">Contact</a>
-            <a class="no-link-style" href="help.html">Help</a>
-        </div>
-        <div id="footer_item">© Copyright 2024, FePA</div>
-    </footer>
-    <script src="scripts/connected_user.js"></script>
-    <script src="scripts/menu_button.js"></script>
+        <a class="no-link-style" href="tel:+40747816344">
+            Tel: +40 747 816 344
+        </a>
+    </div>
+    <div class="footer__content">
+        <a class="no-link-style" href="about.html">About</a>
+        <a class="no-link-style" href="report.html">Report</a>
+        <a class="no-link-style" href="see_reports.html">See reports</a>
+        <a class="no-link-style" href="statistics.html">Statistics</a>
+        <a class="no-link-style" href="contact.html">Contact</a>
+        <a class="no-link-style" href="help.html">Help</a>
+    </div>
+    <div id="footer_item">© Copyright 2024, FePA</div>
+</footer>
+<script src="scripts/connected_user.js"></script>
+<script src="scripts/menu_button.js"></script>
 </body>
 
 </html>

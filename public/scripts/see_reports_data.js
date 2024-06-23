@@ -5,7 +5,11 @@ $.ajax({
     success: function (data) {
         console.log(data);
         let html_append = "";
+        let image = "image";
+        let i = 0;
+        let result = "";
         $.each(data, function (index, item) {
+            result = image + i;
             html_append +=
                 "<div class='preview' id='news-item' data-id='" +
                 item.id +
@@ -16,7 +20,7 @@ $.ajax({
                 "' data-street='" +
                 item.street +
                 "' data-description='" +
-                item.descriptions +
+                item.description +
                 "' data-additional_aspects='" +
                 item.additional_aspects +
                 "'>" +
@@ -24,12 +28,12 @@ $.ajax({
                 item.animal_type +
                 "</strong><br>" +
                 "<img src='images/Logo.png' id='news-logo' alt='logo'>" +
-                "<img src='" +
-                item.image +
-                "' class='news-image' alt='animals'>" +
-                "<div class='news-description'>" +
+                "<div id='" +
+                result +
+                "' ></div>" +
+                "<div id='news-description'>" +
                 "<strong>Details:</strong><br>" +
-                item.descriptions +
+                item.description +
                 "<br>" +
                 item.additional_aspects +
                 "<br>" +
@@ -39,8 +43,11 @@ $.ajax({
                 ".<br>..." +
                 "</div>" +
                 "</div>";
+            $("#news").html(html_append);
+            see_image(result, item.id);
+            i++;
         });
-        $("#news").html(html_append);
+
 
         $(".preview").click(function () {
             let reportData = {
@@ -48,7 +55,7 @@ $.ajax({
                 animal_type: $(this).data("animal_type"),
                 city: $(this).data("city"),
                 street: $(this).data("street"),
-                descriptions: $(this).data("description"),
+                description: $(this).data("description"),
                 additional_aspects: $(this).data("additional_aspects"),
             };
 

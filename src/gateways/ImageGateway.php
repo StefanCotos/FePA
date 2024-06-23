@@ -34,4 +34,26 @@ class ImageGateway
             trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
         }
     }
+
+    public function getImageByReportId($reportId)
+    {
+        try {
+            $statement = $this->db->prepare('SELECT name FROM images WHERE report_id=?');
+            $statement->bind_param('i', $reportId);
+            $statement->execute();
+            $result = $statement->get_result();
+
+            $data = [];
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $data[] = $row;
+                }
+            }
+
+            return $data;
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
 }

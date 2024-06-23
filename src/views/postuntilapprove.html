@@ -105,8 +105,12 @@
                     <p><strong>Street:</strong> <span id="reportStreet"></span></p>
                     <p><strong>Description:</strong> <span id="reportDescription"></span></p>
                     <p><strong>Additional Aspects:</strong> <span id="reportAdditionalAspects"></span></p>
+                    <p><strong>Images:</strong>
+                    <div id="images">
+                    </div>
                 </div>
-
+                <script type="text/javascript" src="scripts/see_images.js"></script>
+                <script type="text/javascript" src="scripts/slideshow.js"></script>
                 <script>
                     $(document).ready(function () {
                         let reportData = JSON.parse(localStorage.getItem("reportData"));
@@ -117,6 +121,7 @@
                             $("#reportStreet").text(reportData.street);
                             $("#reportDescription").text(reportData.description);
                             $("#reportAdditionalAspects").text(reportData.additional_aspects);
+                            see_images(reportData.id);
                         } else {
                             alert("No report data found!");
                         }

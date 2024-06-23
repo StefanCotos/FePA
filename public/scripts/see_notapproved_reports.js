@@ -34,7 +34,7 @@ $.ajax({
                 "' data-street='" +
                 item.street +
                 "' data-description='" +
-                item.descriptions +
+                item.description +
                 "' data-additional_aspects='" +
                 item.additional_aspects +
                 "'></td>" +
@@ -48,7 +48,7 @@ $.ajax({
                 animal_type: $(this).data("animal_type"),
                 city: $(this).data("city"),
                 street: $(this).data("street"),
-                descriptions: $(this).data("description"),
+                description: $(this).data("description"),
                 additional_aspects: $(this).data("additional_aspects"),
             };
 

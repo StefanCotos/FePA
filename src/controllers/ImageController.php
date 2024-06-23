@@ -32,6 +32,10 @@ class ImageController
     public function processRequest()
     {
         switch ($this->requestMethod) {
+            case 'GET':
+                if($this->image)
+                    $response = $this->getImageByReportId($this->image);
+                break;
             case 'POST':
                 $response = $this->createImageFromRequest();
                 break;
@@ -74,6 +78,19 @@ class ImageController
         $response['body'] = null;
         return $response;
 
+    }
+
+    private function getImageByReportId($reportId)
+    {
+        /*$input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!isset($input['reportId'])) {
+            return $this->unprocessableEntityResponse();
+        }*/
+
+        $result = $this->imageGateway->getImageByReportId($reportId);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
     }
 
     private function validateImage($input)
@@ -126,5 +143,6 @@ class ImageController
         ]);
         return $response;
     }
+
 
 }

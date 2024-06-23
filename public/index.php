@@ -103,6 +103,11 @@ switch ($requestUri) {
                 break;
             case 'image':
                 $image = null;
+                if (isset($uri[5])) {
+                    if (is_numeric($uri[5])) {
+                        $image = (int)$uri[5];
+                    }
+                }
 
                 $controller = new ImageController($db->getConnection(), $requestMethod, $image);
                 $controller->processRequest();
