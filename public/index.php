@@ -61,6 +61,9 @@ switch ($requestUri) {
     case '/statistics.html':
         require __DIR__ . '/../src/views/statistics.html';
         break;
+    case '/public/rss.xml':
+        require __DIR__ . '/rss.xml';
+        break;
     default:
         switch ($uri[4]) {
             case 'user':
