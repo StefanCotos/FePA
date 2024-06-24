@@ -3,7 +3,7 @@
   <channel>
     <title>Animals reports</title>
     <description>Here you can see all the reports that have been made</description>
-    <pubDate>Mon, 24 Jun 2024 17:26:06 +0000</pubDate>
+    <pubDate>Mon, 24 Jun 2024 19:36:48 +0000</pubDate>
     <generator>Laminas_Feed_Writer 2 (https://getlaminas.org)</generator>
     <link>https://fepa-app-73d25d1a00ff.herokuapp.com/see_reports.html</link>
     <item>
@@ -36,14 +36,6 @@
       <pubDate>Mon, 24 Jun 2024 13:35:50 +0200</pubDate>
       <link>post/30</link>
       <guid isPermaLink="false">post/30</guid>
-      <slash:comments>0</slash:comments>
-    </item>
-    <item>
-      <title>Dog</title>
-      <description><![CDATA[Iasi, -, Be careful, is ... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 13:35:50 +0200</pubDate>
-      <link>post/32</link>
-      <guid isPermaLink="false">post/32</guid>
       <slash:comments>0</slash:comments>
     </item>
   </channel>

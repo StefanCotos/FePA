@@ -1,14 +1,25 @@
-$.ajax({
-    url: window.location.origin + "/Web_Project/public/index.php/report",
-    type: "GET",
-    dataType: "json",
-    success: function (data) {
+fetch(window.location.origin + "/Web_Project/public/index.php/report", {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(errorData => {
+                throw new Error(errorData.error);
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
         console.log(data);
         let html_append = "";
         let image = "image";
         let i = 0;
         let result = "";
-        $.each(data, function (index, item) {
+
+        data.forEach((item) => {
             result = image + i;
             html_append +=
                 "<div class='preview' id='news-item' data-id='" +
@@ -47,49 +58,56 @@ $.ajax({
                 ".<br>..." +
                 "</div>" +
                 "</div>";
-            $("#news").html(html_append);
-            see_image(result, item.id);
             i++;
         });
 
-        $(".preview").click(function () {
-            let username;
-            fetch(window.location.origin + '/Web_Project/public/index.php/user/' + $(this).data("user_id"), {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(errorData => {
-                            throw new Error(errorData.error);
-                        });
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    username = data.username;
-                    let reportData = {
-                        id: $(this).data("id"),
-                        animal_type: $(this).data("animal_type"),
-                        city: $(this).data("city"),
-                        street: $(this).data("street"),
-                        description: $(this).data("description"),
-                        additional_aspects: $(this).data("additional_aspects"),
-                        username: username,
-                        pub_date: $(this).data("pub_date"),
-                    };
+        document.getElementById("news").innerHTML = html_append;
 
-                    sessionStorage.setItem("reportData", JSON.stringify(reportData));
-                    window.location.href = "post.html";
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+        data.forEach((item, index) => {
+            let result = image + index;
+            see_image(result, item.id);
         });
-    },
-    error: function (xhr, status, error) {
+
+        document.querySelectorAll('.preview').forEach(preview => {
+            preview.addEventListener('click', function () {
+                const userId = this.getAttribute('data-user_id');
+
+                fetch(window.location.origin + '/Web_Project/public/index.php/user/' + userId, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.json().then(errorData => {
+                                throw new Error(errorData.error);
+                            });
+                        }
+                        return response.json();
+                    })
+                    .then(userData => {
+                        const username = userData.username;
+                        const reportData = {
+                            id: this.getAttribute('data-id'),
+                            animal_type: this.getAttribute('data-animal_type'),
+                            city: this.getAttribute('data-city'),
+                            street: this.getAttribute('data-street'),
+                            description: this.getAttribute('data-description'),
+                            additional_aspects: this.getAttribute('data-additional_aspects'),
+                            username: username,
+                            pub_date: this.getAttribute('data-pub_date')
+                        };
+
+                        sessionStorage.setItem("reportData", JSON.stringify(reportData));
+                        window.location.href = "post.html";
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
+    })
+    .catch(error => {
         console.error("Error: " + error);
-    },
-});
+    });

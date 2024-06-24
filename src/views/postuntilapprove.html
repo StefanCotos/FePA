@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Preview post</title>
     <link rel="stylesheet" href="styles/generic.css">
     <link rel="stylesheet" href="styles/header.css">
@@ -90,7 +89,7 @@
                 <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
             </div>
             <a class="no-link-style">
-                <div class="menu__admin">Account</div>
+                <div class="menu__admin" id="account_menu">Account</div>
             </a>
             <a class="no-link-style">
                 <div class="menu__about">Settings</div>
@@ -121,28 +120,29 @@
                 <script type="text/javascript" src="scripts/see_images.js"></script>
                 <script type="text/javascript" src="scripts/slideshow.js"></script>
                 <script>
-                    $(document).ready(function () {
+                    document.addEventListener('DOMContentLoaded', function () {
                         let reportData = JSON.parse(sessionStorage.getItem("reportData"));
                         if (reportData) {
-                            $("#reportId").text(reportData.id);
-                            $("#reportType").text(reportData.animal_type);
-                            $("#reportCity").text(reportData.city);
-                            $("#reportStreet").text(reportData.street);
-                            $("#reportDescription").text(reportData.description);
-                            $("#reportAdditionalAspects").text(reportData.additional_aspects);
-                            $("#publicationDate").text(reportData.pub_date);
-                            $("#postedBy").text(reportData.username);
+                            document.getElementById("reportId").textContent = reportData.id;
+                            document.getElementById("reportType").textContent = reportData.animal_type;
+                            document.getElementById("reportCity").textContent = reportData.city;
+                            document.getElementById("reportStreet").textContent = reportData.street;
+                            document.getElementById("reportDescription").textContent = reportData.description;
+                            document.getElementById("reportAdditionalAspects").textContent = reportData.additional_aspects;
+                            document.getElementById("publicationDate").textContent = reportData.pub_date;
+                            document.getElementById("postedBy").textContent = reportData.username;
                             see_images(reportData.id);
                         } else {
                             alert("No report data found!");
                         }
                     });
+
                 </script>
                 <script type="text/javascript" src="scripts/verify_post.js"></script>
             </div>
         </div>
         <div class="profile_menu" id="closable">
-            <div class="profile_menu--options no-link-style">Account</div>
+            <div class="profile_menu--options no-link-style" id="account">Account</div>
             <div class="profile_menu--options no-link-style">Settings</div>
             <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
         </div>

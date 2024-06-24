@@ -1,14 +1,23 @@
-$.ajax({
-    url: window.location.origin + "/Web_Project/public/index.php/report/not_approved",
-    type: "GET",
-    dataType: "json",
+fetch(window.location.origin + "/Web_Project/public/index.php/report/not_approved", {
+    method: 'GET',
     headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + sessionStorage.getItem('jwt')
-    },
-    success: function (data) {
+    }
+})
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(errorData => {
+                throw new Error(errorData.error);
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
         console.log(data);
         let html_append = "";
-        $.each(data, function (index, item) {
+
+        data.forEach((item) => {
             html_append +=
                 "<tr>" +
                 "<td>" +
@@ -44,46 +53,48 @@ $.ajax({
                 "'></td>" +
                 "</tr>";
         });
-        $("#reportsNotApproved").append(html_append);
 
-        $(".view_post").click(function () {
-            let username;
-            fetch(window.location.origin + '/Web_Project/public/index.php/user/' + $(this).data("user_id"), {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(errorData => {
-                            throw new Error(errorData.error);
-                        });
+        document.getElementById('reportsNotApproved').innerHTML += html_append;
+        document.querySelectorAll('.view_post').forEach(button => {
+            button.addEventListener('click', function () {
+                const userId = this.getAttribute('data-user_id');
+
+                fetch(window.location.origin + '/Web_Project/public/index.php/user/' + userId, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
                     }
-                    return response.json();
                 })
-                .then(data => {
-                    username = data.username;
-                    let reportData = {
-                        id: $(this).data("id"),
-                        animal_type: $(this).data("animal_type"),
-                        city: $(this).data("city"),
-                        street: $(this).data("street"),
-                        description: $(this).data("description"),
-                        additional_aspects: $(this).data("additional_aspects"),
-                        username: username,
-                        pub_date: $(this).data("pub_date"),
-                    };
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.json().then(errorData => {
+                                throw new Error(errorData.error);
+                            });
+                        }
+                        return response.json();
+                    })
+                    .then(userData => {
+                        const username = userData.username;
+                        const reportData = {
+                            id: this.getAttribute('data-id'),
+                            animal_type: this.getAttribute('data-animal_type'),
+                            city: this.getAttribute('data-city'),
+                            street: this.getAttribute('data-street'),
+                            description: this.getAttribute('data-description'),
+                            additional_aspects: this.getAttribute('data-additional_aspects'),
+                            username: username,
+                            pub_date: this.getAttribute('data-pub_date')
+                        };
 
-                    sessionStorage.setItem("reportData", JSON.stringify(reportData));
-                    window.location.href = "postuntilapprove.html";
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+                        sessionStorage.setItem("reportData", JSON.stringify(reportData));
+                        window.location.href = "postuntilapprove.html";
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
         });
-    },
-    error: function (xhr, status, error) {
+    })
+    .catch(error => {
         console.error("Error: " + error);
-    },
-});
+    });

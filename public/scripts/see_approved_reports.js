@@ -1,14 +1,23 @@
-$.ajax({
-    url: window.location.origin + "/Web_Project/public/index.php/report",
-    type: "GET",
-    dataType: "json",
+fetch(window.location.origin + "/Web_Project/public/index.php/report", {
+    method: 'GET',
     headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + sessionStorage.getItem('jwt')
-    },
-    success: function (data) {
+    }
+})
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(errorData => {
+                throw new Error(errorData.error);
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
         console.log(data);
         let html_append = "";
-        $.each(data, function (index, item) {
+
+        data.forEach((item, index) => {
             html_append +=
                 "<tr>" +
                 "<td>" +
@@ -30,58 +39,59 @@ $.ajax({
                 "'></td>" +
                 "</tr>";
         });
-        $("#reportsApproved").append(html_append);
 
-        $(".delete_post").click(function () {
-            const jwt = sessionStorage.getItem('jwt');
+        document.getElementById('reportsApproved').innerHTML += html_append;
 
-            fetch(window.location.origin + '/Web_Project/public/index.php/image/' + $(this).data("id"), {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + jwt
-                },
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(errorData => {
-                            throw new Error(errorData.error);
-                        });
+        document.querySelectorAll('.delete_post').forEach(button => {
+            button.addEventListener('click', function () {
+                const postId = this.getAttribute('data-id');
+
+                fetch(window.location.origin + '/Web_Project/public/index.php/image/' + postId, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + sessionStorage.getItem('jwt')
                     }
                 })
-                .then(data => {
-                    console.log('Image deleted successfully', data);
-                    fetch(window.location.origin + '/Web_Project/public/index.php/report/' + $(this).data("id"), {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer ' + jwt
-                        },
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.json().then(errorData => {
+                                throw new Error(errorData.error);
+                            });
+                        }
                     })
-                        .then(response => {
-                            if (!response.ok) {
-                                return response.json().then(errorData => {
-                                    throw new Error(errorData.error);
-                                });
+                    .then(data => {
+                        console.log('Image deleted successfully', data);
+                        fetch(window.location.origin + '/Web_Project/public/index.php/report/' + postId, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer ' + sessionStorage.getItem('jwt')
                             }
                         })
-                        .then(data => {
-                            console.log('Report deleted successfully', data);
-                        })
-                        .catch(error => {
-                            console.log(error);
-                        });
-                    setTimeout(function () {
-                        window.location.href = '/admin.html';
-                    }, 2000);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+                            .then(response => {
+                                if (!response.ok) {
+                                    return response.json().then(errorData => {
+                                        throw new Error(errorData.error);
+                                    });
+                                }
+                            })
+                            .then(data => {
+                                console.log('Report deleted successfully', data);
+                                setTimeout(() => {
+                                    window.location.href = '/admin.html';
+                                }, 2000);
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
         });
-
-    },
-    error: function (xhr, status, error) {
+    })
+    .catch(error => {
         console.error("Error: " + error);
-    },
-});
+    });

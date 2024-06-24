@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post</title>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="styles/generic.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/footer.css">
@@ -119,18 +118,17 @@
             <script type="text/javascript" src="scripts/see_images.js"></script>
             <script type="text/javascript" src="scripts/slideshow.js"></script>
             <script>
-                $(document).ready(function () {
+                document.addEventListener('DOMContentLoaded', function () {
                     let reportData = JSON.parse(sessionStorage.getItem("reportData"));
-                    console.log(reportData);
                     if (reportData) {
-                        $("#postId").text(reportData.id);
-                        $("#postType").text(reportData.animal_type);
-                        $("#postCity").text(reportData.city);
-                        $("#postStreet").text(reportData.street);
-                        $("#postDescription").text(reportData.description);
-                        $("#postAdditionalAspects").text(reportData.additional_aspects);
-                        $("#publicationDate").text(reportData.pub_date);
-                        $("#postedBy").text(reportData.username);
+                        document.getElementById("postId").textContent = reportData.id;
+                        document.getElementById("postType").textContent = reportData.animal_type;
+                        document.getElementById("postCity").textContent = reportData.city;
+                        document.getElementById("postStreet").textContent = reportData.street;
+                        document.getElementById("postDescription").textContent = reportData.description;
+                        document.getElementById("postAdditionalAspects").textContent = reportData.additional_aspects;
+                        document.getElementById("publicationDate").textContent = reportData.pub_date;
+                        document.getElementById("postedBy").textContent = reportData.username;
                         see_images(reportData.id);
                     } else {
                         alert("No report data found!");
