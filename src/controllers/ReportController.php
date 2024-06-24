@@ -12,14 +12,16 @@ class ReportController
 {
     private $requestMethod;
     private $report;
+    private $userId;
     private $reportGateway;
     private $authController;
     private $userGateway;
 
-    public function __construct($db, $requestMethod, $report)
+    public function __construct($db, $requestMethod, $report, $userId)
     {
         $this->requestMethod = $requestMethod;
         $this->report = $report;
+        $this->userId = $userId;
 
         $this->reportGateway = new ReportGateway($db);
         $this->authController = new AuthController($requestMethod);
@@ -37,6 +39,8 @@ class ReportController
                     $response = $this->getAreaStatistics();
                 } else if ($this->report == "piechart_type") {
                     $response = $this->getTypeStatistics();
+                } else if ($this->report == "user_id") {
+                    $response = $this->getReportsByUserId($this->userId);
                 } else if ($this->report) {
                     $response = $this->getReportById($this->report);
                 } else {
@@ -156,6 +160,16 @@ class ReportController
         return $response;
     }
 
+    private function getReportsByUserId($userId)
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $this->authController->validateJWT($jwt);
+
+        $result = $this->reportGateway->getReportsByUserId($userId);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
+    }
 
     private function validateReport($input)
     {

@@ -70,6 +70,20 @@ if (ok) {
             window.location.href = '/';
         }, 2000);
     });
+
+    const account = document.getElementById("account");
+    const account_menu = document.getElementById('account_menu');
+    account.addEventListener('click', function () {
+        setTimeout(function () {
+            window.location.href = '/account.html';
+        }, 2000);
+    });
+
+    account_menu.addEventListener('click', function () {
+        setTimeout(function () {
+            window.location.href = '/account.html';
+        }, 2000);
+    });
 }
 
 function myFunction() {

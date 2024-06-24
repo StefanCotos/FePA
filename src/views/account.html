@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Account</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FePA</title>
     <link rel="stylesheet" href="styles/generic.css">
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/admin.css">
     <link rel="stylesheet" href="styles/footer.css">
 </head>
 
@@ -47,7 +47,6 @@
                 <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
             </div>
         </div>
-
         <div class="no-link-style menu_toggle" id="menu_visible">
             <div id="menu_toggle__line1"></div>
             <div id="menu_toggle__line2"></div>
@@ -89,7 +88,7 @@
             <a class="left_half no-link-style" href="log_in.html">Log In</a>/
             <a class="right_half no-link-style" href="sign_up.html">Sign Up</a>
         </div>
-        <a class="no-link-style" id="account_menu">
+        <a class="no-link-style">
             <div class="menu__admin">Account</div>
         </a>
         <a class="no-link-style">
@@ -101,17 +100,27 @@
     </div>
 </div>
 <main>
-    <div class="block">
-        <div id="text">
-            <div id="title">Welcome to FePA</div>
-            Don't let hope fade away with your beloved pet! Report the loss or disappearance
-            immediately and let's find them together. Every animal matters!
-        </div>
-    </div>
     <div class="profile_menu" id="closable">
-        <div class="profile_menu--options no-link-style" id="account">Account</div>
+        <div class="profile_menu--options no-link-style">Account</div>
         <div class="profile_menu--options no-link-style">Settings</div>
         <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
+    </div>
+
+    <div class="block">
+        <div class="title_post_request">
+            <b>My reports</b>
+        </div>
+        <div class="approve_post">
+            <table id="reportsApproved">
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>City</th>
+                    <th>Street</th>
+                    <th>Option</th>
+                </tr>
+            </table>
+        </div>
     </div>
 
 </main>
@@ -138,6 +147,10 @@
     </div>
     <div id="footer_item">© Copyright 2024, FePA</div>
 </footer>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="scripts/see_users.js"></script>
+<script type="text/javascript" src="scripts/see_approved_reports.js"></script>
+<script type="text/javascript" src="scripts/see_notapproved_reports.js"></script>
 <script src="scripts/connected_user.js"></script>
 <script src="scripts/menu_button.js"></script>
 </body>

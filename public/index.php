@@ -25,8 +25,8 @@ $uri = explode('/', $uri);
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-if($uri[1]=='post' && is_numeric($uri[2])) {
-    $requestUri='/post/number';
+if ($uri[1] == 'post' && is_numeric($uri[2])) {
+    $requestUri = '/post/number';
 }
 
 switch ($requestUri) {
@@ -66,6 +66,9 @@ switch ($requestUri) {
     case '/statistics.html':
         require __DIR__ . '/../src/views/statistics.html';
         break;
+    case '/account.html':
+        require __DIR__ . '/../src/views/account.html';
+        break;
     case '/public/rss.xml':
         $reportGateway = new ReportGateway($db->getConnection());
         $reportGateway->getReportsForRSS();
@@ -88,7 +91,7 @@ switch ($requestUri) {
                     if ($uri[5] == 'contact') {
                         $user = "contact";
                     }
-                    if($uri[5] == 'isAdmin'){
+                    if ($uri[5] == 'isAdmin') {
                         $user = 'isAdmin';
                     }
                     if (is_numeric($uri[5])) {
@@ -101,6 +104,7 @@ switch ($requestUri) {
                 break;
             case 'report':
                 $report = null;
+                $userId = null;
                 if (isset($uri[5])) {
                     if ($uri[5] == 'not_approved') {
                         $report = "not_approved";
@@ -111,12 +115,16 @@ switch ($requestUri) {
                     if ($uri[5] == 'piechart_type') {
                         $report = "piechart_type";
                     }
+                    if ($uri[5] == 'user_id') {
+                        $report = "user_id";
+                        $userId = (int)$uri[6];
+                    }
                     if (is_numeric($uri[5])) {
                         $report = (int)$uri[5];
                     }
                 }
 
-                $controller = new ReportController($db->getConnection(), $requestMethod, $report);
+                $controller = new ReportController($db->getConnection(), $requestMethod, $report, $userId);
                 $controller->processRequest();
                 break;
             case 'image':

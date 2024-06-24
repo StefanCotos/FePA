@@ -163,4 +163,24 @@ class ReportGateway
         }
     }
 
+    public function getReportsByUserId($userId)
+    {
+        try {
+            $statement = $this->db->prepare('SELECT * FROM reports WHERE user_id=?');
+            $statement->bind_param('i', $userId);
+            $statement->execute();
+            $result = $statement->get_result();
+
+            $data = [];
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+
+            return $data;
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
 }
