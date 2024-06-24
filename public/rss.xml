@@ -1,40 +1,42 @@
 
-<rss  version="2.0">
+<rss version="2.0" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
   <channel>
     <title>Animals reports</title>
-    <link>https://fepa-app-73d25d1a00ff.herokuapp.com/see_reports.html</link>
     <description>Here you can see all the reports that have been made</description>
-    <language>en-US</language>
-    <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+    <pubDate>Mon, 24 Jun 2024 10:18:09 +0000</pubDate>
+    <generator>Laminas_Feed_Writer 2 (https://getlaminas.org)</generator>
+    <link>https://fepa-app-73d25d1a00ff.herokuapp.com/see_reports.html</link>
     <item>
-      <title><![CDATA[Cat]]></title>
-      <link>post/18</link>
+      <title>Cat</title>
       <description><![CDATA[Iasi, Tudor Vladimirescu, This cat has bl... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 24 Jun 2024 10:18:09 +0000</pubDate>
+      <link>post/18</link>
+      <guid isPermaLink="false">post/18</guid>
+      <slash:comments>0</slash:comments>
     </item>
     <item>
-      <title><![CDATA[Lion]]></title>
-      <link>post/19</link>
+      <title>Lion</title>
       <description><![CDATA[Iasi, Eminescu, Be careful... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 24 Jun 2024 10:18:09 +0000</pubDate>
+      <link>post/19</link>
+      <guid isPermaLink="false">post/19</guid>
+      <slash:comments>0</slash:comments>
     </item>
     <item>
-      <title><![CDATA[Dog]]></title>
-      <link>post/20</link>
+      <title>Dog</title>
       <description><![CDATA[Iasi, -, Is talkative... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 24 Jun 2024 10:18:09 +0000</pubDate>
+      <link>post/20</link>
+      <guid isPermaLink="false">post/20</guid>
+      <slash:comments>0</slash:comments>
     </item>
     <item>
-      <title><![CDATA[Cow]]></title>
-      <link>post/21</link>
+      <title>Cow</title>
       <description><![CDATA[Suceava, George Enescu, Escaped from a ... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
-    </item>
-    <item>
-      <title><![CDATA[Horse]]></title>
-      <link>post/23</link>
-      <description><![CDATA[Timisoara, -, Escaped from a ... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 24 Jun 2024 10:18:09 +0000</pubDate>
+      <link>post/21</link>
+      <guid isPermaLink="false">post/21</guid>
+      <slash:comments>0</slash:comments>
     </item>
   </channel>
 </rss>

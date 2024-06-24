@@ -3,57 +3,45 @@
 namespace rss_generator;
 
 use mysql_xdevapi\Exception;
-use Suin\RSSWriter\Channel;
-use Suin\RSSWriter\Feed;
-use Suin\RSSWriter\Item;
+use Laminas\Feed\Writer\Feed;
+
 
 class RSSGenerator
 {
     private $feed;
-    private $channel;
     private $xmlFilePath;
 
     public function __construct($xmlFilePath)
     {
-        $this->feed = new Feed();
         $this->xmlFilePath = $xmlFilePath;
-        $this->channel = new Channel();
-        $this->channel
-            ->title("Animals reports")
-            ->description("Here you can see all the reports that have been made")
-            ->url("https://fepa-app-73d25d1a00ff.herokuapp.com/see_reports.html")
-            ->language("en-US")
-            ->pubDate(strtotime('today'))
-            ->appendTo($this->feed);
+        $this->feed = new Feed();
+        $this->feed
+            ->setTitle('Animals reports')
+            ->setDescription('Here you can see all the reports that have been made')
+            ->setLink('https://fepa-app-73d25d1a00ff.herokuapp.com/see_reports.html')
+            ->setDateModified(time());
     }
 
 
     public function createItem($title, $description, $url)
     {
-        $item = new Item();
-        $item
-            ->title($title)
-            ->description($description)
-            ->url($url)
-            ->pubDate(strtotime('today'))
-            ->preferCdata(true)
-            ->appendTo($this->channel);
+        $entry = $this->feed->createEntry();
+        $entry
+            ->setTitle($title)
+            ->setDescription($description)
+            ->setLink($url)
+            ->setDateCreated(time());
+
+        $this->feed->addEntry($entry);
     }
 
     public function generate()
     {
-        $xmlContent = $this->feed->render();
-
-        $file = fopen($this->xmlFilePath, 'w');
-        if ($file) {
-            fwrite($file, $xmlContent);
-            fclose($file);
-        } else {
-            throw new Exception("Not written in file");
-        }
+        $xmlContent = $this->feed->export('rss');
+        file_put_contents($this->xmlFilePath, $xmlContent);
 
         $this->deleteUnnecessary('<?xml version="1.0" encoding="UTF-8"?>');
-        $this->deleteUnnecessary('xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"');
+//        $this->deleteUnnecessary('xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"');
     }
 
     private function deleteUnnecessary($toDelete)
