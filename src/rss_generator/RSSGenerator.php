@@ -2,7 +2,6 @@
 
 namespace rss_generator;
 
-use mysql_xdevapi\Exception;
 use Laminas\Feed\Writer\Feed;
 
 
@@ -41,7 +40,6 @@ class RSSGenerator
         file_put_contents($this->xmlFilePath, $xmlContent);
 
         $this->deleteUnnecessary('<?xml version="1.0" encoding="UTF-8"?>');
-//        $this->deleteUnnecessary('xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom"');
     }
 
     private function deleteUnnecessary($toDelete)
