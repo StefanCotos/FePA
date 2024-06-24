@@ -2,6 +2,8 @@
 
 namespace rss_generator;
 
+use DateTime;
+use Exception;
 use Laminas\Feed\Writer\Feed;
 
 
@@ -22,14 +24,17 @@ class RSSGenerator
     }
 
 
-    public function createItem($title, $description, $url)
+    /**
+     * @throws Exception
+     */
+    public function createItem($title, $description, $url, $dataCreated)
     {
         $entry = $this->feed->createEntry();
         $entry
             ->setTitle($title)
             ->setDescription($description)
             ->setLink($url)
-            ->setDateCreated(time());
+            ->setDateCreated(new DateTime($dataCreated));
 
         $this->feed->addEntry($entry);
     }
