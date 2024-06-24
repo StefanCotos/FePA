@@ -3,13 +3,13 @@
   <channel>
     <title>Animals reports</title>
     <description>Here you can see all the reports that have been made</description>
-    <pubDate>Mon, 24 Jun 2024 14:55:05 +0000</pubDate>
+    <pubDate>Mon, 24 Jun 2024 15:02:58 +0000</pubDate>
     <generator>Laminas_Feed_Writer 2 (https://getlaminas.org)</generator>
-    <link>https://fepa-app-73d25d1a00ff.herokuapp.com/see_reports.html</link>
+    <link>http://localhost/see_reports.html</link>
     <item>
       <title>Cat</title>
       <description><![CDATA[Iasi, Tudor Vladimirescu, This cat has bl... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 14:55:05 +0000</pubDate>
+      <pubDate>Mon, 24 Jun 2024 15:02:58 +0000</pubDate>
       <link>post/18</link>
       <guid isPermaLink="false">post/18</guid>
       <slash:comments>0</slash:comments>
@@ -17,7 +17,7 @@
     <item>
       <title>Lion</title>
       <description><![CDATA[Iasi, Eminescu, Be careful... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 14:55:05 +0000</pubDate>
+      <pubDate>Mon, 24 Jun 2024 15:02:58 +0000</pubDate>
       <link>post/19</link>
       <guid isPermaLink="false">post/19</guid>
       <slash:comments>0</slash:comments>
@@ -25,7 +25,7 @@
     <item>
       <title>Cow</title>
       <description><![CDATA[Suceava, George Enescu, Escaped from a ... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 14:55:05 +0000</pubDate>
+      <pubDate>Mon, 24 Jun 2024 15:02:58 +0000</pubDate>
       <link>post/21</link>
       <guid isPermaLink="false">post/21</guid>
       <slash:comments>0</slash:comments>
@@ -33,7 +33,7 @@
     <item>
       <title>Horse</title>
       <description><![CDATA[Timisoara, -, Escaped from a ... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 14:55:05 +0000</pubDate>
+      <pubDate>Mon, 24 Jun 2024 15:02:58 +0000</pubDate>
       <link>post/30</link>
       <guid isPermaLink="false">post/30</guid>
       <slash:comments>0</slash:comments>
@@ -41,7 +41,7 @@
     <item>
       <title>Dog</title>
       <description><![CDATA[Iasi, -, Be careful, is ... (Click to see more information and photos)]]></description>
-      <pubDate>Mon, 24 Jun 2024 14:55:05 +0000</pubDate>
+      <pubDate>Mon, 24 Jun 2024 15:02:58 +0000</pubDate>
       <link>post/32</link>
       <guid isPermaLink="false">post/32</guid>
       <slash:comments>0</slash:comments>

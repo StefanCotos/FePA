@@ -31,8 +31,8 @@ $.ajax({
                     "<p><strong>Street:</strong>" + data.street + "</p>" +
                     "<p><strong>Description:</strong>" + data.description + "</p>" +
                     "<p><strong>Additional Aspects:</strong>" + data.additional_aspects + "</p>" +
-                    "<p><strong>Publication date:</strong> + data.pub_date +</p>" +
-                    "<p><strong>Posted by:</strong> + username +</p>" +
+                    "<p><strong>Publication date:</strong>" + data.pub_date + "</p>" +
+                    "<p><strong>Posted by:</strong>" + username + "</p>" +
                     "<p><strong>Images:</strong>" +
                     "<div id='images'></div>"
 
