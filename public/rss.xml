@@ -1,22 +1,40 @@
-<rss version="2.0">
-    <channel>
-        <title>Animals reports</title>
-        <description>Here you can see all the reports that have been made</description>
-        <item>
-            <title>Dog</title>
-            <link>http://localhost/post/20</link>
-            <description><![CDATA[
-                <p>A dog</p>
-                <p><img src="https://res.cloudinary.com/hf0egkogn/image/upload/v1719072653/25.jpg"</p>
-            ]]></description>
-        </item>
-        <item>
-            <title>Cat</title>
-            <link>http://localhost/post/18</link>
-            <description><![CDATA[
-                <p>A cat</p>
-                <p><img src="https://res.cloudinary.com/hf0egkogn/image/upload/v1719072299/24.jpg"</p>
-            ]]></description>
-        </item>
-    </channel>
+
+<rss  version="2.0">
+  <channel>
+    <title>Animals reports</title>
+    <link>https://fepa-app-73d25d1a00ff.herokuapp.com/see_reports.html</link>
+    <description>Here you can see all the reports that have been made</description>
+    <language>en-US</language>
+    <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+    <item>
+      <title><![CDATA[Cat]]></title>
+      <link>post/18</link>
+      <description><![CDATA[Iasi, Tudor Vladimirescu, This cat has bl... (Click to see more information and photos)]]></description>
+      <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Lion]]></title>
+      <link>post/19</link>
+      <description><![CDATA[Iasi, Eminescu, Be careful... (Click to see more information and photos)]]></description>
+      <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Dog]]></title>
+      <link>post/20</link>
+      <description><![CDATA[Iasi, -, Is talkative... (Click to see more information and photos)]]></description>
+      <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Cow]]></title>
+      <link>post/21</link>
+      <description><![CDATA[Suceava, George Enescu, Escaped from a ... (Click to see more information and photos)]]></description>
+      <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Horse]]></title>
+      <link>post/23</link>
+      <description><![CDATA[Timisoara, -, Escaped from a ... (Click to see more information and photos)]]></description>
+      <pubDate>Mon, 24 Jun 2024 00:00:00 +0200</pubDate>
+    </item>
+  </channel>
 </rss>

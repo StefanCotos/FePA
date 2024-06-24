@@ -9,10 +9,12 @@ use controllers\ReportController;
 use controllers\ImageController;
 use database\Database;
 
+
 include_once "../src/database/Database.php";
 include_once "../src/controllers/UserController.php";
 include_once "../src/controllers/ReportController.php";
 include_once "../src/controllers/ImageController.php";
+include_once "../src/rss_generator/RSSGenerator.php";
 
 $db = new Database();
 
@@ -65,7 +67,9 @@ switch ($requestUri) {
         require __DIR__ . '/../src/views/statistics.html';
         break;
     case '/public/rss.xml':
-        require __DIR__ . '/rss_feed.xml';
+        $reportGateway = new ReportGateway($db->getConnection());
+        $reportGateway->getReportsForRSS();
+        require __DIR__ . '/rss.xml';
         break;
     case '/post/number':
         require __DIR__ . '/../src/views/post_for_rss.html';

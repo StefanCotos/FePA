@@ -1,5 +1,7 @@
 <?php
 
+use rss_generator\RSSGenerator;
+
 class ReportGateway
 {
     private $db;
@@ -112,6 +114,24 @@ class ReportGateway
             $statement->execute();
             $result = $statement->get_result();
             return $result->fetch_assoc();
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
+    public function getReportsForRSS()
+    {
+        try {
+            $statement = $this->db->prepare('SELECT id, animal_type, city, street, description, additional_aspects FROM reports where is_approve=1');
+            $statement->execute();
+            $result = $statement->get_result();
+
+            $rss = new RSSGenerator("rss.xml");
+            while ($row = $result->fetch_assoc()) {
+                $rss->createItem($row['animal_type'], $row['city'] . ", " . $row['street'] . ", " . substr($row['description'], 0, 15) . "... " . "(Click to see more information and photos)", "post/" . $row['id']);
+            }
+            $rss->generate();
 
         } catch (PDOException $e) {
             trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
