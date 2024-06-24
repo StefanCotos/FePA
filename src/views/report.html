@@ -105,13 +105,13 @@
                 <form id="submit_form" enctype="multipart/form-data">
                     <h1 class="block__report_form_title">Report</h1>
                     <label for="animal_type"><b>Animal type</b></label>
-                    <input type="text" id="animal_type" name="animal_type" placeholder="Enter the animal type" required>
+                    <input type="text" id="animal_type" name="animal_type" placeholder="Enter the animal type(ex: Cat/Dog/Horse/...)" required>
                     <label for="city"><b>City</b></label>
-                    <input type="text" id="city" name="city" placeholder="Enter the city" required>
+                    <input type="text" id="city" name="city" placeholder="Enter the city(ex: Iasi/Bucharest/Timisoara/...)" required>
                     <label for="street"><b>Street</b></label>
                     <input type="text" id="street" name="street" placeholder="Enter the street name" required>
                     <label for="additional_aspects"><b>Additional aspects</b></label>
-                    <input type="text" id="additional_aspects" name="additional_aspects" placeholder="Enter the additional aspects">
+                    <input type="text" id="additional_aspects" name="additional_aspects" placeholder="Enter the additional aspects(ex: Big, Dangerous/Harmless, Angry/Little)">
                     <label for="description"><b>Description</b></label>
                     <input type="text" id="description" name="description" placeholder="Enter the description" required>
                     <div class="form">
@@ -124,6 +124,7 @@
                     <input class="no-link-style" type="submit" id="submit_button" value="Submit">
                     <div id="mask">&nbsp;</div>
                     <div id="notLogged">You are not logged in!</div>
+                    <div id="isAdmin">You cannot post a report!</div>
                 </form>
             </div>
             <iframe class="block__report_map"

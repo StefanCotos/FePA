@@ -263,3 +263,9 @@
   display: none;
   font-size: 15px;
 }
+
+#isAdmin {
+  color: red;
+  display: none;
+  font-size: 15px;
+}

@@ -32,7 +32,9 @@ class UserController
     {
         switch ($this->requestMethod) {
             case 'GET':
-                if ($this->user) {
+                if ($this->user == "isAdmin") {
+                    $response = $this->isAdmin();
+                } else if ($this->user) {
                     $response = $this->getUsernameById($this->user);
                 } else {
                     $response = $this->getAllUsers();
@@ -253,6 +255,23 @@ class UserController
             'username' => $result
         ]);
         return $response;
+    }
+
+    private function isAdmin()
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $decodedJWT = $this->authController->validateJWT($jwt);
+
+        if (isset($decodedJWT['isAdmin'])) {
+            $isAdmin = $decodedJWT['isAdmin'];
+        }
+
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode([
+            'isAdmin' => $isAdmin
+        ]);
+        return $response;
+
     }
 
     private function validatePerson($input)

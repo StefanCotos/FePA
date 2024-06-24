@@ -28,7 +28,7 @@ document.getElementById('log_in_form').addEventListener('submit', function (even
             return response.json();
         })
         .then(data => {
-            console.log('User authenticated successfully', data);
+            console.log('User authenticated successfully');
             let username = data.username;
             sessionStorage.setItem('profileButton', username);
             sessionStorage.setItem('jwt', data.jwt);

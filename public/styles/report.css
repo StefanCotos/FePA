@@ -292,6 +292,12 @@ input[type="file"] {
   font-size: 15px;
 }
 
+#isAdmin {
+  color: red;
+  display: none;
+  font-size: 15px;
+}
+
 /*.map {*/
 /*    border: 0;*/
 /*    width: 28vw;*/

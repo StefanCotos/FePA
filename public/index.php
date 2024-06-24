@@ -88,6 +88,9 @@ switch ($requestUri) {
                     if ($uri[5] == 'contact') {
                         $user = "contact";
                     }
+                    if($uri[5] == 'isAdmin'){
+                        $user = 'isAdmin';
+                    }
                     if (is_numeric($uri[5])) {
                         $user = (int)$uri[5];
                     }
