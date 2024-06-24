@@ -33,11 +33,15 @@ class ImageController
     {
         switch ($this->requestMethod) {
             case 'GET':
-                if($this->image)
+                if ($this->image)
                     $response = $this->getImagesByReportId($this->image);
                 break;
             case 'POST':
                 $response = $this->createImageFromRequest();
+                break;
+            case 'DELETE':
+                if ($this->image)
+                    $response = $this->deleteImagesByReportId($this->image);
                 break;
             default:
                 $response = $this->notFoundResponse();
@@ -61,7 +65,7 @@ class ImageController
 
         $image = json_encode([
             "name" => "",
-            "report_id"=> $input['reportId'],
+            "report_id" => $input['reportId'],
         ]);
         $imageArray = (array)json_decode($image, true);
         $imageId = $this->imageGateway->insertImage($imageArray);
@@ -82,14 +86,20 @@ class ImageController
 
     private function getImagesByReportId($reportId)
     {
-        /*$input = (array)json_decode(file_get_contents('php://input'), TRUE);
-        if (!isset($input['reportId'])) {
-            return $this->unprocessableEntityResponse();
-        }*/
-
         $result = $this->imageGateway->getImagesByReportId($reportId);
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($result);
+        return $response;
+    }
+
+    private function deleteImagesByReportId($reportId)
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $this->authController->validateJWT($jwt);
+
+        $this->imageGateway->deleteImagesByReportId($reportId);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = null;
         return $response;
     }
 

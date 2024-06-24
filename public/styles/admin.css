@@ -45,6 +45,19 @@ td {
   background-color: rgb(147, 37, 37);
 }
 
+.delete_post {
+  background-color: rgb(250, 90, 90);
+  color: black;
+  border-radius: 10px;
+  font-size: 1vw;
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.delete_post:hover {
+  background-color: rgb(147, 37, 37);
+}
+
 .title_post_request {
   height: auto;
   margin-bottom: 0;

@@ -43,6 +43,16 @@ class ReportController
             case 'POST':
                 $response = $this->createReportFromRequest();
                 break;
+            case 'PUT':
+                if ($this->report) {
+                    $response = $this->approveReport($this->report);
+                }
+                break;
+            case 'DELETE':
+                if ($this->report) {
+                    $response = $this->deleteReport($this->report);
+                }
+                break;
             default:
                 $response = $this->notFoundResponse();
                 break;
@@ -113,6 +123,29 @@ class ReportController
         $response['body'] = json_encode($result);
         return $response;
     }
+
+    private function approveReport($id)
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $this->authController->validateJWT($jwt);
+
+        $this->reportGateway->approveReport($id);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = null;
+        return $response;
+    }
+
+    private function deleteReport($id)
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $this->authController->validateJWT($jwt);
+
+        $this->reportGateway->deleteReport($id);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = null;
+        return $response;
+    }
+
 
     private function validateReport($input)
     {

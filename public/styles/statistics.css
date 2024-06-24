@@ -97,6 +97,17 @@
   font-size: 18px;
 }
 
+#buttonPDF1:hover,
+#buttonCSV1:hover,
+#buttonHTML1:hover,
+#buttonPDF2:hover,
+#buttonCSV2:hover,
+#buttonHTML2:hover{
+  background-color: #4f5d71;
+}
+
+
+
 
 
 .content1 .loader {

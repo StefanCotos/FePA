@@ -138,4 +138,28 @@ class ReportGateway
         }
     }
 
+    public function approveReport($id)
+    {
+        try {
+            $statement = $this->db->prepare('UPDATE reports SET is_approve=1 WHERE id=?');
+            $statement->bind_param('i', $id);
+            $statement->execute();
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
+    public function deleteReport($id)
+    {
+        try {
+            $statement = $this->db->prepare('DELETE FROM reports WHERE id=?');
+            $statement->bind_param('i', $id);
+            $statement->execute();
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
 }
