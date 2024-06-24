@@ -3,6 +3,7 @@
 namespace controllers;
 
 use ReportGateway;
+use UserGateway;
 
 include_once __DIR__ . "/../gateways/ReportGateway.php";
 include_once __DIR__ . "/../controllers/AuthController.php";
@@ -13,6 +14,7 @@ class ReportController
     private $report;
     private $reportGateway;
     private $authController;
+    private $userGateway;
 
     public function __construct($db, $requestMethod, $report)
     {
@@ -21,6 +23,7 @@ class ReportController
 
         $this->reportGateway = new ReportGateway($db);
         $this->authController = new AuthController($requestMethod);
+        $this->userGateway = new UserGateway($db);
 
     }
 
@@ -66,12 +69,19 @@ class ReportController
     private function createReportFromRequest()
     {
         $jwt = $this->authController->checkJWTExistence();
-        $this->authController->validateJWT($jwt);
+        $decodedJWT = $this->authController->validateJWT($jwt);
+
+        if (isset($decodedJWT['userName'])) {
+            $username = $decodedJWT['userName'];
+        }
+
+        $id = $this->userGateway->getIdByUsername($username);
 
         $input = (array)json_decode(file_get_contents('php://input'), TRUE);
         if (!$this->validateReport($input)) {
             return $this->unprocessableEntityResponse();
         }
+        $input['user_id'] = $id;
 
         $reportId = $this->reportGateway->insertReport($input);
         $response['status_code_header'] = 'HTTP/1.1 201 Created';

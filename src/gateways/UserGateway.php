@@ -181,4 +181,36 @@ class UserGateway
             trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
         }
     }
+
+    public function getIdByUsername($username)
+    {
+        try {
+            $statement = $this->db->prepare('SELECT id FROM users WHERE username = ?');
+            $statement->bind_param('s', $username);
+            $statement->execute();
+            $result = $statement->get_result();
+            $row = $result->fetch_assoc();
+
+            return $row['id'];
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
+    public function getUsernameById($id)
+    {
+        try {
+            $statement = $this->db->prepare('SELECT username FROM users WHERE id = ?');
+            $statement->bind_param('s', $id);
+            $statement->execute();
+            $result = $statement->get_result();
+            $row = $result->fetch_assoc();
+
+            return $row['username'];
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
 }

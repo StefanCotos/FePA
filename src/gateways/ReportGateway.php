@@ -14,8 +14,8 @@ class ReportGateway
     public function insertReport(array $input)
     {
         try {
-            $statement = $this->db->prepare('INSERT INTO reports (animal_type, city, street, description, additional_aspects) VALUES (?, ?, ?, ?, ?)');
-            $statement->bind_param('sssss', $input['animal_type'], $input['city'], $input['street'], $input['description'], $input['additional_aspects']);
+            $statement = $this->db->prepare('INSERT INTO reports (animal_type, city, street, description, additional_aspects, user_id) VALUES (?, ?, ?, ?, ?, ?)');
+            $statement->bind_param('sssssi', $input['animal_type'], $input['city'], $input['street'], $input['description'], $input['additional_aspects'], $input['user_id']);
             $statement->execute();
 
             return $this->db->insert_id;

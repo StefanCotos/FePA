@@ -23,6 +23,10 @@ $.ajax({
                 item.description +
                 "' data-additional_aspects='" +
                 item.additional_aspects +
+                "' data-user_id='" +
+                item.user_id +
+                "' data-pub_date='" +
+                item.pub_date +
                 "'>" +
                 "<strong>Type: " +
                 item.animal_type +
@@ -49,17 +53,40 @@ $.ajax({
         });
 
         $(".preview").click(function () {
-            let reportData = {
-                id: $(this).data("id"),
-                animal_type: $(this).data("animal_type"),
-                city: $(this).data("city"),
-                street: $(this).data("street"),
-                description: $(this).data("description"),
-                additional_aspects: $(this).data("additional_aspects"),
-            };
+            let username;
+            fetch(window.location.origin + '/Web_Project/public/index.php/user/' + $(this).data("user_id"), {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.error);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    username = data.username;
+                    let reportData = {
+                        id: $(this).data("id"),
+                        animal_type: $(this).data("animal_type"),
+                        city: $(this).data("city"),
+                        street: $(this).data("street"),
+                        description: $(this).data("description"),
+                        additional_aspects: $(this).data("additional_aspects"),
+                        username: username,
+                        pub_date: $(this).data("pub_date"),
+                    };
 
-            sessionStorage.setItem("reportData", JSON.stringify(reportData));
-            window.location.href = "post.html";
+                    sessionStorage.setItem("reportData", JSON.stringify(reportData));
+                    window.location.href = "post.html";
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         });
     },
     error: function (xhr, status, error) {

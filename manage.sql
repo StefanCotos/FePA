@@ -1,4 +1,4 @@
-CREATE TABLE users
+/*CREATE TABLE users
 (
     id         INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
@@ -26,9 +26,21 @@ CREATE TABLE images
     name               VARCHAR(255) NOT NULL,
     report_id          INT          NOT NULL,
     FOREIGN KEY (report_id) REFERENCES reports(id)
-);
+);*/
 
 /*ALTER TABLE users
     ADD COLUMN admin BOOLEAN DEFAULT FALSE;
 ALTER TABLE users DROP COLUMN admin;
 DROP TABLE reports;*/
+
+/*ALTER TABLE reports
+    ADD COLUMN user_id INT,
+    ADD CONSTRAINT fk_user_id
+        FOREIGN KEY (user_id) REFERENCES users(id);*/
+
+/*ALTER TABLE reports
+    ADD COLUMN pub_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+*/
+
+/*ALTER TABLE reports
+    MODIFY COLUMN user_id INT NOT NULL;*/

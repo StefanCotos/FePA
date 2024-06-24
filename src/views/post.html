@@ -111,6 +111,8 @@
                 <p><strong>Street:</strong> <span id="postStreet"></span></p>
                 <p><strong>Description:</strong> <span id="postDescription"></span></p>
                 <p><strong>Additional Aspects:</strong> <span id="postAdditionalAspects"></span></p>
+                <p><strong>Publication date:</strong> <span id="publicationDate"></span></p>
+                <p><strong>Posted by:</strong> <span id="postedBy"></span></p>
                 <p><strong>Images:</strong>
                 <div id="images"></div>
             </div>
@@ -127,6 +129,8 @@
                         $("#postStreet").text(reportData.street);
                         $("#postDescription").text(reportData.description);
                         $("#postAdditionalAspects").text(reportData.additional_aspects);
+                        $("#publicationDate").text(reportData.pub_date);
+                        $("#postedBy").text(reportData.username);
                         see_images(reportData.id);
                     } else {
                         alert("No report data found!");

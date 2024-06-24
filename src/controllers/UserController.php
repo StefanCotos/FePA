@@ -32,7 +32,11 @@ class UserController
     {
         switch ($this->requestMethod) {
             case 'GET':
-                $response = $this->getAllUsers();
+                if ($this->user) {
+                    $response = $this->getUsernameById($this->user);
+                } else {
+                    $response = $this->getAllUsers();
+                }
                 break;
             case 'POST':
                 if ($this->user == "exist") {
@@ -238,6 +242,16 @@ class UserController
         $this->userGateway->deleteUser($id);
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = null;
+        return $response;
+    }
+
+    private function getUsernameById($id)
+    {
+        $result = $this->userGateway->getUsernameById($id);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode([
+            'username' => $result
+        ]);
         return $response;
     }
 
