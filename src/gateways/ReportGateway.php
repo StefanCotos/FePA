@@ -104,4 +104,18 @@ class ReportGateway
         }
     }
 
+    public function getReportById($id)
+    {
+        try {
+            $statement = $this->db->prepare('SELECT * FROM reports WHERE is_approve=1 AND id=?');
+            $statement->bind_param('i', $id);
+            $statement->execute();
+            $result = $statement->get_result();
+            return $result->fetch_assoc();
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
 }

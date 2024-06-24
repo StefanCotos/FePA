@@ -34,7 +34,7 @@ class ImageController
         switch ($this->requestMethod) {
             case 'GET':
                 if($this->image)
-                    $response = $this->getImageByReportId($this->image);
+                    $response = $this->getImagesByReportId($this->image);
                 break;
             case 'POST':
                 $response = $this->createImageFromRequest();
@@ -80,14 +80,14 @@ class ImageController
 
     }
 
-    private function getImageByReportId($reportId)
+    private function getImagesByReportId($reportId)
     {
         /*$input = (array)json_decode(file_get_contents('php://input'), TRUE);
         if (!isset($input['reportId'])) {
             return $this->unprocessableEntityResponse();
         }*/
 
-        $result = $this->imageGateway->getImageByReportId($reportId);
+        $result = $this->imageGateway->getImagesByReportId($reportId);
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($result);
         return $response;

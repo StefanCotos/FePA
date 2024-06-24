@@ -113,7 +113,7 @@
                 <script type="text/javascript" src="scripts/slideshow.js"></script>
                 <script>
                     $(document).ready(function () {
-                        let reportData = JSON.parse(localStorage.getItem("reportData"));
+                        let reportData = JSON.parse(sessionStorage.getItem("reportData"));
                         if (reportData) {
                             $("#reportId").text(reportData.id);
                             $("#reportType").text(reportData.animal_type);

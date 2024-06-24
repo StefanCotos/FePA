@@ -34,6 +34,8 @@ class ReportController
                     $response = $this->getAreaStatistics();
                 } else if ($this->report == "piechart_type") {
                     $response = $this->getTypeStatistics();
+                } else if ($this->report) {
+                    $response = $this->getReportById($this->report);
                 } else {
                     $response = $this->getApprovedReports();
                 }
@@ -99,6 +101,14 @@ class ReportController
     private function getTypeStatistics()
     {
         $result = $this->reportGateway->getTypeStatistics();
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
+    }
+
+    private function getReportById($id)
+    {
+        $result = $this->reportGateway->getReportById($id);
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($result);
         return $response;

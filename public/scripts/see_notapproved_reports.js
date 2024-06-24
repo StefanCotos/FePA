@@ -52,7 +52,7 @@ $.ajax({
                 additional_aspects: $(this).data("additional_aspects"),
             };
 
-            localStorage.setItem("reportData", JSON.stringify(reportData));
+            sessionStorage.setItem("reportData", JSON.stringify(reportData));
             window.location.href = "postuntilapprove.html";
         });
     },

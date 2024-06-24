@@ -106,15 +106,13 @@
                 <p><strong>Description:</strong> <span id="postDescription"></span></p>
                 <p><strong>Additional Aspects:</strong> <span id="postAdditionalAspects"></span></p>
                 <p><strong>Images:</strong>
-                <div id="images">
-                </div>
-
+                <div id="images"></div>
             </div>
             <script type="text/javascript" src="scripts/see_images.js"></script>
             <script type="text/javascript" src="scripts/slideshow.js"></script>
             <script>
                 $(document).ready(function () {
-                    let reportData = JSON.parse(localStorage.getItem("reportData"));
+                    let reportData = JSON.parse(sessionStorage.getItem("reportData"));
                     console.log(reportData);
                     if (reportData) {
                         $("#postId").text(reportData.id);

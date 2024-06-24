@@ -1,20 +1,22 @@
 <rss version="2.0">
     <channel>
-        <title>Exemplu Flux RSS</title>
-        <link>http://www.exemplu.com/rss</link>
-        <description>Aceasta este o descriere a fluxului RSS</description>
-        <lastBuildDate>Fri, 22 Jun 2024 12:00:00 GMT</lastBuildDate>
+        <title>Animals reports</title>
+        <description>Here you can see all the reports that have been made</description>
         <item>
-            <title>Titlu articol 1</title>
-            <link>http://www.exemplu.com/articol1</link>
-            <description>O descriere a articolului 1</description>
-            <pubDate>Fri, 21 Jun 2024 09:00:00 GMT</pubDate>
+            <title>Dog</title>
+            <link>http://localhost/post/20</link>
+            <description><![CDATA[
+                <p>A dog</p>
+                <p><img src="https://res.cloudinary.com/hf0egkogn/image/upload/v1719072653/25.jpg"</p>
+            ]]></description>
         </item>
         <item>
-            <title>Titlu articol 2</title>
-            <link>http://www.exemplu.com/articol2</link>
-            <description>O descriere a articolului 2</description>
-            <pubDate>Thu, 20 Jun 2024 15:30:00 GMT</pubDate>
+            <title>Cat</title>
+            <link>http://localhost/post/18</link>
+            <description><![CDATA[
+                <p>A cat</p>
+                <p><img src="https://res.cloudinary.com/hf0egkogn/image/upload/v1719072299/24.jpg"</p>
+            ]]></description>
         </item>
     </channel>
 </rss>

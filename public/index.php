@@ -23,6 +23,9 @@ $uri = explode('/', $uri);
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
+if($uri[1]=='post' && is_numeric($uri[2])) {
+    $requestUri='/post/number';
+}
 
 switch ($requestUri) {
     case '/':
@@ -62,7 +65,10 @@ switch ($requestUri) {
         require __DIR__ . '/../src/views/statistics.html';
         break;
     case '/public/rss.xml':
-        require __DIR__ . '/rss.xml';
+        require __DIR__ . '/rss_feed.xml';
+        break;
+    case '/post/number':
+        require __DIR__ . '/../src/views/post_for_rss.html';
         break;
     default:
         switch ($uri[4]) {
@@ -97,6 +103,9 @@ switch ($requestUri) {
                     }
                     if ($uri[5] == 'piechart_type') {
                         $report = "piechart_type";
+                    }
+                    if (is_numeric($uri[5])) {
+                        $report = (int)$uri[5];
                     }
                 }
 

@@ -35,7 +35,7 @@ class ImageGateway
         }
     }
 
-    public function getImageByReportId($reportId)
+    public function getImagesByReportId($reportId)
     {
         try {
             $statement = $this->db->prepare('SELECT name FROM images WHERE report_id=?');
