@@ -30,7 +30,7 @@
       <h3>1.1 Purpose</h3>
       <p>
         We aim to launch a web application to monitor the behavior of stray or homeless animals, animals that pose a
-        danger to humans and beyond.
+        danger to humans and beyond. With this application it is easier to monitor some animals.
       </p>
     </section>
     <section id="Conventions">
@@ -43,6 +43,13 @@
       </p>
       <p>
         Colors: lightslategray, red, green, #9f917e, #fde8cd
+      </p>
+      <p>
+        Libraries: firebase/php-jwt, cloudinary/cloudinary_php, vlucas/phpdotenv, phpmailer/phpmailer, laminas/laminas-feed
+        , jsPDF to generate PDF, google charts to make charts, Open Street Map to display a map and others...
+      </p>
+      <p>
+        We used the REST API architecture to make requests
       </p>
     </section>
     <section id="Audience">
@@ -70,7 +77,7 @@
     <section id="References">
       <h3>1.5 References</h3>
       <p>
-        <a href="../src/views/index.html">Web site.</a>
+        <a href="https://fepa-app-73d25d1a00ff.herokuapp.com">Web site.</a>
       </p>
       <p>
         Authors: Stefan Cotos and Iulian-Stefan Burca
@@ -98,6 +105,9 @@
       <p>
         - environmental study using
       </p>
+      <p>
+        - follow reports like RSS feeds
+      </p>
     </section>
     <section id="Classes">
       <h3>2.3 User Classes and Characteristics</h3>
@@ -113,7 +123,7 @@
       <h3>2.4 Operating Environment</h3>
       <p>
         Because it is a website, it will run on any device that can access a browser, regardless of the type of browser
-        or its version.
+        or its version. You can access it on any device that has internet access.
       </p>
     </section>
     <section id="Design">
@@ -131,6 +141,7 @@
       <h3>2.6 User Documentation</h3>
       <p>
         The website includes a help page that explains everything you need to know about using this website.
+        This information can help you interact better with the site.
       </p>
     </section>
   </section>
@@ -150,9 +161,9 @@
       <h3>3.2 The admin page</h3>
       <p>
         The admin page can currently only be accessed from the homepage, but in the future, it will only be accessible
-        after logging in. This way, a person can prove that they are an admin and will have access to the page and
+        after logging in, only by people with admin power. This way, a person can prove that they are an admin and will have access to the page and
         options.<br>
-        This page contains a table with all existing users and a table with all the requests for postings, preventing
+        This page contains a table with all existing users, all existing postings and a table with all the requests for postings, preventing
         erroneous information from being posted through reports.
       </p>
     </section>
@@ -233,9 +244,10 @@
   <section id="system_features">
     <h2>4. System Features</h2>
     <section id="feature">
-      <h3>4.1 System Feature 1</h3>
+      <h3>4.1 System Feature</h3>
       <p>
-        Creating reports and working with databases.
+        You can create reports that are saved in the database and are displayed in several formats (normally site-specific and RSS news feed).
+        You can see the reports, and information about them, as well as who made the announcement.
       </p>
     </section>
     <section id="description">
