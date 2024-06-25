@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/report.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 
 <body>
@@ -124,10 +125,15 @@
                     <div id="isAdmin">You cannot post a report!</div>
                 </form>
             </div>
-            <!--<iframe class="block__report_map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.8540019321!2d27.504398892512704!3d47.15610763483555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1712834887839!5m2!1sro!2sro"
-                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>-->
+            <div class="block__report_map" id="map">
+                <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+                <script>
+                    const map = L.map('map').setView([45.9432, 24.9668], 6);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
+                </script>
+            </div>
         </div>
         <div class="profile_menu" id="closable">
             <div class="profile_menu--options no-link-style" id="account">Account</div>
