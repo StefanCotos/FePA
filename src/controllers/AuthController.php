@@ -26,7 +26,7 @@ class AuthController
         $this->requestMethod = $requestMethod;
     }
 
-    public function processRequest($username, $isAdmin = false)
+    public function processRequest($username, $isAdmin = 0)
     {
         switch ($this->requestMethod) {
             case 'POST':
@@ -120,6 +120,12 @@ class AuthController
             exit;
         }
 
+    }
+
+    public function modifyJWTUsername($decodedJWT, $newUsername) {
+        $decodedJWT['userName'] = $newUsername;
+
+        return JWT::encode($decodedJWT, '%aaSWvtJ98os_b<IQ_c$j<_A%bo_[xgct+j$d6LJ}^<pYhf+53k^-R;Xs<l%5dF', 'HS512');
     }
 
 }

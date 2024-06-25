@@ -73,17 +73,53 @@ if (ok) {
 
     const account = document.getElementById("account");
     const account_menu = document.getElementById('account_menu');
-    account.addEventListener('click', function () {
-        setTimeout(function () {
-            window.location.href = '/account.html';
-        }, 2000);
-    });
 
-    account_menu.addEventListener('click', function () {
-        setTimeout(function () {
-            window.location.href = '/account.html';
-        }, 2000);
-    });
+    fetch(window.location.origin + '/Web_Project/public/index.php/user/isAdmin', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + sessionStorage.getItem('jwt')
+        },
+    })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(errorData => {
+                    throw new Error(errorData.error);
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            let ok = data.isAdmin;
+
+            if (ok === 0) {
+                account.addEventListener('click', function () {
+                    setTimeout(function () {
+                        window.location.href = '/account.html';
+                    }, 2000);
+                });
+
+                account_menu.addEventListener('click', function () {
+                    setTimeout(function () {
+                        window.location.href = '/account.html';
+                    }, 2000);
+                });
+            } else {
+                account.addEventListener('click', function () {
+                    alert("You cannot see your account information");
+                });
+
+                account_menu.addEventListener('click', function () {
+                    alert("You cannot see your account information");
+                });
+            }
+
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+
 }
 
 function myFunction() {

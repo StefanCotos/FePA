@@ -94,6 +94,21 @@ switch ($requestUri) {
                     if ($uri[5] == 'isAdmin') {
                         $user = 'isAdmin';
                     }
+                    if ($uri[5] == 'info') {
+                        $user = 'info';
+                    }
+                    if ($uri[5] == 'change_first_name') {
+                        $user = 'change_first_name';
+                    }
+                    if ($uri[5] == 'change_last_name') {
+                        $user = 'change_last_name';
+                    }
+                    if ($uri[5] == 'change_email') {
+                        $user = 'change_email';
+                    }
+                    if ($uri[5] == 'change_username') {
+                        $user = 'change_username';
+                    }
                     if (is_numeric($uri[5])) {
                         $user = (int)$uri[5];
                     }
@@ -116,8 +131,10 @@ switch ($requestUri) {
                         $report = "piechart_type";
                     }
                     if ($uri[5] == 'user_id') {
+                        if($uri[6]!=null){
+                            $userId = $uri[6];
+                        }
                         $report = "user_id";
-                        $userId = (int)$uri[6];
                     }
                     if (is_numeric($uri[5])) {
                         $report = (int)$uri[5];

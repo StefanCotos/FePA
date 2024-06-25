@@ -213,4 +213,52 @@ class UserGateway
             trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
         }
     }
+
+    public function changeFirstName($firstName, $id)
+    {
+        try {
+            $statement = $this->db->prepare('UPDATE users SET first_name = ? WHERE id = ?');
+            $statement->bind_param('si', $firstName, $id);
+            $statement->execute();
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
+    public function changeLastName($lastName, $id)
+    {
+        try {
+            $statement = $this->db->prepare('UPDATE users SET last_name = ? WHERE id = ?');
+            $statement->bind_param('si', $lastName, $id);
+            $statement->execute();
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
+    public function changeEmail($email, $id)
+    {
+        try {
+            $statement = $this->db->prepare('UPDATE users SET email = ? WHERE id = ?');
+            $statement->bind_param('si', $email, $id);
+            $statement->execute();
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
+    public function changeUsername($username, $id)
+    {
+        try {
+            $statement = $this->db->prepare('UPDATE users SET username = ? WHERE id = ?');
+            $statement->bind_param('si', $username, $id);
+            $statement->execute();
+
+        } catch (PDOException $e) {
+            trigger_error("Error: " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
 }

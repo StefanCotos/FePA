@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/generic.css">
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/admin.css">
+    <link rel="stylesheet" href="styles/account.css">
     <link rel="stylesheet" href="styles/footer.css">
 </head>
 
@@ -91,9 +91,6 @@
         <a class="no-link-style">
             <div class="menu__admin" id="account_menu">Account</div>
         </a>
-        <a class="no-link-style">
-            <div class="menu__about">Settings</div>
-        </a>
         <a class="no-link-style" id="logout_menu">
             <div class="menu__report">Log Out</div>
         </a>
@@ -102,11 +99,24 @@
 <main>
     <div class="profile_menu" id="closable">
         <div class="profile_menu--options no-link-style" id="account">Account</div>
-        <div class="profile_menu--options no-link-style">Settings</div>
         <div class="profile_menu--options no-link-style" id="logout">Log Out</div>
     </div>
 
     <div class="block">
+        <div class="title_post_request">
+            <b>Account Information</b>
+        </div>
+        <div class="approve_post">
+            <table id="accountInfo">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                </tr>
+            </table>
+        </div>
         <div class="title_post_request">
             <b>My reports</b>
         </div>
@@ -121,6 +131,16 @@
                 </tr>
             </table>
         </div>
+        <div class="title_post_request">
+            <b>Settings</b>
+        </div>
+        <br>
+        <label type="button" class="change" id="buttonChangeFirstName">Change First Name</label>
+        <label type="button" class="change" id="buttonChangeLastName">Change Last Name</label>
+        <label type="button" class="change" id="buttonChangeEmail">Change Email</label>
+        <label type="button" class="change" id="buttonChangeUsername">Change Username</label>
+        <label type="button" class="change" id="buttonChangePassword">Change Password</label>
+        <label type="button" class="delete" id="buttonDeleteAccount">DeleteAccount</label>
     </div>
 
 </main>
@@ -147,9 +167,10 @@
     </div>
     <div id="footer_item">© Copyright 2024, FePA</div>
 </footer>
-<script type="text/javascript" src="scripts/see_users.js"></script>
-<script type="text/javascript" src="scripts/see_approved_reports.js"></script>
-<script type="text/javascript" src="scripts/see_notapproved_reports.js"></script>
+
+<script type="text/javascript" src="scripts/see_account_info.js"></script>
+<script type="text/javascript" src="scripts/see_my_reports.js"></script>
+<script type="text/javascript" src="scripts/account_settings.js"></script>
 <script src="scripts/connected_user.js"></script>
 <script src="scripts/menu_button.js"></script>
 </body>

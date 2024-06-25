@@ -12,10 +12,10 @@ class ReportController
 {
     private $requestMethod;
     private $report;
-    private $userId;
     private $reportGateway;
     private $authController;
     private $userGateway;
+    private $userId;
 
     public function __construct($db, $requestMethod, $report, $userId)
     {
@@ -40,7 +40,11 @@ class ReportController
                 } else if ($this->report == "piechart_type") {
                     $response = $this->getTypeStatistics();
                 } else if ($this->report == "user_id") {
-                    $response = $this->getReportsByUserId($this->userId);
+                    if ($this->userId) {
+                        $response = $this->getReportsByUserIdAnother($this->userId);
+                    } else {
+                        $response = $this->getReportsByUserId();
+                    }
                 } else if ($this->report) {
                     $response = $this->getReportById($this->report);
                 } else {
@@ -79,13 +83,13 @@ class ReportController
             $username = $decodedJWT['userName'];
         }
 
-        $id = $this->userGateway->getIdByUsername($username);
+        $userId = $this->userGateway->getIdByUsername($username);
 
         $input = (array)json_decode(file_get_contents('php://input'), TRUE);
         if (!$this->validateReport($input)) {
             return $this->unprocessableEntityResponse();
         }
-        $input['user_id'] = $id;
+        $input['user_id'] = $userId;
 
         $reportId = $this->reportGateway->insertReport($input);
         $response['status_code_header'] = 'HTTP/1.1 201 Created';
@@ -160,11 +164,25 @@ class ReportController
         return $response;
     }
 
-    private function getReportsByUserId($userId)
+    private function getReportsByUserId()
     {
         $jwt = $this->authController->checkJWTExistence();
-        $this->authController->validateJWT($jwt);
+        $decodedJWT = $this->authController->validateJWT($jwt);
 
+        if (isset($decodedJWT['userName'])) {
+            $username = $decodedJWT['userName'];
+        }
+
+        $userId = $this->userGateway->getIdByUsername($username);
+
+        $result = $this->reportGateway->getReportsByUserId($userId);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
+    }
+
+    private function getReportsByUserIdAnother($userId)
+    {
         $result = $this->reportGateway->getReportsByUserId($userId);
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($result);

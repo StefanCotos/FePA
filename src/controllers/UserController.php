@@ -34,6 +34,8 @@ class UserController
             case 'GET':
                 if ($this->user == "isAdmin") {
                     $response = $this->isAdmin();
+                } else if ($this->user == "info") {
+                    $response = $this->getInfo();
                 } else if ($this->user) {
                     $response = $this->getUsernameById($this->user);
                 } else {
@@ -52,7 +54,17 @@ class UserController
                 }
                 break;
             case 'PUT':
-                $response = $this->updateUserFromRequest();
+                if ($this->user == "change_first_name") {
+                    $response = $this->changeFirstName();
+                } else if ($this->user == "change_last_name") {
+                    $response = $this->changeLastName();
+                } else if ($this->user == "change_email") {
+                    $response = $this->changeEmail();
+                } else if ($this->user == "change_username") {
+                    $response = $this->changeUsername();
+                } else {
+                    $response = $this->updateUserFromRequest();
+                }
                 break;
             case 'DELETE':
                 $response = $this->deleteUser($this->user);
@@ -92,7 +104,7 @@ class UserController
             return $this->conflictResponse("Username already exists");
         } else {
 
-            $jwt = $this->authController->processRequest($input['username']);
+            $jwt = $this->authController->processRequest($input['username'],0);
             $this->userGateway->insertUser($input);
             $response['status_code_header'] = 'HTTP/1.1 201 Created';
             $response['body'] = json_encode([
@@ -272,6 +284,124 @@ class UserController
         ]);
         return $response;
 
+    }
+
+    private function getInfo()
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $decodedJWT = $this->authController->validateJWT($jwt);
+
+        if (isset($decodedJWT['userName'])) {
+            $username = $decodedJWT['userName'];
+        }
+
+        $id = $this->userGateway->getIdByUsername($username);
+
+        $result = $this->userGateway->find($id);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);
+        return $response;
+    }
+
+    private function changeFirstName()
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $decodedJWT = $this->authController->validateJWT($jwt);
+
+        $input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!isset($input['first_name'])) {
+            return $this->unprocessableEntityResponse();
+        }
+
+        if (isset($decodedJWT['userName'])) {
+            $username = $decodedJWT['userName'];
+        }
+
+        $id = $this->userGateway->getIdByUsername($username);
+
+        $this->userGateway->changeFirstName($input['first_name'], $id);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = null;
+        return $response;
+    }
+
+    private function changeLastName()
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $decodedJWT = $this->authController->validateJWT($jwt);
+
+        $input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!isset($input['last_name'])) {
+            return $this->unprocessableEntityResponse();
+        }
+
+        if (isset($decodedJWT['userName'])) {
+            $username = $decodedJWT['userName'];
+        }
+
+        $id = $this->userGateway->getIdByUsername($username);
+
+        $this->userGateway->changeLastName($input['last_name'], $id);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = null;
+        return $response;
+    }
+
+    private function changeEmail()
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $decodedJWT = $this->authController->validateJWT($jwt);
+
+        $input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!isset($input['email'])) {
+            return $this->unprocessableEntityResponse();
+        }
+
+        if($this->userGateway->emailExists($input['email'])) {
+            return $this->conflictResponse("Account already exists with this email");
+        }
+
+        if (isset($decodedJWT['userName'])) {
+            $username = $decodedJWT['userName'];
+        }
+
+        $id = $this->userGateway->getIdByUsername($username);
+
+        $this->userGateway->changeEmail($input['email'], $id);
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = null;
+        return $response;
+    }
+
+    private function changeUsername()
+    {
+        $jwt = $this->authController->checkJWTExistence();
+        $decodedJWT = $this->authController->validateJWT($jwt);
+
+        $input = (array)json_decode(file_get_contents('php://input'), TRUE);
+        if (!isset($input['username'])) {
+            return $this->unprocessableEntityResponse();
+        }
+
+        if($this->userGateway->usernameExists($input['username'])) {
+            return $this->conflictResponse("Account already exists with this username");
+        }
+
+        if (isset($decodedJWT['userName'])) {
+            $username = $decodedJWT['userName'];
+        }
+
+        $id = $this->userGateway->getIdByUsername($username);
+
+        $this->userGateway->changeUsername($input['username'], $id);
+
+        $newJWT = $this->authController->modifyJWTUsername($decodedJWT, $input['username']);
+
+        $response['status_code_header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode([
+            'newJWT' => $newJWT
+        ]);
+        return $response;
     }
 
     private function validatePerson($input)
