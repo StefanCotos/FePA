@@ -169,7 +169,7 @@ function sleep(ms) {
 
 async function performActions() {
     try {
-        const reportResponse = await fetch(window.location.origin + "/Web_Project/public/index.php/report/user_id", {
+        const reportResponse = await fetch(window.location.origin + "/Web_Project/public/index.php/report/user_id/-", {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

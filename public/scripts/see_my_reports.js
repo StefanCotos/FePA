@@ -1,4 +1,4 @@
-fetch(window.location.origin + "/Web_Project/public/index.php/report/user_id", {
+fetch(window.location.origin + "/Web_Project/public/index.php/report/user_id/-", {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json',

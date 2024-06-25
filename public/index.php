@@ -131,7 +131,7 @@ switch ($requestUri) {
                         $report = "piechart_type";
                     }
                     if ($uri[5] == 'user_id') {
-                        if($uri[6]!=null){
+                        if ($uri[6] != '-') {
                             $userId = $uri[6];
                         }
                         $report = "user_id";
